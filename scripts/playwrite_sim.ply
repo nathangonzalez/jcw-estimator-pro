@@ -1,17 +1,30 @@
----
-kind: playwright-plan
-app_url: "${APP_URL:choose-local-then-cloud}"
-pdf_path: "C:\\Users\\natha\\OneDrive\\Aquisition Lab\\Deals\\JC Welton\\Post Day 1 Ops\\Estimating\\Lynn\\251020_291 SOD - Building Permit Set.pdf"
-steps:
-  - open app_url
-  - wait for text "Project Input"
-  - set #area to 5000
-  - select #quality => "standard"
-  - select #complexity => "moderate"
-  - click "Calculate Estimate"
-  - expect text near "Total Project Cost"
-  - screenshot => "e2e-artifacts/estimate.png"
-notes: |
-  This is a human-readable plan file. It is NOT executed by this handshake.
-  The real Playwright spec is scaffolded separately and may be wired later.
----
+# JCW Estimator Pro – Playwright Simulation Plan (NO-RUN DOCUMENT)
+# Purpose: Human-readable steps for a baseline E2E pass against local UI
+# Mode: Plan only – do not install, do not execute
+
+SET UI_BASE_URL = env:UI_BASE_URL || "http://localhost:8000"
+SET FRONTEND_ENTRY = "web/frontend/index.html"
+SET PDF_PATH = "C:\\Users\\natha\\OneDrive\\Aquisition Lab\\Deals\\JC Welton\\Post Day 1 Ops\\Estimating\\Lynn\\251020_291 SOD - Building Permit Set.pdf"
+
+PLAN:
+  1. Launch browser (headed/CI neutral) → open ${UI_BASE_URL} OR file://${FRONTEND_ENTRY}
+  2. Verify header shows "AI-Powered Cost Estimation & Blueprint Analysis"
+  3. Switch to "Manual Entry" tab:
+     - Fill #area = 5000
+     - Select #projectType = "residential"
+     - Select #quality = "standard"
+     - Select #complexity = "moderate"
+     - Bedrooms #bedrooms = 0 ; Bathrooms #bathrooms = 0
+     - Submit form (button with calculator icon)
+  4. Wait for results panel (#resultsSection.show)
+     - Expect #totalCost to be non-$0
+     - Capture #hardCosts, #softCosts, #costPerSf text
+  5. Switch to "AI Blueprint Analysis":
+     - Choose file (PDF_PATH)
+     - DO NOT press “Analyze with AI” (no network/compute); just assert file name shows
+  6. Save DOM snapshot and text content of results and write into /output/PLAYWRIGHT_PLAN_SNAPSHOT.md (Cline must write file; human will review/commit)
+
+GUARDS:
+  - No network calls, no installs, no test runs. Plan only.
+  - Treat Cloud Run as stale; use only local UI structure observed in the repo.
+  - Use selectors consistent with index.html (#area, #projectType, #quality, #complexity, #bedrooms, #bathrooms, #resultsSection, #totalCost, #hardCosts, #softCosts).

@@ -1,0 +1,14 @@
+{
+  "repo": {
+    "name": "jcw-estimator-pro",
+    "path": "c:\\Users\\natha\\dev\\repos\\jcw-estimator-pro",
+    "branch": "master",
+    "head": "15fb236"
+  },
+  "targets": {
+    "UI_BASE_URL": "http://localhost:8000",
+    "FRONTEND_ENTRY": "web/frontend/index.html",
+    "PDF_PATH": "C:\\Users\\natha\\OneDrive\\Aquisition Lab\\Deals\\JC Welton\\Post Day 1 Ops\\Estimating\\Lynn\\251020_291 SOD - Building Permit Set.pdf"
+  },
+  "note": "SYNC-ONLY; no test run; no installs; no network."
+}
