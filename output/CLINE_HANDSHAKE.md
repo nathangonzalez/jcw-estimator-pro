@@ -1,0 +1,11 @@
+- **Repo Name:** jcw-estimator-pro
+- **Absolute Path:** c:\Users\natha\dev\repos\jcw-estimator-pro
+- **Current Branch:** master
+- **App URL Decision:** http://localhost:8000/ (local preferred)
+- **Key Components:**
+  - **UI:** web/frontend/index.html
+  - **API:** web/backend/app.py
+  - **PDF Analysis:** ai_takeoff_pipeline.py
+  - **Geometry/Scaling:** src/dimensional_analysis.py, src/scaling_engine.py
+  - **ML:** specification_aware_model.py, ml_continuous_improvement.py
+- **Timestamp:** 2025-10-28T14:07:03-04:00

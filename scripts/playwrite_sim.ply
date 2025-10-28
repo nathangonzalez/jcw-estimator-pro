@@ -1,0 +1,17 @@
+---
+kind: playwright-plan
+app_url: "${APP_URL:choose-local-then-cloud}"
+pdf_path: "C:\\Users\\natha\\OneDrive\\Aquisition Lab\\Deals\\JC Welton\\Post Day 1 Ops\\Estimating\\Lynn\\251020_291 SOD - Building Permit Set.pdf"
+steps:
+  - open app_url
+  - wait for text "Project Input"
+  - set #area to 5000
+  - select #quality => "standard"
+  - select #complexity => "moderate"
+  - click "Calculate Estimate"
+  - expect text near "Total Project Cost"
+  - screenshot => "e2e-artifacts/estimate.png"
+notes: |
+  This is a human-readable plan file. It is NOT executed by this handshake.
+  The real Playwright spec is scaffolded separately and may be wired later.
+---

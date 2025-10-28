@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JC Welton Construction - AI Cost Estimator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --light-bg: #ecf0f1;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-color: #bdc3c7;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .company-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .api-status {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .api-status.online {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .api-status.offline {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-bg);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--light-bg);
+        }
+
+        .tab {
+            padding: 12px 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            color: var(--primary-color);
+        }
+
+        .tab.active {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Upload Area */
+        .upload-area {
+            border: 3px dashed var(--accent-color);
+            border-radius: 15px;
+            padding: 50px;
+            text-align: center;
+            background: var(--light-bg);
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .upload-area:hover {
+            background: #d5dbdb;
+            border-color: var(--primary-color);
+        }
+
+        .upload-area.dragover {
+            background: #e3f2fd;
+            border-color: var(--accent-color);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .upload-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .upload-hint {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--white);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .checkbox-item:hover {
+            background: #d5dbdb;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-success {
+            background: var(--success-color);
+            color: var(--white);
+        }
+
+        .btn-success:hover {
+            background: #229954;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: #2c3e50;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Results Display */
+        .results-section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .results-section.show {
+            display: block;
+        }
+
+        .result-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .result-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .result-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            background: var(--white);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .result-value {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .total-cost {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .total-cost .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .total-cost .amount {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        /* AI Chat Interface */
+        .chat-container {
+            background: var(--light-bg);
+            border-radius: 15px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-message {
+            max-width: 80%;
+            padding: 15px;
+            border-radius: 15px;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .chat-message.user {
+            background: var(--accent-color);
+            color: var(--white);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chat-message.ai {
+            background: var(--white);
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            box-shadow: var(--shadow);
+        }
+
+        .chat-input-area {
+            padding: 20px;
+            background: var(--white);
+            border-radius: 0 0 15px 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        /* Loading States */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid var(--light-bg);
+            border-top: 4px solid var(--accent-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideDown 0.3s;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .alert.show {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid var(--success-color);
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid var(--danger-color);
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* ML Feedback Section */
+        .feedback-section {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .rating-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .rating-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            background: var(--white);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .rating-btn:hover {
+            border-color: var(--accent-color);
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        .rating-btn.selected {
+            background: var(--success-color);
+            border-color: var(--success-color);
+            color: var(--white);
+        }
+
+        /* File Info */
+        .file-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .file-info.show {
+            display: block;
+        }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .data-table tr:hover {
+            background: var(--light-bg);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .tabs {
+                overflow-x: auto;
+            }
+        }
+
+        /* Hide file input */
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo">🏗️</div>
+                <div>
+                    <div class="company-name">JC Welton Construction</div>
+                    <div class="tagline">AI-Powered Cost Estimation & Blueprint Analysis</div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div id="apiStatus" class="api-status">
+                    <i class="fas fa-circle-notch fa-spin"></i>
+                    Checking API...
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="main-grid">
+            <!-- Left Column: Input -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-edit"></i>
+                        Project Input
+                    </h2>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('blueprint')">
+                        <i class="fas fa-file-pdf"></i> AI Blueprint Analysis
+                    </button>
+                    <button class="tab" onclick="switchTab('manual')">
+                        <i class="fas fa-keyboard"></i> Manual Entry
+                    </button>
+                </div>
+
+                <!-- Blueprint Upload Tab -->
+                <div id="blueprintTab" class="tab-content active">
+                    <div id="uploadAlert" class="alert"></div>
+                    
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <div class="upload-text">Click to upload or drag & drop</div>
+                        <div class="upload-hint">PDF blueprints with scale notation (1/8"=1'-0", 1:100, etc.)</div>
+                        <input type="file" id="fileInput" accept=".pdf">
+                    </div>
+
+                    <div class="file-info" id="fileInfo">
+                        <strong><i class="fas fa-file-pdf"></i> Selected:</strong>
+                        <span id="fileName"></span>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-success btn-full" id="analyzeBtn" style="display: none;">
+                            <i class="fas fa-brain"></i>
+                            Analyze with AI
+                        </button>
+                    </div>
+
+                    <div class="loading" id="uploadLoading">
+                        <div class="spinner"></div>
+                        <p>Analyzing blueprint with AI...</p>
+                    </div>
+                </div>
+
+                <!-- Manual Entry Tab -->
+                <div id="manualTab" class="tab-content">
+                    <form id="estimateForm">
+                        <div class="form-group">
+                            <label class="form-label">Square Footage *</label>
+                            <input type="number" class="form-input" id="area" name="area_sf" required min="100" step="1" placeholder="e.g., 3000">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Project Type *</label>
+                                <select class="form-select" id="projectType" name="project_type" required>
+                                    <option value="residential">Residential</option>
+                                    <option value="commercial">Commercial</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Finish Quality *</label>
+                                <select class="form-select" id="quality" name="finish_quality" required>
+                                    <option value="economy">Economy ($440/sf)</option>
+                                    <option value="standard" selected>Standard ($500/sf)</option>
+                                    <option value="premium">Premium ($540/sf)</option>
+                                    <option value="luxury">Luxury ($590/sf)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Design Complexity *</label>
+                            <select class="form-select" id="complexity" name="design_complexity" required>
+                                <option value="simple">Simple</option>
+                                <option value="moderate" selected>Moderate</option>
+                                <option value="complex">Complex</option>
+                                <option value="luxury">Luxury</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Bedrooms</label>
+                                <input type="number" class="form-input" id="bedrooms" name="bedrooms" min="0" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Bathrooms</label>
+                                <input type="number" class="form-input" id="bathrooms" name="bathrooms" min="0" value="0" step="0.5">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Special Features</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="special_features" value="pool">
+                                    <span>Pool</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="special_features" value="elevator">
+                                    <span>Elevator</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="special_features" value="smart_home">
+                                    <span>Smart Home</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-calculator"></i>
+                            Calculate Estimate
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Column: Results & AI Chat -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-chart-line"></i>
+                        Cost Estimate & AI Assistant
+                    </h2>
+                    <button class="btn btn-success" id="exportExcelBtn" style="display: none;">
+                        <i class="fas fa-file-excel"></i>
+                        Export to Excel
+                    </button>
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading" id="resultsLoading">
+                    <div class="spinner"></div>
+                    <p>Calculating estimate...</p>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection">
+                    <div class="result-card">
+                        <h3 class="result-title">
+                            <i class="fas fa-money-bill-wave"></i>
+                            Cost Breakdown
+                        </h3>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <span class="result-label">Hard Costs:</span>
+                                <span class="result-value" id="hardCosts">$0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Soft Costs (35%):</span>
+                                <span class="result-value" id="softCosts">$0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Cost per SF:</span>
+                                <span class="result-value" id="costPerSf">$0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="total-cost">
+                        <div class="label">Total Project Cost</div>
+                        <div class="amount" id="totalCost">$0</div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3 class="result-title">
+                            <i class="fas fa-chart-bar"></i>
+                            Confidence & Details
+                        </h3>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <span class="result-label">Confidence Level:</span>
+                                <span class="result-value" id="confidence">HIGH</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ML Feedback Section -->
+                    <div class="feedback-section">
+                        <h4 style="margin-bottom: 10px; color: var(--primary-color);">
+                            <i class="fas fa-thumbs-up"></i>
+                            Help Improve Our AI
+                        </h4>
+                        <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px;">
+                            Rate this estimate to help improve our machine learning model:
+                        </p>
+                        <div class="rating-buttons">
+                            <button class="rating-btn" onclick="submitFeedback('too_low')">
+                                <i class="fas fa-arrow-down"></i> Too Low
+                            </button>
+                            <button class="rating-btn" onclick="submitFeedback('accurate')">
+                                <i class="fas fa-check"></i> Accurate
+                            </button>
+                            <button class="rating-btn" onclick="submitFeedback('too_high')">
+                                <i class="fas fa-arrow-up"></i> Too High
+                            </button>
+                        </div>
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label class="form-label">Actual Cost (optional):</label>
+                            <input type="number" class="form-input" id="actualCost" placeholder="Enter actual project cost for model training">
+                        </div>
+                        <button class="btn btn-secondary btn-full" onclick="submitDetailedFeedback()">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Feedback
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI Chat Interface -->
+                <div class="result-card" style="margin-top: 20px; display: none;" id="aiChatCard">
+                    <h3 class="result-title">
+                        <i class="fas fa-comments"></i>
+                        AI Assistant - Refine Your Estimate
+                    </h3>
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="chat-message ai">
+                                <strong>AI Assistant:</strong><br>
+                                Hello! I'm here to help refine your estimate. You can ask me to:
+                                <ul style="margin-top: 10px;">
+                                    <li>Adjust specific cost components</li>
+                                    <li>Add or remove features</li>
+                                    <li>Explain the cost breakdown</li>
+                                    <li>Compare different scenarios</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" class="chat-input" id="chatInput" placeholder="Ask me about the estimate...">
+                            <button class="btn btn-primary" onclick="sendChatMessage()">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blueprint Analysis Results -->
+        <div class="card" id="blueprintResults" style="display: none;">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <i class="fas fa-ruler-combined"></i>
+                    Blueprint Analysis Results
+                </h2>
+            </div>
+            <div id="blueprintData"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>

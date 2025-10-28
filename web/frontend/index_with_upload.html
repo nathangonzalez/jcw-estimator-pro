@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCW Cost Estimator - AI Blueprint Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-area:hover {
+            background: #e9ecef;
+            border-color: #764ba2;
+        }
+
+        .upload-area.dragover {
+            background: #e7f3ff;
+            border-color: #667eea;
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .upload-text {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .upload-hint {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .status {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .status.online {
+            border-left: 5px solid #28a745;
+        }
+
+        .status.offline {
+            border-left: 5px solid #dc3545;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .results {
+            display: none;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .result-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .result-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .result-value {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .result-value:last-child {
+            border-bottom: none;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .error.show {
+            display: block;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .success.show {
+            display: block;
+        }
+
+        .file-info {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .file-info.show {
+            display: block;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            background: white;
+            color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏗️ JCW Cost Estimator</h1>
+            <p>AI-Powered Construction Cost Estimation with Blueprint Analysis</p>
+        </div>
+
+        <div id="apiStatus" class="status">
+            Checking API status...
+        </div>
+
+        <div class="card">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('upload')">📐 Upload Blueprint (AI)</button>
+                <button class="tab" onclick="switchTab('manual')">✍️ Manual Entry</button>
+            </div>
+
+            <!-- Upload Tab -->
+            <div id="uploadTab" class="tab-content active">
+                <h2>Upload PDF Blueprint for AI Analysis</h2>
+                <p style="color: #666; margin-bottom: 20px;">
+                    Upload your architectural drawings and our AI will automatically extract measurements, detect scale, and calculate costs.
+                </p>
+
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📄</div>
+                    <div class="upload-text">
+                        Click to upload or drag and drop
+                    </div>
+                    <div class="upload-hint">
+                        PDF blueprints with scale notation (e.g., 1/8"=1'-0", 1:100)
+                    </div>
+                    <input type="file" id="fileInput" class="file-input" accept=".pdf">
+                </div>
+
+                <div class="file-info" id="fileInfo">
+                    <strong>Selected file:</strong> <span id="fileName"></span>
+                </div>
+
+                <button class="btn btn-secondary" id="analyzeBtn" style="display: none;">
+                    Analyze Blueprint with AI
+                </button>
+
+                <div class="loading" id="uploadLoading">
+                    <div class="spinner"></div>
+                    <p style="margin-top: 10px;">Analyzing blueprint...</p>
+                </div>
+
+                <div class="error" id="uploadError"></div>
+                <div class="success" id="uploadSuccess"></div>
+
+                <div class="results" id="uploadResults">
+                    <div class="result-item">
+                        <h3>📏 Extracted Measurements</h3>
+                        <div id="measurementData"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manual Tab -->
+            <div id="manualTab" class="tab-content">
+                <h2>Manual Entry</h2>
+                <p style="color: #666; margin-bottom: 20px;">
+                    Enter project details manually for cost estimation.
+                </p>
+                <p style="color: #999; font-size: 0.9rem;">
+                    (This is the form you saw earlier - full manual entry interface)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'https://jcw-cost-estimator-196950564738.us-central1.run.app';
+        let selectedFile = null;
+
+        // Check API status
+        async function checkAPIStatus() {
+            const statusDiv = document.getElementById('apiStatus');
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                if (response.ok) {
+                    const data = await response.json();
+                    statusDiv.className = 'status online';
+                    statusDiv.innerHTML = `✅ API Online - Ready to estimate${data.takeoff_available ? ' | 📐 AI Takeoff Ready' : ''}`;
+                } else {
+                    throw new Error('API returned error');
+                }
+            } catch (error) {
+                statusDiv.className = 'status offline';
+                statusDiv.innerHTML = '❌ API Offline - Please try again later';
+            }
+        }
+
+        // Tab switching
+        function switchTab(tab) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+            
+            if (tab === 'upload') {
+                tabs[0].classList.add('active');
+                document.getElementById('uploadTab').classList.add('active');
+            } else {
+                tabs[1].classList.add('active');
+                document.getElementById('manualTab').classList.add('active');
+            }
+        }
+
+        // Upload area handlers
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0 && files[0].type === 'application/pdf') {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            selectedFile = file;
+            fileName.textContent = file.name;
+            fileInfo.classList.add('show');
+            analyzeBtn.style.display = 'block';
+        }
+
+        // Analyze blueprint
+        analyzeBtn.addEventListener('click', async () => {
+            if (!selectedFile) return;
+
+            const loading = document.getElementById('uploadLoading');
+            const error = document.getElementById('uploadError');
+            const success = document.getElementById('uploadSuccess');
+            const results = document.getElementById('uploadResults');
+
+            // Reset states
+            loading.classList.add('show');
+            error.classList.remove('show');
+            success.classList.remove('show');
+            results.classList.remove('show');
+            analyzeBtn.disabled = true;
+
+            try {
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+
+                const response = await fetch(`${API_URL}/takeoff`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail || 'Failed to analyze blueprint');
+                }
+
+                const data = await response.json();
+
+                // Display results
+                const measurementDiv = document.getElementById('measurementData');
+                let html = '<div class="result-value"><span>Status:</span><span>' + data.status + '</span></div>';
+                html += '<div class="result-value"><span>Scale Units:</span><span>' + data.scale_units + '</span></div>';
+                html += '<div class="result-value"><span>Total Lines:</span><span>' + data.total_lines.toLocaleString() + '</span></div>';
+                html += '<div class="result-value"><span>Total Polygons:</span><span>' + data.total_polygons.toLocaleString() + '</span></div>';
+                
+                measurementDiv.innerHTML = html;
+                
+                success.textContent = '✅ Blueprint analyzed successfully! Measurements extracted.';
+                success.classList.add('show');
+                results.classList.add('show');
+
+            } catch (err) {
+                console.error('Error:', err);
+                error.textContent = '❌ ' + err.message;
+                error.classList.add('show');
+            } finally {
+                loading.classList.remove('show');
+                analyzeBtn.disabled = false;
+            }
+        });
+
+        // Check API status on load
+        checkAPIStatus();
+    </script>
+</body>
+</html>

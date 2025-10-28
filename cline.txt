@@ -1,0 +1,21 @@
+- Mission Summary:
+  - Verify local state via Git.
+  - Scaffold cline.txt for mission/constraints.
+  - Scaffold CLINE_HANDSHAKE.md for repo snapshot.
+  - Scaffold playwrite_sim.ply for a human-readable test plan.
+  - Scaffold estimate.spec.ts for a no-run Playwright test.
+
+- Constraints:
+  - No `npm install` or other package manager installs in this step.
+  - No network calls (e.g., `curl`, `fetch`).
+  - Use local-first paths.
+  - Avoid destructive operations.
+
+- Active Repo Absolute Path:
+  c:\Users\natha\dev\repos\jcw-estimator-pro
+
+- Target App URL Selection Rule:
+  Prefer reachable localhost:8000 (http://localhost:8000/ or http://127.0.0.1:8000/); else record Cloud Run fallback (https://jcw-cost-estimator-196950564738.us-central1.run.app) but do not fetch now.
+
+- Canonical PDF Path:
+  C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
