@@ -1,21 +1,17 @@
 {
-  "phase": "supervised-exec",
-  "last_action": {
-    "goal": "Align Playwright artifacts with the standard supervised execution protocol",
-    "approved_at": "2025-10-28T21:21:08Z",
-    "commands": [],
-    "result": "ok",
-    "exit_codes": {},
-    "artifacts": [
-      "/scripts/playwrite_sim.ply",
-      "/tests/e_2e/estimate.spec.ts",
-      "/output/EXEC_LOG.md",
-      "/output/CLINE_STATUS.json"
-    ],
-    "repo": {
-      "name": "jcw-estimator-pro",
-      "path": "c:\\Users\\natha\\dev\\repos\\jcw-estimator-pro",
-      "branch": "master"
-    }
-  }
+    "time":  "2025-10-28 17:34:32Z",
+    "artifacts":  [
+                      "output/AGENT_AUDIT.md",
+                      "output/AGENT_SYNC.md",
+                      "scripts/playwrite_sim.ply",
+                      "tests/e2e/estimate.spec.ts"
+                  ],
+    "branch":  "master",
+    "repo":  "jcw-estimator-pro",
+    "last_task":  "Initial sync and protocol alignment",
+    "head":  "11e8a03",
+    "notes":  [
+                  "Initial sync under new supervised protocol."
+              ],
+    "pending_approval":  false
 }
