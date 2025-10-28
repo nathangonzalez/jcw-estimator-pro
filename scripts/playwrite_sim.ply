@@ -1,30 +1,11 @@
-# JCW Estimator Pro – Playwright Simulation Plan (NO-RUN DOCUMENT)
-# Purpose: Human-readable steps for a baseline E2E pass against local UI
-# Mode: Plan only – do not install, do not execute
-
-SET UI_BASE_URL = env:UI_BASE_URL || "http://localhost:8000"
-SET FRONTEND_ENTRY = "web/frontend/index.html"
-SET PDF_PATH = "C:\\Users\\natha\\OneDrive\\Aquisition Lab\\Deals\\JC Welton\\Post Day 1 Ops\\Estimating\\Lynn\\251020_291 SOD - Building Permit Set.pdf"
-
-PLAN:
-  1. Launch browser (headed/CI neutral) → open ${UI_BASE_URL} OR file://${FRONTEND_ENTRY}
-  2. Verify header shows "AI-Powered Cost Estimation & Blueprint Analysis"
-  3. Switch to "Manual Entry" tab:
-     - Fill #area = 5000
-     - Select #projectType = "residential"
-     - Select #quality = "standard"
-     - Select #complexity = "moderate"
-     - Bedrooms #bedrooms = 0 ; Bathrooms #bathrooms = 0
-     - Submit form (button with calculator icon)
-  4. Wait for results panel (#resultsSection.show)
-     - Expect #totalCost to be non-$0
-     - Capture #hardCosts, #softCosts, #costPerSf text
-  5. Switch to "AI Blueprint Analysis":
-     - Choose file (PDF_PATH)
-     - DO NOT press “Analyze with AI” (no network/compute); just assert file name shows
-  6. Save DOM snapshot and text content of results and write into /output/PLAYWRIGHT_PLAN_SNAPSHOT.md (Cline must write file; human will review/commit)
-
-GUARDS:
-  - No network calls, no installs, no test runs. Plan only.
-  - Treat Cloud Run as stale; use only local UI structure observed in the repo.
-  - Use selectors consistent with index.html (#area, #projectType, #quality, #complexity, #bedrooms, #bathrooms, #resultsSection, #totalCost, #hardCosts, #softCosts).
+name: "Playwright readiness (supervised)"
+description: "Human-readable plan. Only run when explicitly approved."
+steps:
+  - "Confirm repo name/path/branch"
+  - "Verify tests/e2e/estimate.spec.ts exists"
+  - "When approved, run a single smoke test and append logs to /output/EXEC_LOG.md"
+outputs:
+  - "/output/EXEC_LOG.md"
+  - "/output/CLINE_STATUS.json"
+notes:
+  - "No installs/downloads/push without approval"
