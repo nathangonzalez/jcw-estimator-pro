@@ -133,13 +133,17 @@ async function analyzeBlueprint() {
             body: formData
         });
         
+        const result = await response.json();
+
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.detail || 'Failed to analyze blueprint');
+            // The detail might be a string or an object with message and logs
+            const errorMessage = result.detail?.message || result.detail || 'Failed to analyze blueprint';
+            const errorLogs = result.detail?.logs || [];
+            displayBlueprintLogs(errorLogs);
+            throw new Error(errorMessage);
         }
         
-        const data = await response.json();
-        displayBlueprintResults(data);
+        displayBlueprintResults(result);
         showAlert('uploadAlert', 'Blueprint analyzed successfully!', 'success');
         
     } catch (error) {
@@ -156,17 +160,52 @@ function displayBlueprintResults(data) {
     const resultsCard = document.getElementById('blueprintResults');
     const dataDiv = document.getElementById('blueprintData');
     
+    const totalLines = data.lines_summary?.length || 0;
+    const totalPolygons = data.polygons_summary?.length || 0;
+
     let html = '<div class="result-card">';
     html += '<h3 class="result-title"><i class="fas fa-ruler"></i> Measurement Data</h3>';
     html += '<table class="data-table">';
     html += '<tr><th>Metric</th><th>Value</th></tr>';
     html += `<tr><td>Status</td><td>${data.status}</td></tr>`;
-    html += `<tr><td>Scale Units</td><td>${data.scale_units}</td></tr>`;
-    html += `<tr><td>Total Lines</td><td>${data.total_lines.toLocaleString()}</td></tr>`;
-    html += `<tr><td>Total Polygons</td><td>${data.total_polygons.toLocaleString()}</td></tr>`;
+    if (data.scale_info) {
+        html += `<tr><td>Scale Units</td><td>${data.scale_info.units}</td></tr>`;
+    }
+    html += `<tr><td>Line Segments Found</td><td>${totalLines.toLocaleString()}</td></tr>`;
+    html += `<tr><td>Polygons Found</td><td>${totalPolygons.toLocaleString()}</td></tr>`;
     html += '</table></div>';
     
     dataDiv.innerHTML = html;
+    resultsCard.style.display = 'block';
+
+    displayBlueprintLogs(data.logs);
+}
+
+function displayBlueprintLogs(logs) {
+    const resultsCard = document.getElementById('blueprintResults');
+    let logsDiv = document.getElementById('blueprintLogs');
+    
+    // Create logs container if it doesn't exist
+    if (!logsDiv) {
+        logsDiv = document.createElement('div');
+        logsDiv.id = 'blueprintLogs';
+        logsDiv.className = 'logs-container';
+        // Insert after the data div
+        const dataDiv = document.getElementById('blueprintData');
+        dataDiv.parentNode.insertBefore(logsDiv, dataDiv.nextSibling);
+    }
+
+    if (logs && logs.length > 0) {
+        let logsHtml = '<h4 class="logs-title"><i class="fas fa-clipboard-list"></i> Analysis Logs</h4>';
+        logsHtml += '<ul class="logs-list">';
+        logs.forEach(log => {
+            logsHtml += `<li>${log}</li>`;
+        });
+        logsHtml += '</ul>';
+        logsDiv.innerHTML = logsHtml;
+    } else {
+        logsDiv.innerHTML = ''; // Clear previous logs if none are present
+    }
     resultsCard.style.display = 'block';
 }
 

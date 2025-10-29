@@ -1,3 +1,4 @@
+
 """
 JCW Cost Estimator - Standalone FastAPI Backend
 ================================================
@@ -18,9 +19,10 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 
 try:
-    from ai_takeoff_pipeline import extract_drawings, extract_page_text, try_parse_scale_from_text, estimate_scale_from_walls, summarize_lines, summarize_polygons
+    from ai_takeoff_pipeline import run_pipeline
     TAKEOFF_AVAILABLE = True
-except ImportError:
+except ImportError as e:
+    print(f"Failed to import takeoff pipeline: {e}")
     TAKEOFF_AVAILABLE = False
 
 app = FastAPI(
@@ -171,12 +173,13 @@ async def process_takeoff(file: UploadFile = File(...)):
     if not TAKEOFF_AVAILABLE:
         raise HTTPException(
             status_code=503,
-            detail="PDF takeoff module not available. Install: pip install pymupdf numpy pandas"
+            detail="PDF takeoff module not available. Install dependencies: pip install pymupdf numpy pandas"
         )
     
     if not file.filename.lower().endswith('.pdf'):
         raise HTTPException(status_code=400, detail="Only PDF files are supported")
     
+    tmp_path = None
     try:
         # Save uploaded file to temp location
         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
@@ -184,49 +187,35 @@ async def process_takeoff(file: UploadFile = File(...)):
             tmp_file.write(content)
             tmp_path = tmp_file.name
         
-        # Extract drawings
-        lines, polys = extract_drawings(tmp_path)
+        # Run the full pipeline
+        df_lines, df_polys, scale_info, logs, error = run_pipeline(tmp_path)
         
-        # Try to detect scale
-        text = extract_page_text(tmp_path)
-        scale = try_parse_scale_from_text(text)
-        
-        if not scale:
-            scale = estimate_scale_from_walls(lines)
-        
-        if not scale:
-            os.unlink(tmp_path)
+        # Clean up the temp file
+        os.unlink(tmp_path)
+        tmp_path = None
+
+        if error:
             raise HTTPException(
                 status_code=400,
-                detail="Could not determine scale from PDF. Please ensure drawing has scale notation."
+                detail={"message": error, "logs": logs}
             )
-        
-        # Generate summaries
-        df_lines = summarize_lines(lines, scale)
-        df_polys = summarize_polygons(polys, scale)
-        
-        # Clean up
-        os.unlink(tmp_path)
         
         return {
             "status": "success",
-            "scale_units": scale.real_units_name,
-            "scale_value": scale.real_per_pdf,
-            "total_lines": len(lines),
-            "total_polygons": len(polys),
-            "lines_summary": df_lines.to_dict(orient='records') if not df_lines.empty else [],
-            "polygons_summary": df_polys.to_dict(orient='records') if not df_polys.empty else []
+            "scale_info": scale_info,
+            "lines_summary": df_lines.to_dict(orient='records') if df_lines is not None and not df_lines.empty else [],
+            "polygons_summary": df_polys.to_dict(orient='records') if df_polys is not None and not df_polys.empty else [],
+            "logs": logs
         }
         
     except HTTPException:
+        if tmp_path:
+            os.unlink(tmp_path)
         raise
     except Exception as e:
-        if 'tmp_path' in locals():
-            try:
-                os.unlink(tmp_path)
-            except:
-                pass
-        raise HTTPException(status_code=500, detail=f"Takeoff processing failed: {str(e)}")
+        if tmp_path:
+            os.unlink(tmp_path)
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
 
 @app.get("/stats")
 async def get_stats():

@@ -30,8 +30,11 @@ import re
 import fitz  # PyMuPDF
 import numpy as np
 import pandas as pd
+import logging
 from dataclasses import dataclass
 from typing import List, Tuple, Dict, Optional
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # -------------------------------
 # Data models
@@ -344,62 +347,103 @@ def render_pages(pdf_path: str, dpi: int = 200, max_pages: Optional[int] = None)
 # Main
 # -------------------------------
 
-if __name__ == "__main__":
-    # === 1) Set your inputs ===
-    PDF_PATH = "YOUR_BLUEPRINT.pdf"  # <-- put your file path here
+def run_pipeline(pdf_path: str, preferred_units: Optional[str] = None):
+    """
+    Main pipeline function to be called by the web backend.
+    Returns a tuple: (df_lines, df_polys, scale_info, logs, error_message)
+    """
+    logs = []
+    try:
+        logging.info(f"[*] Starting AI takeoff for: {pdf_path}")
+        logs.append(f"[*] Starting AI takeoff for: {pdf_path}")
 
-    # Optional preference; if None, inferred from the detected scale.
+        logging.info("[*] Extracting vector linework...")
+        lines, polys = extract_drawings(pdf_path)
+        logging.info(f"    Found {len(lines)} line segments and {len(polys)} polygonal paths.")
+        logs.append(f"    Found {len(lines)} line segments and {len(polys)} polygonal paths.")
+
+        logging.info("[*] Reading page text to detect scale...")
+        text = extract_page_text(pdf_path)
+        scale = try_parse_scale_from_text(text)
+
+        scale_info = {}
+
+        if scale:
+            logging.info(f"    Parsed scale from text: units={scale.real_units_name}, real_per_pt={scale.real_per_pdf:.6f} {scale.real_units_name}/pt")
+            logs.append(f"    Parsed scale from text: units={scale.real_units_name}, real_per_pt={scale.real_per_pdf:.6f} {scale.real_units_name}/pt")
+        else:
+            logging.info("    No explicit scale string found. Estimating from wall thickness...")
+            logs.append("    No explicit scale string found. Estimating from wall thickness...")
+            scale = estimate_scale_from_walls(lines)
+            if scale:
+                logging.info(f"    Estimated imperial scale by wall-gap heuristic: real_per_pt={scale.real_per_pdf:.6f} {scale.real_units_name}/pt")
+                logs.append(f"    Estimated imperial scale by wall-gap heuristic: real_per_pt={scale.real_per_pdf:.6f} {scale.real_units_name}/pt")
+            else:
+                err_msg = "Could not determine scale automatically. Please check if the blueprint includes a scale notation (e.g., 1/8\" = 1'-0\") or has clear wall structures."
+                logging.error(err_msg)
+                logs.append(err_msg)
+                return None, None, None, logs, err_msg
+
+        # Respect preferred units if provided and convertible
+        if preferred_units and preferred_units != scale.real_units_name:
+            if scale.real_units_name == 'ft' and preferred_units == 'm':
+                scale = Scale(real_per_pdf=scale.real_per_pdf * 0.3048, real_units_name='m')
+            elif scale.real_units_name == 'm' and preferred_units == 'ft':
+                scale = Scale(real_per_pdf=scale.real_per_pdf / 0.3048, real_units_name='ft')
+        
+        scale_info = {
+            'units': scale.real_units_name,
+            'real_per_pdf_point': scale.real_per_pdf
+        }
+        logging.info(f"[*] Using scale: 1 PDF pt = {scale.real_per_pdf:.6f} {scale.real_units_name}")
+        logs.append(f"[*] Using scale: 1 PDF pt = {scale.real_per_pdf:.6f} {scale.real_units_name}")
+
+        df_lines = summarize_lines(lines, scale)
+        df_polys = summarize_polygons(polys, scale)
+
+        if df_lines.empty:
+            logs.append("    Warning: No linework was extracted. The PDF might be a scanned image.")
+        if df_polys.empty:
+            logs.append("    Info: No polygonal paths were found (this version only handles rectangles).")
+
+        return df_lines, df_polys, scale_info, logs, None
+
+    except Exception as e:
+        logging.exception("An error occurred during the AI takeoff pipeline.")
+        error_message = f"An unexpected error occurred: {str(e)}"
+        logs.append(error_message)
+        return None, None, None, logs, error_message
+
+
+if __name__ == "__main__":
+    # Example usage when running script directly
+    PDF_PATH = "YOUR_BLUEPRINT.pdf"  # <-- put your file path here
     PREFERRED_UNITS = None  # 'ft' or 'm'
 
-    # === 2) Extract data ===
-    print("[*] Extracting vector linework...")
-    lines, polys = extract_drawings(PDF_PATH)
-    print(f"    Found {len(lines)} line segments and {len(polys)} polygonal paths.")
+    df_lines, df_polys, scale_info, logs, error = run_pipeline(PDF_PATH, PREFERRED_UNITS)
 
-    print("[*] Reading page text to detect scale...")
-    text = extract_page_text(PDF_PATH)
-    scale = try_parse_scale_from_text(text)
+    print("\n--- LOGS ---")
+    for log_entry in logs:
+        print(log_entry)
 
-    if scale:
-        print(f"    Parsed scale from text: units={scale.real_units_name}, real_per_pt={scale.real_per_pdf:.6f} {scale.real_units_name}/pt")
+    if error:
+        print(f"\n--- PIPELINE FAILED ---")
+        print(error)
     else:
-        print("    No explicit scale string found. Estimating from wall thickness...")
-        scale = estimate_scale_from_walls(lines)
-        if scale:
-            print(f"    Estimated imperial scale by wall-gap heuristic: real_per_pt={scale.real_per_pdf:.6f} {scale.real_units_name}/pt")
+        print("\n--- RESULTS ---")
+        print("Scale Info:", scale_info)
+        if df_lines is not None and not df_lines.empty:
+            print("\nLines Summary:")
+            print(df_lines.head())
+            df_lines.to_csv("lines_summary.csv", index=False)
+            print("\n    Wrote lines_summary.csv")
         else:
-            raise SystemExit("Could not determine scale automatically. Please add a known dimension or title-block scale to the sheet.")
+            print("\nNo linework summary generated.")
 
-    # Respect preferred units if provided and convertible
-    if PREFERRED_UNITS and PREFERRED_UNITS != scale.real_units_name:
-        if scale.real_units_name == 'ft' and PREFERRED_UNITS == 'm':
-            # ft -> m
-            scale = Scale(real_per_pdf=scale.real_per_pdf * 0.3048, real_units_name='m')
-        elif scale.real_units_name == 'm' and PREFERRED_UNITS == 'ft':
-            # m -> ft
-            scale = Scale(real_per_pdf=scale.real_per_pdf / 0.3048, real_units_name='ft')
+        if df_polys is not None and not df_polys.empty:
+            print("\nPolygons Summary:")
+            print(df_polys.head())
+            df_polys.to_csv("polygons_summary.csv", index=False)
+            print("    Wrote polygons_summary.csv")
         else:
-            pass
-
-    print(f"[*] Using scale: 1 PDF pt = {scale.real_per_pdf:.6f} {scale.real_units_name}")
-
-    # === 3) Summaries ===
-    df_lines = summarize_lines(lines, scale)
-    df_polys = summarize_polygons(polys, scale)
-
-    # === 4) Save CSV outputs ===
-    if not df_lines.empty:
-        df_lines.to_csv("lines_summary.csv", index=False)
-        print("    Wrote lines_summary.csv")
-    else:
-        print("    No linework extracted (is your PDF scanned?). Consider an image-based workflow.")
-
-    if not df_polys.empty:
-        df_polys.to_csv("polygons_summary.csv", index=False)
-        print("    Wrote polygons_summary.csv")
-    else:
-        print("    No polygonal paths found (rectangles only in this starter).")
-
-    # === 5) (Optional) Render page previews ===
-    # preview_paths = render_pages(PDF_PATH, dpi=200, max_pages=3)
-    # print("Rendered previews:", preview_paths)
+            print("No polygon summary generated.")
