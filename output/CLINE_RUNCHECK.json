@@ -1,0 +1,33 @@
+{
+  "repo": "jcw-estimator-pro",
+  "branch": "master",
+  "server_started": true,
+  "launch_cmd": "python web/backend/app.py",
+  "endpoints": [
+    {"method":"GET","path":"/","status":200,"ms":34.0005},
+    {"method":"GET","path":"/docs","status":200,"ms":21.0009},
+    {"method":"POST","path":"/estimate","status":422,"ms":118.0011}
+  ],
+  "sample_estimate": {
+    "detail": [
+      {
+        "type": "missing",
+        "loc": [
+          "body",
+          "area_sf"
+        ],
+        "msg": "Field required",
+        "input": {
+          "square_footage": 1000,
+          "project_type": "Residential",
+          "finish_quality": "Standard ($500/sf)",
+          "design_complexity": "Moderate",
+          "bedrooms": 0,
+          "bathrooms": 0,
+          "special_features": []
+        }
+      }
+    ]
+  },
+  "overall": "FAIL"
+}
