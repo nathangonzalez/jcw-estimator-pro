@@ -1,0 +1,14 @@
+{
+  "ts": "20251029T180333Z",
+  "source": "unknown",
+  "intent": "unspecified",
+  "context": {},
+  "prompt": "",
+  "decision": "NO_PROMPT",
+  "analysis": [
+    "Stub gateway processed the request.",
+    "No external API calls were made.",
+    "Round-trip verified via GitHub Action."
+  ],
+  "artifacts": []
+}
