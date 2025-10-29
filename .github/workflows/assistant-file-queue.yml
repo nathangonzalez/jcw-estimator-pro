@@ -1,0 +1,49 @@
+name: assistant-file-queue
+on:
+  push:
+    paths:
+      - 'output/ASK_ASSISTANT/**/*.json'
+
+jobs:
+  handle-ask:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: List new ask files
+        id: list
+        run: |
+          shopt -s nullglob
+          files=(output/ASK_ASSISTANT/*.json)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No ask files found."
+            exit 0
+          fi
+          printf "%s\n" "${files[@]}" > ask_files.txt
+          echo "count=${#files[@]}" >> $GITHUB_OUTPUT
+
+      - name: Setup Python
+        if: steps.list.outputs.count != '0'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run assistant stub
+        if: steps.list.outputs.count != '0'
+        run: |
+          python3 scripts/assistant_gateway.py ask_files.txt
+
+      - name: Commit responses
+        if: steps.list.outputs.count != '0'
+        run: |
+          git config user.name "assistant-gateway[bot]"
+          git config user.email "assistant-gateway@users.noreply.github.com"
+          git add output/assistant/
+          git commit -m "chore(assistant): respond to queued asks" || echo "No changes to commit"
+          git push
