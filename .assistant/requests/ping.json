@@ -1,0 +1,5 @@
+{
+"approved": true,
+"type": "ping",
+"note": "Minimal approved gateway request for validation-only CI."
+}

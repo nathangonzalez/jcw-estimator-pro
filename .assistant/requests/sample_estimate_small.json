@@ -1,0 +1,13 @@
+{
+"approved": true,
+"type": "estimate-v1",
+"payload": {
+"area_sqft": 2400,
+"bedrooms": 3,
+"bathrooms": 2,
+"quality": "standard",
+"complexity": 3,
+"location_zip": "01902",
+"notes": "Small approved request for manual dry-run later."
+}
+}
