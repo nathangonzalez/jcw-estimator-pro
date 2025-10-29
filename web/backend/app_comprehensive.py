@@ -10,6 +10,7 @@ from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
+from .schemas import EstimateRequest, EstimateResponse, CostBreakdown
 import os
 import tempfile
 import sys
@@ -383,6 +384,42 @@ def generate_comprehensive_excel(
     
     # Save workbook
     wb.save(output_path)
+
+def _predict_stub(req: EstimateRequest) -> EstimateResponse:
+    # Replace with your real model integration as needed.
+    base = 275.0  # $/sqft baseline - illustrative
+    qual_factor = {"standard": 1.0, "premium": 1.18, "lux": 1.35}.get(req.quality, 1.0)
+    cx_factor = {1: 0.92, 2: 0.96, 3: 1.0, 4: 1.08, 5: 1.15}[req.complexity]
+    systems = 0.24
+    finishes = 0.28
+    structure = 0.30
+    sitework = 0.08
+    op = 0.10
+
+    total = req.area_sqft * base * qual_factor * cx_factor
+    breakdown = CostBreakdown(
+        structure=total * structure,
+        finishes=total * finishes,
+        systems=total * systems,
+        sitework=total * sitework,
+        overhead_profit=total * op,
+    )
+    return EstimateResponse(
+        total_cost=total,
+        breakdown=breakdown,
+        confidence=0.67,
+        model_version="spec-aware-1.0",
+        assumptions=[
+            f"Baseline ${base}/sf; quality={req.quality}; complexity={req.complexity}",
+            "Program-level estimate; not a substitute for detailed takeoff."
+        ]
+    )
+
+@app.post("/v1/estimate", response_model=EstimateResponse)
+def estimate_v1(req: EstimateRequest):
+    # integrate your real pipeline here (ai_takeoff, spec-aware model, etc.)
+    return _predict_stub(req)
+
 
 # ============================================================================
 # ENDPOINTS

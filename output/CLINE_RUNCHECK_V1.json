@@ -1,0 +1,6 @@
+﻿{
+    "endpoint":  "/v1/estimate",
+    "result":  "ok",
+    "contract_test_log":  "output/CONTRACT_TEST_V1.txt",
+    "smoke_output":  "output/SMOKE_ESTIMATE_V1.json"
+}

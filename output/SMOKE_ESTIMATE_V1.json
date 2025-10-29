@@ -1,0 +1,16 @@
+﻿{
+    "total_cost":  687500.0,
+    "breakdown":  {
+                      "structure":  206250.0,
+                      "finishes":  192500.00000000003,
+                      "systems":  165000.0,
+                      "sitework":  55000.0,
+                      "overhead_profit":  68750.0
+                  },
+    "confidence":  0.67,
+    "model_version":  "spec-aware-1.0",
+    "assumptions":  [
+                        "Baseline $275.0/sf; quality=standard; complexity=3",
+                        "Program-level estimate; not a substitute for detailed takeoff."
+                    ]
+}
