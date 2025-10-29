@@ -1,0 +1,15 @@
+{
+"action": "POST",
+"url": "http://127.0.0.1:8000/v1/estimate",
+"body": {
+"area_sqft": 2800,
+"bedrooms": 3,
+"bathrooms": 2,
+"quality": "standard",
+"complexity": 3,
+"location_zip": "01901"
+},
+"expect": {
+"keys_any": ["total_cost","estimate","predicted_cost"]
+}
+}

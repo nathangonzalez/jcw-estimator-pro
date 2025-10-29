@@ -1,17 +1,10 @@
 {
-    "time":  "2025-10-28 17:34:32Z",
+    "status":  "done",
+    "task":  "estimate_v1_smoke",
+    "commit":  "f6285817dbc34c0fb0ed8ae509335fa62e83b617",
     "artifacts":  [
-                      "output/AGENT_AUDIT.md",
-                      "output/AGENT_SYNC.md",
-                      "scripts/playwrite_sim.ply",
-                      "tests/e2e/estimate.spec.ts"
-                  ],
-    "branch":  "master",
-    "repo":  "jcw-estimator-pro",
-    "last_task":  "Initial sync and protocol alignment",
-    "head":  "11e8a03",
-    "notes":  [
-                  "Initial sync under new supervised protocol."
-              ],
-    "pending_approval":  false
+                      "output/ESTIMATE_V1_SMOKE_RESULT.json",
+                      "output/CLINE_RUNCHECK.json",
+                      "output/CLINE_RUNCHECK.md"
+                  ]
 }

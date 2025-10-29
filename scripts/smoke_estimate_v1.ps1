@@ -1,26 +1,19 @@
-# Run FastAPI (adjust if you use different entry)
-$env:PYTHONPATH="."
-$process = Start-Process -NoNewWindow -FilePath "python" -ArgumentList "-m", "web.backend.app_comprehensive" -PassThru
-
-# Give server a moment (or use uvicorn if you prefer)
-Start-Sleep -Seconds 2
-
-# Smoke POST
-$payload = @{
-  area_sqft = 2500
-  bedrooms = 3
-  bathrooms = 2.5
-  quality = "standard"
-  complexity = 3
-  location_zip = "02139"
-  features = @{ garage = $true }
-} | ConvertTo-Json
+Param(
+[string]$Url = "http://127.0.0.1:8000/v1/estimate",
+[string]$InputPath = "scripts/smoke_estimate_v1.json",
+[string]$OutJson = "output/ESTIMATE_V1_SMOKE_RESULT.json"
+)
+$ErrorActionPreference = "Stop"
+if (-not (Test-Path "output")) { New-Item -ItemType Directory -Path "output" | Out-Null }
+$payload = Get-Content -Raw -Path $InputPath
 
 try {
-  $res = Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:8000/v1/estimate" -ContentType "application/json" -Body $payload
-  $res | ConvertTo-Json -Depth 6 | Set-Content -Encoding UTF8 "output/SMOKE_ESTIMATE_V1.json"
-} catch {
-  $_ | Out-String | Set-Content -Encoding UTF8 "output/SMOKE_ESTIMATE_V1_ERROR.txt"
-} finally {
-    Stop-Process -Id $process.Id
+$resp = curl.exe -s -X POST $Url -H "Content-Type: application/json" --data $payload
+if ($LASTEXITCODE -ne 0 -or -not $resp) { throw "curl failed or empty response" }
+$resp | Out-File -Encoding UTF8 $OutJson
 }
+catch {
+$respObj = Invoke-RestMethod -Method Post -Uri $Url -Body $payload -ContentType "application/json"
+($respObj | ConvertTo-Json -Depth 6) | Out-File -Encoding UTF8 $OutJson
+}
+Write-Host "Saved: $OutJson"
