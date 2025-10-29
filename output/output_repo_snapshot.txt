@@ -1,0 +1,4 @@
+﻿df79750f1e98c20e047ab939f924a4fac448971d
+* master df79750 [origin/master] chore(runcheck): add /v1/estimate smoke payload, run scripts, artifacts, and CI inbox seed - Add scripts/smoke_estimate_v1.json (exact payload) - Add scripts/smoke_estimate_v1.ps1 (Windows curl/IRM) - Add scripts/runcheck_estimate_v1.ps1 (spin-up & smoke) - Add scripts/make_runcheck_artifacts.py (summaries) - Add output/* (result + runcheck md/json) - Add output/ASK_ASSISTANT/estimate_v1.smoke.json (gateway seed) - No force push; local-only execution
+origin	https://github.com/nathangonzalez/jcw-estimator-pro.git (fetch)
+origin	https://github.com/nathangonzalez/jcw-estimator-pro.git (push)
