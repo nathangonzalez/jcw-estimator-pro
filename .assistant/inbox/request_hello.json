@@ -1,0 +1,8 @@
+{
+  "id": "hello-0001",
+  "type": "gateway.ping",
+  "intent": "Round-trip check",
+  "payload": {
+    "message": "Hello from Option B gateway. Please acknowledge and mirror this message."
+  }
+}
