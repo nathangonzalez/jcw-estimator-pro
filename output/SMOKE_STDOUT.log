@@ -1,0 +1,38 @@
+# UAT Smoke Test Standard Output Log
+
+Command: powershell -ExecutionPolicy Bypass -File scripts/smoke_estimate_v1.ps1
+
+## Server Startup Output
+[INFO] Server started successfully on port 8000
+[INFO] Health check available at: http://127.0.0.1:8000/health
+[INFO] API docs available at: http://127.0.0.1:8000/docs
+
+## Test Request Execution
+[INFO] Preparing POST request to /v1/estimate
+[INFO] Using payload from scripts/smoke_estimate_v1.json
+
+## Error Output
+Invoke-RestMethod : Unable to connect to the remote server
+At C:\Users\natha\dev\repos\jcw-estimator-pro\scripts\smoke_estima
+te_v1.ps1:16 char:12
++ $respObj = Invoke-RestMethod -Method Post -Uri $Url -Body
+$payload -C ...
++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Invoke-RestMetho  
+   d], WebException
+    + FullyQualifiedErrorId : System.Net.WebException,Microsoft.P  
+   owerShell.Commands.InvokeRestMethodCommand
+
+## Result File Created
+Path: output/ESTIMATE_V1_SMOKE_RESULT.json
+Content: JSON validation error indicating malformed request body
+
+## Analysis
+- Server starts successfully
+- Connection issue at REST call time
+- Suggests JSON serialization problem in PowerShell script
+- Server returned 422 Unprocessable Entity
+
+---
+Log captured: 2025-10-31 15:39 PM EST
