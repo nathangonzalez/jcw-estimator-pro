@@ -1,0 +1,21 @@
+﻿{
+    "branch":  "master",
+    "approval_required":  true,
+    "approved":  false,
+    "environment":  {
+                        "npx":  "10.9.3",
+                        "node":  "v22.19.0",
+                        "python":  "3.11.9"
+                    },
+    "started_at":  "2025-10-31 14:17:22",
+    "steps":  [
+                  "env_snapshot",
+                  "smoke_prep",
+                  "approval_gate",
+                  "smoke_exec",
+                  "e2e_exec",
+                  "final_audit"
+              ],
+    "session_id":  "uat_e2e_20251031",
+    "head_sha":  "40bad0039bc90a51575485c4ed3f63296242d9b3"
+}

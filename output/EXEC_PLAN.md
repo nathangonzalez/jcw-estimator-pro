@@ -1,28 +1,28 @@
-# Proposed Execution Plan (Guardrailed)
+# Supervised Execution Plan (UAT Smoke + Playwright E2E)
 
-## Preconditions
-- FastAPI app file: web/backend/app_comprehensive.py
-- Endpoint: /v1/estimate
+## Session Goals
+- Execute UAT smoke test for `/v1/estimate` endpoint (limited to 1 request)
+- Run Playwright E2E test or simulation
+- Capture all artifacts in `/output`
+- Respect approval gating (/approvals/EXEC_OK)
 
-## Steps (Plan Only)
-1) Create venv (if missing)
-2) Install minimal deps
-3) Launch FastAPI locally
-4) Send a single POST to /v1/estimate
-5) Shut down server
+## Steps (conditional on approval)
+1. Prepare and check approval gate
+2. Execute FastAPI smoke (/v1/estimate)
+3. Run Playwright test (npx available)
+4. Final audit and cleanup
 
-## Rollback & Cleanup
-- Remove venv if created
-- Kill any processes on port 8001
+## Risk Mitigation
+- Short test duration (max 30s)
+- No production data modification
+- Post-run cleanup (kill processes)
 
-## Risk & Mitigation
-- **Risk**: Server might not start or hang
-- **Mitigation**: Timeout after 60 seconds, process kill
-- **Risk**: Disk space usage
-- **Mitigation**: Use temp directories
-- **Risk**: Network conflicts
-- **Mitigation**: Use non-standard port (8001)
+## Expected Artifacts
+- Smoke results in `/output/SMOKE_*` files
+- Playwright results in `/output/PLAYWRIGHT_*` files
+- Audit in `/output/EXEC_AUDIT.md`
 
-## Files to Create
-- scripts/proposed/smoke_estimate.ps1
-- output/EXEC_RESULT.md (to be written after run)
+## Status
+Approval: pending
+Started: 2025-10-31
+Branch: master
