@@ -1,0 +1,27 @@
+{
+  "disparities": [
+    {
+      "field": "request.properties.quality",
+      "contract_spec": "enum: [\"standard\", \"premium\", \"lux\"]",
+      "schema_spec": "str = \"standard\" (no enum restriction)",
+      "severity": "validation_gap",
+      "impact": "API could accept invalid quality values that don't match contract"
+    }
+  ],
+  "matching_fields": [
+    "request.required",
+    "request.properties.area_sqft",
+    "request.properties.bedrooms", 
+    "request.properties.bathrooms",
+    "request.properties.complexity",
+    "request.properties.location_zip",
+    "request.properties.features",
+    "request.properties.blueprint",
+    "response.required",
+    "response.properties.total_cost",
+    "response.properties.breakdown",
+    "response.properties.confidence",
+    "response.properties.model_version",
+    "response.properties.assumptions"
+  ]
+}
