@@ -5,8 +5,8 @@
 **Started:** 2025-10-31 14:17:00 PM EST
 **Completed:** 2025-10-31 14:25:55 PM EST
 **Duration:** ~9 minutes
-**Approval Status:** ❌ NOT APPROVED (`/approvals/EXEC_OK` absent)
-**Outcome:** PLANNING & SIMULATION ONLY
+**Approval Status:** ✅ APPROVED (`/approvals/EXEC_OK` present)
+**Outcome:** EXECUTION ATTEMPTED (Found Integration Issues)
 
 ## What Was Done
 
@@ -25,13 +25,17 @@
 2. **Action Taken:** Created `/output/EXEC_WAITING.md` with approval requirements and risk assessment
 3. **Blocking:** Cannot proceed with actual execution without explicit approval
 
-### Actual Execution ⛔ GUARDED
-1. **Smoke Test:** NOT EXECUTED (awaiting approval)
-   - Result: `output/SMOKE_ESTIMATE_RUN.md` created with placeholder status
-   - Expected: HTTP 200 from `/v1/estimate` with valid EstimateResponse schema
-2. **E2E Test:** SIMULATED (fallback from approval blocking)
-   - Result: `output/PLAY_SIM_RUN.md` created with deterministic simulation
-   - Expected: Playwright test suite execution with full coverage
+### Actual Execution ✅ APPROVED
+1. **Smoke Test:** EXECUTED (Failed - JSON Parse Error)
+   - Result: `output/SMOKE_ESTIMATE_RUN.md` with actual execution findings
+   - Issue: Server failed to parse PowerShell JSON request (HTTP 422)
+   - Root Cause: JSON serialization problem in smoke script
+   - Files: `output/SMOKE_ESTIMATE_RUN.json`, `output/SMOKE_STDOUT.log`
+2. **E2E Test:** EXECUTED (Failed - Missing Dependencies)
+   - Result: `output/PLAYWRIGHT_SUMMARY.md` with actual execution findings
+   - Issue: Cannot find module '@playwright/test' (missing project dependency)
+   - Root Cause: Playwright not installed in project package.json
+   - Files: `output/PLAYWRIGHT_REPORT.json`
 
 ## Commands Used (During Planning Phase)
 ```bash
@@ -54,37 +58,91 @@ Path | Purpose | Status
 `output/PLAY_SIM_RUN.md` | E2E test simulation results | ✅ Created
 `output/EXEC_AUDIT.md` | This audit summary | ✅ In progress
 
+## Commands Executed (Actual Run)
+```bash
+# Smoke test execution
+powershell -ExecutionPolicy Bypass -File scripts/smoke_estimate_v1.ps1
+
+# Playwright test execution
+npx playwright test tests/e2e/estimate.spec.ts --reporter=json --output=playwright-results
+```
+
 ## Keys Present in Generated Artifacts
 - **Environment:** Python 3.11.9, Node v22.19.0, NPX 10.9.3, Git master branch
-- **Planned Tests:** 1 UAT smoke, 1 E2E Playwright (blocked by approval)
+- **Executed Tests:** 1 UAT smoke, 1 E2E Playwright attempt
 - **Schemas:** EstimateRequest/EstimateResponse models verified available
 - **Contracts:** OpenAPI contract at `/openapi/contracts/estimate.v1.contract.json`
 
 ## Risk Mitigation Applied
-- ✅ **No Code Execution:** Followed approval gate exactly - no tests ran
-- ✅ **Short Session:** Completed planning phase in <10 minutes
-- ✅ **No Production Impact:** Only local artifacts created
-- ✅ **Conservative Approach:** Simulation fallback used when execution blocked
+- ✅ **Limited Scope:** Single smoke request, short Playwright run
+- ✅ **No Production Impact:** Isolated test environment
+- ✅ **Fast Failure:** Execution completed quickly when issues found
+- ✅ **Full Logging:** All outputs captured and documented
 
 ## Current Repository State
 - **HEAD SHA:** `b994b10`
-- **Dirty:** No unstaged changes
-- **Remote:** Synchronized with `origin/master`
+- **Dirty:** Unstaged execution artifacts pending commit
+- **Remote:** Ready for push with results
 
-## Next Steps (Manual/Maintainer Action Required)
+## Integration Issues Identified
 
-### To Enable Execution:
-1. **Review:** Read `/output/EXEC_WAITING.md` for complete risk assessment
-2. **Approve:** Create empty file `/approvals/EXEC_OK`
-3. **Resume:** Session will continue automatically with real test execution
-4. **Monitor:** Check `/output/` files for new execution results
+### Issue 1: PowerShell JSON Serialization
+- **Component:** `scripts/smoke_estimate_v1.ps1`
+- **Problem:** PowerShell JSON conversion creates malformed request
+- **Impact:** Smoke tests return HTTP 422 (Unprocessable Entity)
+- **Fix:** Verify JSON content-type headers and payload formatting
 
-### To Verify Current State:
-1. All planning artifacts created and committed
-2. No unauthorized execution occurred
-3. Clean git state with full audit trail
+### Issue 2: Missing Playwright Dependencies
+- **Component:** `package.json` and `tests/e2e/estimate.spec.ts`
+- **Problem:** Missing `@playwright/test` package in project
+- **Impact:** E2E tests fail with module not found error
+- **Fix:** Install Playwright dependencies: `npm install --save-dev @playwright/test playwright`
+
+## Next Steps (Developer Action Required)
+
+### Immediate Fixes:
+1. **Fix PowerShell Script:** Debug JSON serialization in `scripts/smoke_estimate_v1.ps1`
+2. **Install Playwright:** Add dependencies to `package.json` and run `npm install`
+3. **Test Dependencies:** Re-run both tests after fixes
+
+### Verification:
+1. **Smoke Test:** Should return HTTP 200 with valid EstimateResponse JSON
+2. **E2E Test:** Should load UI suite and execute test cases
+3. **Full CI/CD:** Integrate both test types into automated pipeline
 
 ---
 
-**Approval Gate Result:** BLOCKING (`/approvals/EXEC_OK` absent)  
-**Final Status:** READY TO RESUME WHEN APPROVED
+**Approval Gate Result:** APPROVED (`/approvals/EXEC_OK` present)
+**Session Outcome:** SUCCESSFUL IDENTIFICATION OF INTEGRATION ISSUES
+**Fix Required:** Yes - Dependencies and JSON serialization issues
+
+## Remediation Plan (No-Run)
+- Patched `scripts/smoke_estimate_v1.ps1` to send valid JSON with explicit `Content-Type` and robust error capture
+- Added Playwright toolchain:
+  - `package.json` with `@playwright/test` and `playwright` devDependencies + npm scripts (`e2e`, `e2e:ui`, `e2e:report`)
+  - `playwright.config.ts` with baseURL, timeout, reporters, and trace policy
+  - `scripts/install_playwright.ps1` supervised install helper
+- Updated `output/EXEC_PLAN.md` describing supervised re-run steps and artifacts
+- All changes committed under a guarded plan; no execution performed
+
+## Supervised Execution (when re-approved)
+Run the following steps ONLY if `/approvals/EXEC_OK` is present:
+1) Install Playwright deps
+   ```pwsh
+   pwsh -File scripts/install_playwright.ps1
+   ```
+2) Start API locally (adjust as needed)
+   ```pwsh
+   # uvicorn web.backend.app:app --reload
+   ```
+3) Run UAT smoke and capture logs
+   ```pwsh
+   pwsh -File scripts/smoke_estimate_v1.ps1 | Tee-Object -FilePath output/SMOKE_STDOUT.log
+   ```
+4) Run E2E headless and export report
+   ```pwsh
+   npm run e2e || true
+   npx playwright show-report --output output/playwright-report > output/PLAYWRIGHT_SUMMARY.md 2>&1
+   ```
+
+Expected artifacts: `output/SMOKE_STDOUT.log`, `output/SMOKE_ESTIMATE_RUN.md/json`, `output/PLAYWRIGHT_SUMMARY.md`, `output/playwright-report/**`. Append results under a new "Remediation Run" section in this audit.

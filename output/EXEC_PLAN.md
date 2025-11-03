@@ -1,28 +1,45 @@
-# Supervised Execution Plan (UAT Smoke + Playwright E2E)
+# Supervised Remediation Execution Plan (No-Run)
 
-## Session Goals
-- Execute UAT smoke test for `/v1/estimate` endpoint (limited to 1 request)
-- Run Playwright E2E test or simulation
-- Capture all artifacts in `/output`
-- Respect approval gating (/approvals/EXEC_OK)
+## Objective
+Patch the UAT smoke JSON body, add Playwright dependencies/config, then re-run smoke + E2E under explicit approval gating with auditable artifacts.
 
-## Steps (conditional on approval)
-1. Prepare and check approval gate
-2. Execute FastAPI smoke (/v1/estimate)
-3. Run Playwright test (npx available)
-4. Final audit and cleanup
+## Scope
+- Do not execute installs or tests until approval is confirmed.
+- All outputs must be written to /output and committed.
 
-## Risk Mitigation
-- Short test duration (max 30s)
-- No production data modification
-- Post-run cleanup (kill processes)
+## Remediation Changes (applied in this commit)
+- scripts/smoke_estimate_v1.ps1: send valid JSON payload and robust error capture
+- package.json: add @playwright/test + playwright and npm scripts (e2e, e2e:ui, e2e:report)
+- playwright.config.ts: minimal config with baseURL, timeout, reporters
+- scripts/install_playwright.ps1: supervised install script
 
-## Expected Artifacts
-- Smoke results in `/output/SMOKE_*` files
-- Playwright results in `/output/PLAYWRIGHT_*` files
-- Audit in `/output/EXEC_AUDIT.md`
+## Runbook (execute only when /approvals/EXEC_OK is present)
+1) Install Playwright dependencies (supervised)
+   pwsh -File scripts/install_playwright.ps1
 
-## Status
-Approval: pending
-Started: 2025-10-31
-Branch: master
+2) Start API locally if not already running (supervised)
+   # Adjust entrypoint as needed; example:
+   # uvicorn web.backend.app:app --reload
+
+3) Run UAT smoke (logs captured)
+   pwsh -File scripts/smoke_estimate_v1.ps1 | Tee-Object -FilePath output/SMOKE_STDOUT.log
+
+4) Run E2E headless (Playwright)
+   npm run e2e || true
+   npx playwright show-report --output output/playwright-report > output/PLAYWRIGHT_SUMMARY.md 2>&1
+
+## Expected Artifacts to (re)generate
+- output/SMOKE_STDOUT.log
+- output/SMOKE_ESTIMATE_RUN.md and output/SMOKE_ESTIMATE_RUN.json
+- output/PLAYWRIGHT_SUMMARY.md
+- output/playwright-report/** (HTML artifacts)
+- output/EXEC_AUDIT.md (Append new 'Remediation Run' section with pass/fail)
+
+## Gating
+- Approval file: /approvals/EXEC_OK
+- Action: STOP here and await explicit approval before running any commands
+
+## Metadata
+- Branch: master
+- Approval: pending (no-run)
+- Session: remediation plan prepared

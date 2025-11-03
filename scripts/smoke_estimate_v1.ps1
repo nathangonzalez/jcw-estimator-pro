@@ -1,19 +1,45 @@
-Param(
-[string]$Url = "http://127.0.0.1:8000/v1/estimate",
-[string]$InputPath = "scripts/smoke_estimate_v1.json",
-[string]$OutJson = "output/ESTIMATE_V1_SMOKE_RESULT.json"
+# scripts/smoke_estimate_v1.ps1
+# Sends a minimal valid JSON request to /v1/estimate and prints status + body.
+
+param(
+  [string]$BaseUrl = "http://localhost:8000",
+  [string]$Endpoint = "/v1/estimate"
 )
-$ErrorActionPreference = "Stop"
-if (-not (Test-Path "output")) { New-Item -ItemType Directory -Path "output" | Out-Null }
-$payload = Get-Content -Raw -Path $InputPath
+
+$uri = "$BaseUrl$Endpoint"
+
+# NOTE: Align these fields to the FastAPI/Pydantic schema you implemented.
+# If additional fields are required, add them here (and keep types JSON-safe).
+$bodyObj = @{
+  square_footage = 5000
+  project_type   = "Residential"
+  finish_quality = "Standard"
+  complexity     = "Moderate"
+  bedrooms       = 0
+  bathrooms      = 0
+  features       = @()   # e.g., ["Pool","Elevator"]
+}
+
+# Convert to JSON (depth > 2 for nested objects/arrays)
+$bodyJson = $bodyObj | ConvertTo-Json -Depth 8
 
 try {
-$resp = curl.exe -s -X POST $Url -H "Content-Type: application/json" --data $payload
-if ($LASTEXITCODE -ne 0 -or -not $resp) { throw "curl failed or empty response" }
-$resp | Out-File -Encoding UTF8 $OutJson
+  $response = Invoke-RestMethod -Uri $uri -Method POST `
+    -ContentType "application/json; charset=utf-8" `
+    -Body $bodyJson
+
+  Write-Host "HTTP: 200 OK"
+  $response | ConvertTo-Json -Depth 8
+  exit 0
 }
 catch {
-$respObj = Invoke-RestMethod -Method Post -Uri $Url -Body $payload -ContentType "application/json"
-($respObj | ConvertTo-Json -Depth 6) | Out-File -Encoding UTF8 $OutJson
+  if ($_.Exception.Response -ne $null) {
+    $status = $_.Exception.Response.StatusCode.value__
+    $reader = New-Object System.IO.StreamReader($_.Exception.Response.GetResponseStream())
+    $errBody = $reader.ReadToEnd()
+    Write-Host ("HTTP: {0}`n{1}" -f $status, $errBody)
+  } else {
+    Write-Host ("HTTP: ERROR`n{0}" -f $_.Exception.Message)
+  }
+  exit 1
 }
-Write-Host "Saved: $OutJson"
