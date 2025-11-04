@@ -1,10 +1,21 @@
 {
-    "status":  "done",
-    "task":  "estimate_v1_smoke",
-    "commit":  "f6285817dbc34c0fb0ed8ae509335fa62e83b617",
-    "artifacts":  [
-                      "output/ESTIMATE_V1_SMOKE_RESULT.json",
-                      "output/CLINE_RUNCHECK.json",
-                      "output/CLINE_RUNCHECK.md"
-                  ]
+  "session": "M01-dual-shape-intro",
+  "mode": "SYNC_ONLY",
+  "status": "READY_FOR_REVIEW",
+  "artifacts": [
+    "schemas/trade_quantities.schema.json",
+    "schemas/estimate_response.schema.json",
+    "schemas/pricing_policy.v0.yaml",
+    "data/quantities.sample.json",
+    "openapi/contracts/estimate.v1.contract.json",
+    "web/backend/schemas.py",
+    "web/backend/app_comprehensive.py",
+    "tests/contract/test_estimate_v1_contract.py",
+    "output/AGENT_SYNC.md"
+  ],
+  "next_steps": [
+    "Await approvals/EXEC_OK before running smoke or E2E",
+    "Wire engine to produce line items from quantities + policy",
+    "Add CSV ingestion for unit_costs/vendor_quotes (guarded)"
+  ]
 }

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jcw/specs/schemas/trade_quantities.schema.json",
+  "title": "JCW Trade Quantities (v0)",
+  "type": "object",
+  "required": ["version", "trades"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "const": "v0" },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "project_id": { "type": "string" },
+        "source": { "type": "string", "description": "e.g., 'manual_takeoff' | 'ai_takeoff' | 'merged'" },
+        "plan_path": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "trades": {
+      "type": "object",
+      "description": "Per-trade quantity line items. Keys are snake_case trade names.",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "concrete": { "$ref": "#/$defs/trade" },
+        "framing": { "$ref": "#/$defs/trade" },
+        "roofing": { "$ref": "#/$defs/trade" },
+        "plumbing": { "$ref": "#/$defs/trade" },
+        "electrical": { "$ref": "#/$defs/trade" },
+        "hvac": { "$ref": "#/$defs/trade" },
+        "finishes": { "$ref": "#/$defs/trade" },
+        "sitework": { "$ref": "#/$defs/trade" },
+        "drywall": { "$ref": "#/$defs/trade" },
+        "paint": { "$ref": "#/$defs/trade" },
+        "flooring": { "$ref": "#/$defs/trade" }
+      },
+      "patternProperties": {
+        "^[a-z][a-z0-9_]*$": { "$ref": "#/$defs/trade" }
+      }
+    }
+  },
+  "$defs": {
+    "trade": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["items"],
+      "properties": {
+        "scope_notes": { "type": "string" },
+        "alternates": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/alternate" }
+        },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/item" }
+        }
+      }
+    },
+    "alternate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "description", "items"],
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/item" }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "description", "unit", "quantity"],
+      "properties": {
+        "code": { "type": "string", "description": "Internal or CSI code, e.g., '03-3000-SLAB'" },
+        "description": { "type": "string" },
+        "unit": {
+          "type": "string",
+          "enum": ["ea", "lf", "sf", "sy", "cf", "cy", "sq", "ton", "lb", "hr", "day"]
+        },
+        "quantity": { "type": "number", "minimum": 0 },
+        "waste_pct": { "type": "number", "minimum": 0, "maximum": 1, "default": 0 },
+        "takeoff_ref": { "type": "string", "description": "Drawing/sheet or AI feature id" },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

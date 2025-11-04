@@ -1,0 +1,56 @@
+version: v0
+id: default.us-ma.boston.2025
+name: Default Pricing Policy — Boston MA (2025)
+currency: USD
+region: US-MA-Boston
+date_basis: 2025-10-01
+
+priority:
+  unit_cost_resolution_order:
+    - vendor_quotes
+    - unit_costs
+    - regional_defaults
+
+markups:
+  overhead_pct: 0.10
+  profit_pct: 0.08
+  contingency_pct: 0.05
+
+labor:
+  burden_pct: 0.35
+  overtime_multiplier: 1.5
+
+tax:
+  sales_tax_pct: 0.0625
+
+escalation:
+  method: monthly_compound
+  annual_rate_pct: 0.03
+  apply_to: [materials, labor]
+
+waste_defaults:
+  concrete: 0.05
+  framing: 0.07
+  roofing: 0.08
+  plumbing: 0.03
+  electrical: 0.03
+  hvac: 0.04
+  finishes: 0.05
+  drywall: 0.06
+  paint: 0.05
+  flooring: 0.05
+
+regional_defaults:
+  concrete:
+    "03-3000-SLAB": { unit: cy, unit_cost: 165.0 }
+    "03-1000-FOOTING": { unit: cy, unit_cost: 150.0 }
+  framing:
+    "06-1000-STUD": { unit: lf, unit_cost: 6.25 }
+    "06-1600-SHEATH": { unit: sf, unit_cost: 1.85 }
+  plumbing:
+    "22-1000-FIXTURE": { unit: ea, unit_cost: 850.0 }
+  electrical:
+    "26-5100-RECEPT": { unit: ea, unit_cost: 85.0 }
+    "26-5200-LIGHT":  { unit: ea, unit_cost: 140.0 }
+  hvac:
+    "23-3700-REG-RTU": { unit: ea, unit_cost: 5200.0 }

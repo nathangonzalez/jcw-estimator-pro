@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jcw/specs/schemas/estimate_response.schema.json",
+  "title": "JCW Estimate Response (v0)",
+  "type": "object",
+  "required": ["version", "request_id", "currency", "total_cost", "trades"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "const": "v0" },
+    "request_id": { "type": "string", "description": "UUID or unique request key" },
+    "model_version": { "type": "string" },
+    "currency": { "type": "string", "default": "USD" },
+    "total_cost": { "type": "number", "minimum": 0 },
+    "subtotal_cost": { "type": "number", "minimum": 0 },
+    "contingency_cost": { "type": "number", "minimum": 0 },
+    "overhead_cost": { "type": "number", "minimum": 0 },
+    "profit_cost": { "type": "number", "minimum": 0 },
+    "tax_cost": { "type": "number", "minimum": 0 },
+    "pricing_policy_id": { "type": "string" },
+    "inputs_digest": { "type": "string", "description": "Hash of request body for traceability" },
+    "trades": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-z][a-z0-9_]*$": { "$ref": "#/$defs/trade_breakdown" }
+      }
+    },
+    "assumptions": { "type": "array", "items": { "type": "string" } },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" },
+    "debug": { "type": "object", "additionalProperties": true }
+  },
+  "$defs": {
+    "trade_breakdown": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subtotal", "line_items"],
+      "properties": {
+        "subtotal": { "type": "number", "minimum": 0 },
+        "contingency_cost": { "type": "number", "minimum": 0 },
+        "overhead_cost": { "type": "number", "minimum": 0 },
+        "profit_cost": { "type": "number", "minimum": 0 },
+        "tax_cost": { "type": "number", "minimum": 0 },
+        "line_items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/line_item_cost" }
+        }
+      }
+    },
+    "line_item_cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "description", "unit", "quantity", "unit_cost", "cost"],
+      "properties": {
+        "code": { "type": "string" },
+        "description": { "type": "string" },
+        "unit": {
+          "type": "string",
+          "enum": ["ea", "lf", "sf", "sy", "cf", "cy", "sq", "ton", "lb", "hr", "day"]
+        },
+        "quantity": { "type": "number", "minimum": 0 },
+        "waste_pct": { "type": "number", "minimum": 0, "maximum": 1 },
+        "unit_cost": { "type": "number", "minimum": 0 },
+        "labor_pct": { "type": "number", "minimum": 0, "maximum": 1, "description": "portion of unit_cost that is labor" },
+        "material_pct": { "type": "number", "minimum": 0, "maximum": 1, "description": "portion of unit_cost that is material" },
+        "cost": { "type": "number", "minimum": 0 },
+        "vendor_quote_ref": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

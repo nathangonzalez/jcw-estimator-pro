@@ -1,53 +1,52 @@
 {
-  "endpoint": "/v1/estimate",
-  "method": "POST",
-  "request": {
-    "type": "object",
-    "required": ["area_sqft"],
-    "properties": {
-      "area_sqft": { "type": "number", "exclusiveMinimum": 0 },
-      "bedrooms": { "type": "integer", "minimum": 0 },
-      "bathrooms": { "type": "number", "minimum": 0 },
-      "quality": { "type": "string", "enum": ["standard", "premium", "lux"] },
-      "complexity": { "type": "integer", "minimum": 1, "maximum": 5 },
-      "location_zip": { "type": "string" },
-      "features": { "type": "object", "additionalProperties": { "type": "boolean" } },
-      "blueprint": {
-        "type": "object",
-        "properties": {
-          "scale": { "type": "string" },
-          "sheet_name": { "type": "string" },
-          "measured": {
-            "type": "object",
-            "additionalProperties": { "type": "number" }
+  "openapi": "3.0.3",
+  "info": { "title": "JCW Estimator API", "version": "1.0.0" },
+  "paths": {
+    "/v1/estimate": {
+      "post": {
+        "summary": "Estimate costs (dual-shape: legacy or M01)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["area_sqft", "quality", "complexity"],
+                  "properties": {
+                    "area_sqft": { "type": "number" },
+                    "quality": { "type": "string" },
+                    "complexity": { "type": "string" }
+                  }
+                },
+                {
+                  "type": "object",
+                  "required": ["quantities"],
+                  "properties": {
+                    "project_id": { "type": "string" },
+                    "quantities": { "$ref": "../../schemas/trade_quantities.schema.json" },
+                    "region": { "type": "string" },
+                    "policy": { "type": "string" },
+                    "unit_costs_csv": { "type": "string" },
+                    "vendor_quotes_csv": { "type": "string" }
+                  },
+                  "additionalProperties": true
+                }
+              ]}}
+            }
           }
         },
-        "additionalProperties": false
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "../../schemas/estimate_response.schema.json" }
+              }
+            }
+          }
+        }
       }
-    },
-    "additionalProperties": false
-  },
-  "response": {
-    "type": "object",
-    "required": ["total_cost", "breakdown", "confidence", "model_version", "assumptions"],
-    "properties": {
-      "total_cost": { "type": "number" },
-      "breakdown": {
-        "type": "object",
-        "required": ["structure", "finishes", "systems", "sitework", "overhead_profit"],
-        "properties": {
-          "structure": { "type": "number" },
-          "finishes": { "type": "number" },
-          "systems": { "type": "number" },
-          "sitework": { "type": "number" },
-          "overhead_profit": { "type": "number" }
-        },
-        "additionalProperties": false
-      },
-      "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
-      "model_version": { "type": "string" },
-      "assumptions": { "type": "array", "items": { "type": "string" } }
-    },
-    "additionalProperties": false
+    }
   }
 }

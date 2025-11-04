@@ -1,0 +1,11 @@
+feat(m01-schemas): add authoritative v0 schemas + dual-shape /v1/estimate (sync-only)
+
+- Add schemas: trade_quantities.schema.json, estimate_response.schema.json, pricing_policy.v0.yaml
+- Add data: quantities.sample.json (conformant)
+- Add openapi/contracts/estimate.v1.contract.json (dual-shape request)
+- Update web/backend/schemas.py (request shim + response models)
+- Update app_comprehensive.py (stub handler + legacy warning)
+- Add tests/contract/test_estimate_v1_contract.py (no-run)
+- Update output/AGENT_SYNC.md, output/CLINE_STATUS.json
+
+No execution; guarded by approvals/EXEC_OK.

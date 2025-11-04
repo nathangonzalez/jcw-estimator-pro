@@ -1,0 +1,112 @@
+{
+  "version": "v0",
+  "meta": {
+    "project_id": "LYNN-001",
+    "source": "manual_takeoff",
+    "plan_path": "C:/Users/natha/OneDrive/Aquisition Lab/Deals/JC Welton/Post Day 1 Ops/Estimating/Lynn/251020_291 SOD - Building Permit Set.pdf",
+    "notes": "Initial seed; refine with vendor quotes and AI takeoff deltas."
+  },
+  "trades": {
+    "concrete": {
+      "scope_notes": "Slab on grade with thickened edges; include footings.",
+      "items": [
+        {
+          "code": "03-3000-SLAB",
+          "description": "Slab on grade (4in)",
+          "unit": "cy",
+          "quantity": 86.5,
+          "waste_pct": 0.05,
+          "takeoff_ref": "A1.2/SOG",
+          "tags": ["slab", "sog"]
+        },
+        {
+          "code": "03-1000-FOOTING",
+          "description": "Continuous footing",
+          "unit": "cy",
+          "quantity": 42.0,
+          "waste_pct": 0.05,
+          "takeoff_ref": "S2.1/FTG",
+          "tags": ["footing"]
+        }
+      ]
+    },
+    "framing": {
+      "scope_notes": "Wood studs, exterior and interior partitions; OSB sheathing.",
+      "items": [
+        {
+          "code": "06-1000-STUD",
+          "description": "2x6 exterior studs",
+          "unit": "lf",
+          "quantity": 2100,
+          "waste_pct": 0.07,
+          "takeoff_ref": "A4.x/WALL-SCHED"
+        },
+        {
+          "code": "06-1600-SHEATH",
+          "description": "7/16\" OSB wall sheathing",
+          "unit": "sf",
+          "quantity": 3400,
+          "waste_pct": 0.05,
+          "takeoff_ref": "A5.x/EXT-ELEV"
+        }
+      ]
+    },
+    "plumbing": {
+      "items": [
+        {
+          "code": "22-1000-FIXTURE",
+          "description": "Plumbing fixtures (allowance)",
+          "unit": "ea",
+          "quantity": 24,
+          "waste_pct": 0.0,
+          "takeoff_ref": "P1.1/FIXTURE-SCHED"
+        }
+      ]
+    },
+    "electrical": {
+      "items": [
+        {
+          "code": "26-5100-RECEPT",
+          "description": "Standard receptacles",
+          "unit": "ea",
+          "quantity": 165,
+          "waste_pct": 0.0,
+          "takeoff_ref": "E1.3/RECP-PLAN"
+        },
+        {
+          "code": "26-5200-LIGHT",
+          "description": "Light fixtures (allowance)",
+          "unit": "ea",
+          "quantity": 95,
+          "waste_pct": 0.0,
+          "takeoff_ref": "E2.x/LIGHT-SCHED"
+        }
+      ]
+    },
+    "hvac": {
+      "items": [
+        {
+          "code": "23-3700-REG-RTU",
+          "description": "Residential HVAC equipment (allowance)",
+          "unit": "ea",
+          "quantity": 2,
+          "waste_pct": 0.0,
+          "takeoff_ref": "M1.1/MECH-SCHED"
+        }
+      ]
+    },
+    "finishes": {
+      "scope_notes": "Baseline finishes package; see selections.",
+      "items": [
+        {
+          "code": "09-3000-TILE",
+          "description": "Ceramic tile (areas per finish plan)",
+          "unit": "sf",
+          "quantity": 680,
+          "waste_pct": 0.08,
+          "takeoff_ref": "A8.1/FINISH-LEG"
+        }
+      ]
+    }
+  }
+}

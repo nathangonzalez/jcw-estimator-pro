@@ -1,40 +1,40 @@
-# Supervised Execution - Awaiting Approval
+# Supervised Remediation — Awaiting Approval (No-Run)
 
-## Status: PAUSED (Approval Required)
+## Status: PAUSED (Approval Gate)
 
-The supervised execution session is paused because the approval file `/approvals/EXEC_OK` is not present in the repository.
+Remediation files have been staged and pushed. Execution is paused until explicit approval to proceed with installs/tests.
 
-## What Requires Approval
+- Last commit: 0d75f15 (feat(testing): fix smoke JSON and add Playwright toolchain)
+- Gate file: /approvals/EXEC_OK (reuse existing gate)
 
-- **UAT Smoke Test**: Execute FastAPI smoke test for `/v1/estimate` endpoint (1 request)
-- **Playwright E2E Test**: Run Playwright end-to-end test suite or simulation
+## What will run on approval
 
-## Requested Approval Criteria
+1) Install Playwright dependencies (supervised)
+   pwsh -File scripts/install_playwright.ps1
 
-To approve execution, create an empty file at `/approvals/EXEC_OK` that contains no content.
+2) Start API locally if not already running (supervised)
+   # Adjust entrypoint as needed; example:
+   # uvicorn web.backend.app:app --reload
 
-## Risk Assessment
+3) Run UAT smoke and capture logs
+   pwsh -File scripts/smoke_estimate_v1.ps1 | Tee-Object -FilePath output/SMOKE_STDOUT.log
 
-### Executions Planned (if approved):
-1. Start FastAPI server (5-10 seconds)
-2. Send 1 POST request to `/v1/estimate`
-3. Run Playwright E2E tests (or fallback simulation)
-4. Process cleanup and teardown
+4) Run E2E headless and export HTML report
+   npm run e2e || true
+   npx playwright show-report --output output/playwright-report > output/PLAYWRIGHT_SUMMARY.md 2>&1
 
-### Risk Mitigation:
-- Limited to 1 smoke request (no load testing)
-- Server started on non-standard port to avoid conflicts
-- Maximum execution time capped at 30 seconds per phase
-- Immediate process cleanup after completion
-- No production data affected
+## Expected Artifacts
+- output/SMOKE_STDOUT.log
+- output/SMOKE_ESTIMATE_RUN.md and output/SMOKE_ESTIMATE_RUN.json
+- output/PLAYWRIGHT_SUMMARY.md
+- output/playwright-report/**
+- output/EXEC_AUDIT.md (append “Remediation Run” section with pass/fail)
 
-## Next Steps
+## Approval Instructions
+- Ensure /approvals/EXEC_OK exists (reuse is acceptable)
+- Then confirm “approve run” to proceed with supervised execution
+- All actions and results will be written to /output and committed incrementally
 
-1. **Review planned executions** in `output/EXEC_PLAN.md` and `output/SMOKE_EXEC_PLAN.md`
-2. **Verify environment** in `output/ENV_SNAPSHOT.md`
-3. **Create approval file** if execution should proceed
-4. **The session will resume** automatically when approval is granted
-
----
-
-**Approval Gate**: Blocking progression until `/approvals/EXEC_OK` exists.
+## Notes
+- No installs or tests will run until approval is confirmed
+- Scope is limited to a single smoke request and a headless E2E run

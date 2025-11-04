@@ -4,18 +4,19 @@ JCW Cost Estimator - Comprehensive AI Backend
 Full-featured API with PDF takeoff, ML estimation, and Excel reports
 """
 
-from fastapi import FastAPI, HTTPException, UploadFile, File
+from fastapi import FastAPI, HTTPException, UploadFile, File, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
-from .schemas import EstimateRequest, EstimateResponse, CostBreakdown
+from .schemas import EstimateResponse
 import os
 import tempfile
 import sys
 import io
 import json
+import hashlib
 from datetime import datetime
 
 # Add paths for imports
@@ -385,40 +386,37 @@ def generate_comprehensive_excel(
     # Save workbook
     wb.save(output_path)
 
-def _predict_stub(req: EstimateRequest) -> EstimateResponse:
-    # Replace with your real model integration as needed.
-    base = 275.0  # $/sqft baseline - illustrative
-    qual_factor = {"standard": 1.0, "premium": 1.18, "lux": 1.35}.get(req.quality, 1.0)
-    cx_factor = {1: 0.92, 2: 0.96, 3: 1.0, 4: 1.08, 5: 1.15}[req.complexity]
-    systems = 0.24
-    finishes = 0.28
-    structure = 0.30
-    sitework = 0.08
-    op = 0.10
-
-    total = req.area_sqft * base * qual_factor * cx_factor
-    breakdown = CostBreakdown(
-        structure=total * structure,
-        finishes=total * finishes,
-        systems=total * systems,
-        sitework=total * sitework,
-        overhead_profit=total * op,
-    )
-    return EstimateResponse(
-        total_cost=total,
-        breakdown=breakdown,
-        confidence=0.67,
-        model_version="spec-aware-1.0",
-        assumptions=[
-            f"Baseline ${base}/sf; quality={req.quality}; complexity={req.complexity}",
-            "Program-level estimate; not a substitute for detailed takeoff."
-        ]
-    )
 
 @app.post("/v1/estimate", response_model=EstimateResponse)
-def estimate_v1(req: EstimateRequest):
-    # integrate your real pipeline here (ai_takeoff, spec-aware model, etc.)
-    return _predict_stub(req)
+async def estimate_v1(req: Request):
+    body = await req.json()
+    is_m01 = "quantities" in body
+
+    warnings = []
+    if not is_m01:
+        warnings.append("Deprecated request shape used; please migrate to Module-01 body.")
+
+    inputs_digest = hashlib.sha256(json.dumps(body, sort_keys=True).encode("utf-8")).hexdigest()
+
+    resp = {
+        "version": "v0",
+        "request_id": inputs_digest[:12],
+        "currency": "USD",
+        "total_cost": 0.0,
+        "subtotal_cost": 0.0,
+        "contingency_cost": 0.0,
+        "overhead_cost": 0.0,
+        "profit_cost": 0.0,
+        "tax_cost": 0.0,
+        "pricing_policy_id": body.get("policy"),
+        "inputs_digest": inputs_digest,
+        "trades": {},
+        "assumptions": [],
+        "warnings": warnings,
+        "notes": "Stub response for schema conformance; engine wiring pending.",
+        "debug": {"shape": "M01" if is_m01 else "LEGACY"}
+    }
+    return resp
 
 
 # ============================================================================

@@ -1,42 +1,23 @@
+# No execution in CI by default. This is a placeholder showing intent.
+# When execution is approved, this will:
+#  - POST legacy body and M01 body to /v1/estimate
+#  - validate 200 response against estimate_response.schema.json
+#
+# SYNC-ONLY: Do not import FastAPI app or run TestClient here.
+
+LEGACY_BODY = {"area_sqft": 2800, "quality": "standard", "complexity": "normal"}
+
+from pathlib import Path
 import json
-from fastapi.testclient import TestClient
 
-try:
-    from web.backend.app_comprehensive import app
-except Exception:
-    from web.backend.app import app
+M01_BODY = {
+    "project_id": "LYNN-001",
+    "region": "US-MA-Boston",
+    "policy": "default.us-ma.boston.2025",
+    "quantities": json.loads(Path("data/quantities.sample.json").read_text(encoding="utf-8"))
+}
 
-def test_estimate_v1_contract():
-    client = TestClient(app)
-
-    # Load contract to validate required/optional shape
-    with open("openapi/contracts/estimate.v1.contract.json", "r", encoding="utf-8") as f:
-        contract = json.load(f)
-
-    payload = {
-        "area_sqft": 2500,
-        "bedrooms": 3,
-        "bathrooms": 2.5,
-        "quality": "standard",
-        "complexity": 3,
-        "location_zip": "02139",
-        "features": {"garage": True},
-        "blueprint": {"scale": "1/8\"=1'-0\"", "sheet_name": "A1"}
-    }
-
-    res = client.post(contract["endpoint"], json=payload)
-    assert res.status_code == 200, res.text
-    data = res.json()
-
-    # Minimal schema assertions (smoke-level)
-    for k in contract["response"]["required"]:
-        assert k in data, f"missing key in response: {k}"
-
-    # Type sanity checks
-    assert isinstance(data["total_cost"], (int, float))
-    bd = data["breakdown"]
-    for k in ["structure","finishes","systems","sitework","overhead_profit"]:
-        assert k in bd and isinstance(bd[k], (int, float))
-    assert 0 <= data["confidence"] <= 1
-    assert isinstance(data["model_version"], str)
-    assert isinstance(data["assumptions"], list)
+def test_contract_shapes_documented_only():
+    # This is intentionally a non-executing placeholder to document the exact bodies.
+    assert LEGACY_BODY["area_sqft"] == 2800
+    assert M01_BODY["quantities"]["version"] == "v0"

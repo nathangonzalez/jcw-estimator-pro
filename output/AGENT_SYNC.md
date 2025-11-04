@@ -29,3 +29,27 @@
 - phase: task4
 - commit_sha: fb5025c
 - state: completed
+
+---
+
+## Module 1 (SYNC-ONLY)
+- Added authoritative v0 schemas and M01 sample quantities
+- Documented dual-shape contract for /v1/estimate (legacy + M01)
+- Stubbed response models and non-executing contract test
+- Updated Big Picture design doc
+- No execution performed; awaiting approval gate for runtime tests
+
+Artifacts
+- schemas/trade_quantities.schema.json
+- schemas/estimate_response.schema.json
+- schemas/pricing_policy.v0.yaml
+- data/quantities.sample.json
+- openapi/contracts/estimate.v1.contract.json
+- web/backend/schemas.py
+- web/backend/app_comprehensive.py
+- tests/contract/test_estimate_v1_contract.py
+- docs/JCW_SUITE_BIGPICTURE.md
+
+### Module 1 — SYNC Complete
+- Commit performed; see git log for SHA.
+- Artifacts updated as listed above.

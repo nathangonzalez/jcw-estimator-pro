@@ -1,33 +1,70 @@
-from typing import Dict, List, Optional
-from pydantic import BaseModel, Field, conint, confloat
+from typing import Optional, Dict, Any, List
+from pydantic import BaseModel, Field
 
-# ---- Request ----
-class BlueprintAnalysis(BaseModel):
-    scale: Optional[str] = Field(None, description="e.g. 1/8\"=1'-0\" or 1:100")
-    sheet_name: Optional[str] = None
-    measured: Optional[Dict[str, float]] = Field(default=None, description="Key dimensional takeoffs in real units")
+# Legacy body
+class LegacyEstimateRequest(BaseModel):
+    area_sqft: float
+    quality: str
+    complexity: str
+
+# Module 01 body
+class QuantitiesBody(BaseModel):
+    version: str = Field(..., pattern="^v0$")
+    meta: Optional[Dict[str, Any]] = None
+    trades: Dict[str, Any]
+
+class M01EstimateRequest(BaseModel):
+    project_id: Optional[str] = None
+    quantities: QuantitiesBody
+    region: Optional[str] = None
+    policy: Optional[str] = None
+    unit_costs_csv: Optional[str] = None
+    vendor_quotes_csv: Optional[str] = None
 
 class EstimateRequest(BaseModel):
-    area_sqft: confloat(gt=0) = Field(..., description="Total conditioned floor area in square feet")
-    bedrooms: conint(ge=0) = 0
-    bathrooms: confloat(ge=0) = 0
-    quality: str = Field("standard", description="one of: standard|premium|lux")
-    complexity: conint(ge=1, le=5) = 3
-    location_zip: Optional[str] = Field(None, description="US ZIP for regional factors")
-    features: Optional[Dict[str, bool]] = Field(default=None, description="Feature flags, e.g. {'garage': true}")
-    blueprint: Optional[BlueprintAnalysis] = None
+    """
+    Dual-shape shim. If `quantities` present -> treat as M01; else fall back to Legacy.
+    """
+    # Accept arbitrary keys; validate shape at runtime in route handler.
+    __root__: Dict[str, Any]
 
-# ---- Response ----
-class CostBreakdown(BaseModel):
-    structure: float
-    finishes: float
-    systems: float
-    sitework: float
-    overhead_profit: float
+# Response (skeleton aligning to estimate_response.schema.json v0)
+class LineItemCost(BaseModel):
+    code: str
+    description: str
+    unit: str
+    quantity: float
+    unit_cost: float
+    cost: float
+    waste_pct: Optional[float] = None
+    labor_pct: Optional[float] = None
+    material_pct: Optional[float] = None
+    vendor_quote_ref: Optional[str] = None
+    notes: Optional[str] = None
+
+class TradeBreakdown(BaseModel):
+    subtotal: float
+    contingency_cost: Optional[float] = 0
+    overhead_cost: Optional[float] = 0
+    profit_cost: Optional[float] = 0
+    tax_cost: Optional[float] = 0
+    line_items: List[LineItemCost] = []
 
 class EstimateResponse(BaseModel):
+    version: str = "v0"
+    request_id: str
+    model_version: Optional[str] = None
+    currency: str = "USD"
     total_cost: float
-    breakdown: CostBreakdown
-    confidence: confloat(ge=0, le=1) = 0.65
-    model_version: str = "spec-aware-1.0"
+    subtotal_cost: Optional[float] = 0
+    contingency_cost: Optional[float] = 0
+    overhead_cost: Optional[float] = 0
+    profit_cost: Optional[float] = 0
+    tax_cost: Optional[float] = 0
+    pricing_policy_id: Optional[str] = None
+    inputs_digest: Optional[str] = None
+    trades: Dict[str, TradeBreakdown] = {}
     assumptions: List[str] = []
+    warnings: List[str] = []
+    notes: Optional[str] = None
+    debug: Optional[Dict[str, Any]] = None
