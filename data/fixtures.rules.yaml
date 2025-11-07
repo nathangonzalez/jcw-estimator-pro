@@ -1,0 +1,33 @@
+# Starter regex→trade/item mapping for simple fixture detection.
+# Order matters: first match wins.
+rules:
+  - pattern: '(?i)\bwater closet\b|\btoilet\b|\bwc\b'
+    trade: plumbing
+    item: toilet
+    unit: ea
+    qty: 1
+  - pattern: '(?i)\blav(atory)?\b|\bsink\b'
+    trade: plumbing
+    item: lavatory_sink
+    unit: ea
+    qty: 1
+  - pattern: '(?i)\bshower\b'
+    trade: plumbing
+    item: shower
+    unit: ea
+    qty: 1
+  - pattern: '(?i)\bbath(tub)?\b'
+    trade: plumbing
+    item: bathtub
+    unit: ea
+    qty: 1
+  - pattern: '(?i)\bhose bibb?\b|\bhose bib\b'
+    trade: plumbing
+    item: hose_bibb
+    unit: ea
+    qty: 1
+  - pattern: '(?i)\bfloor drain\b'
+    trade: plumbing
+    item: floor_drain
+    unit: ea
+    qty: 1

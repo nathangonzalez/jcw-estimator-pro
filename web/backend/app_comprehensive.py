@@ -6,7 +6,7 @@ Full-featured API with PDF takeoff, ML estimation, and Excel reports
 
 from fastapi import FastAPI, HTTPException, UploadFile, File, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse
+from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
@@ -401,6 +401,18 @@ async def estimate_v1(req: Request):
         policy_yaml = body.get("policy")  # may be inline YAML or a file path
         unit_costs_csv = body.get("unit_costs_csv")
         vendor_quotes_csv = body.get("vendor_quotes_csv")
+
+        # Strict M01 v0 validation when a dict-shaped quantities object is provided
+        if isinstance(raw_quantities, dict):
+            try:
+                with open("schemas/trade_quantities.schema.json", "r", encoding="utf-8") as _f:
+                    _schema = json.load(_f)
+                jsonschema.Draft202012Validator(_schema).validate(raw_quantities)
+            except Exception as e:
+                return JSONResponse(
+                    status_code=422,
+                    content={"error": "quantities_not_conformant_v0", "detail": str(e)}
+                )
 
         # Support M01 v0 schema object: {"version":"v0","trades":{...}}
         quantities = raw_quantities

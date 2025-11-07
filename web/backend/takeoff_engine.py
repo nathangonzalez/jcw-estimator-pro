@@ -6,6 +6,13 @@ from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple
 
 from .blueprint_parsers.pdf_titleblock import find_scale_strings, normalize_scale
+from pathlib import Path
+import re
+try:
+    import yaml
+    _HAVE_YAML = True
+except Exception:
+    _HAVE_YAML = False
 
 # Optional imports guarded for determinism
 try:
@@ -44,6 +51,7 @@ class PdfMeta:
 class TakeoffEngine:
     def __init__(self, max_pages: int = 3) -> None:
         self.max_pages = max_pages
+        self.rules_path = Path("data/fixtures.rules.yaml")
 
     # -------------------- LOADING --------------------
 
@@ -185,17 +193,62 @@ class TakeoffEngine:
         slab_sf = float(page_count) * 1200.0
         return wall_lf, slab_sf
 
-    # -------------------- FIXTURE KEYWORDS --------------------
+# -------------------- FIXTURE DETECTION (rules + keywords) --------------------
+
+    def _load_rules(self) -> List[Dict[str, Any]]:
+        if _HAVE_YAML and self.rules_path.exists():
+            try:
+                with open(self.rules_path, "r", encoding="utf-8") as f:
+                    doc = yaml.safe_load(f) or {}
+                    rules = doc.get("rules", [])
+                    if isinstance(rules, list):
+                        return rules
+            except Exception:
+                pass
+        return []
+
+    def detect_fixture_rules(self, text_blob: str) -> List[Dict[str, Any]]:
+        """
+        Very simple regex-driven detection → list of {trade,item,unit,qty}.
+        First-match-wins per rule; multiple rules may match.
+        """
+        results: List[Dict[str, Any]] = []
+        rules = self._load_rules()
+        src = text_blob or ""
+        for rule in rules:
+            pat = rule.get("pattern")
+            if not pat:
+                continue
+            try:
+                if re.search(pat, src, flags=re.IGNORECASE):
+                    results.append({
+                        "trade": rule.get("trade", "misc"),
+                        "item": rule.get("item", "unknown"),
+                        "unit": str(rule.get("unit", "ea")).lower(),
+                        "qty": float(rule.get("qty", 1) or 0)
+                    })
+            except Exception:
+                # ignore bad patterns
+                continue
+        return results
+
+# -------------------- FIXTURE KEYWORDS --------------------
 
     def detect_fixtures(self, pages_text: List[str]) -> Dict[str, Any]:
-        text = ("\n".join(pages_text or [])).lower()
+        blob = "\n".join(pages_text or [])
+        text = blob.lower()
         keywords = ["fixtures", "toilet", "sink", "lav", "lavatory", "shower", "bath", "wh", "hose bibb"]
         total = 0
         for kw in keywords:
             total += text.count(kw)
-        signals = ["legend:fixtures:found"] if total > 0 else []
-        _log(f"[F2] detect_fixtures: count={total}")
-        return {"fixtures": int(total), "signals": signals}
+        rule_hits = self.detect_fixture_rules(blob)
+        signals = []
+        if total > 0:
+            signals.append("legend:fixtures:found")
+        if rule_hits:
+            signals.append("fixtures:rules:matched")
+        _log(f"[F2] detect_fixtures: count={total}; rules={len(rule_hits)}")
+        return {"fixtures": int(total), "signals": signals, "rule_hits": rule_hits}
 
     # -------------------- QUANTITIES BUILDER --------------------
 
@@ -230,6 +283,18 @@ class TakeoffEngine:
             "quantity": max(0, int(fixtures.get("fixtures", 0))),
             "notes": "Derived via F2 keyword heuristics"
         }]
+        # Add rule-driven fixture items (if any)
+        for hit in (fixtures.get("rule_hits") or []):
+            try:
+                items_plumbing.append({
+                    "code": str(hit.get("item", "fixture")),
+                    "description": "Fixture (rule match)",
+                    "unit": str(hit.get("unit", "ea")).lower(),
+                    "quantity": float(hit.get("qty", 1) or 0),
+                    "notes": f"Detected by fixtures.rules: {hit.get('trade','plumbing')}/{hit.get('item','')}"
+                })
+            except Exception:
+                continue
 
         meta_notes = ["Derived via F2 heuristics"]
         signals = []
