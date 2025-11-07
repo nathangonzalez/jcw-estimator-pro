@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VendorQuoteRowV0",
+  "type": "object",
+  "required": ["vendor", "trade", "item", "unit", "qty"],
+  "properties": {
+    "vendor": { "type": "string" },
+    "trade": { "type": "string" },
+    "item": { "type": "string" },
+    "description": { "type": "string" },
+    "unit": { "type": "string" },
+    "qty": { "type": "number", "minimum": 0 },
+    "unit_cost": { "type": ["number", "null"], "minimum": 0 },
+    "line_total": { "type": ["number", "null"], "minimum": 0 },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": true
+}

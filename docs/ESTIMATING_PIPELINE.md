@@ -82,3 +82,10 @@ Goal: robust, small, deterministic takeoff with clear logging and runtime valida
 - F2+: Improve geometry classification/filters
 - F3: Enrich trades and mapping to pricing codes
 - F4: Interactive plan viewer integrations (optional)
+
+## Vendor Quote Comparison (LYNN pilot)
+1) Run pipeline smoke to produce `output/PIPELINE_ESTIMATE_RESPONSE.json`.
+2) Place vendor PDFs under `data/vendor_quotes/LYNN-001/*/raw/`, run the parser to produce `parsed/` JSON, then `normalized/` CSV.
+3) Aggregate all normalized CSVs → `data/vendor_quotes/LYNN-001/quotes.canonical.csv`.
+4) Run `pwsh -File scripts/compare_lynn_quotes.ps1`.
+5) Review `output/LYNN-001/compare/report.csv` and update policy/unit_costs as needed.

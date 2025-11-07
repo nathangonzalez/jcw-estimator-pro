@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VendorQuotesCanonicalV0",
+  "type": "object",
+  "required": ["project_id", "rows"],
+  "properties": {
+    "project_id": { "type": "string" },
+    "rows": {
+      "type": "array",
+      "items": { "$ref": "./vendor_quote_row.schema.json" }
+    }
+  }
+}
