@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jcw/specs/schemas/takeoff_request.schema.json",
+  "title": "JCW Takeoff Request (v1)",
+  "description": "Request body for /v1/takeoff supporting either a file path or a base64-encoded PDF",
+  "type": "object",
+  "oneOf": [
+    {
+      "title": "Path-based request",
+      "type": "object",
+      "required": ["project_id", "pdf_path"],
+      "additionalProperties": false,
+      "properties": {
+        "project_id": { "type": "string" },
+        "pdf_path": { "type": "string", "description": "Local path to a PDF on the server filesystem" }
+      }
+    },
+    {
+      "title": "Base64 request",
+      "type": "object",
+      "required": ["project_id", "pdf_base64"],
+      "additionalProperties": false,
+      "properties": {
+        "project_id": { "type": "string" },
+        "pdf_base64": { "type": "string", "description": "Base64-encoded PDF data" }
+      }
+    }
+  ]
+}

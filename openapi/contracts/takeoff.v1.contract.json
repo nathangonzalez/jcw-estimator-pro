@@ -1,0 +1,31 @@
+{
+  "openapi": "3.0.3",
+  "info": { "title": "JCW Takeoff API", "version": "1.0.0" },
+  "paths": {
+    "/v1/takeoff": {
+      "post": {
+        "summary": "Minimal PDF plan reader → v0 quantities",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "../../schemas/takeoff_request.schema.json" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "v0-conformant trade quantities document",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "../../schemas/takeoff_response.schema.json" }
+              }
+            }
+          },
+          "400": { "description": "invalid request" },
+          "422": { "description": "validation failed" }
+        }
+      }
+    }
+  }
+}

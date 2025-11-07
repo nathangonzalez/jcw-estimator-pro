@@ -1,0 +1,12 @@
+NO SAMPLE PDF COMMITTED
+
+Place a local plan PDF at:
+  data/blueprints/LYNN-001.sample.pdf
+
+Then run the takeoff smoke:
+  pwsh -File scripts/smoke_takeoff_v1.ps1
+
+Notes:
+- This repository does not include real client drawings.
+- The /v1/takeoff endpoint will read the above path when present.
+- Server logs extraction steps to: output/TAKEOFF_RUN.log

@@ -19,6 +19,8 @@ import json
 import hashlib
 from datetime import datetime
 from .pricing_engine import price_quantities
+from .takeoff_engine import TakeoffEngine
+import jsonschema
 
 # Add paths for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
@@ -393,11 +395,52 @@ async def estimate_v1(req: Request):
     body = await req.json()
     # Prefer M01 when quantities present
     if "quantities" in body:
-        quantities = body.get("quantities") or []
+        raw_quantities = body.get("quantities") or []
         region = body.get("region")
-        policy_yaml = body.get("policy")  # optional inline YAML
+        policy_yaml = body.get("policy")  # may be inline YAML or a file path
         unit_costs_csv = body.get("unit_costs_csv")
         vendor_quotes_csv = body.get("vendor_quotes_csv")
+
+        # Support M01 v0 schema object: {"version":"v0","trades":{...}}
+        quantities = raw_quantities
+        if isinstance(raw_quantities, dict) and raw_quantities.get("version") == "v0" and "trades" in raw_quantities:
+            flat_items = []
+            try:
+                for trade, tdata in (raw_quantities.get("trades") or {}).items():
+                    for it in (tdata.get("items") or []):
+                        flat_items.append({
+                            "trade": trade,
+                            "code": it.get("code", ""),
+                            "description": it.get("description", ""),
+                            "uom": (it.get("unit") or "EA").upper(),
+                            "qty": float(it.get("quantity", 0) or 0),
+                            "notes": it.get("notes"),
+                        })
+                quantities = flat_items
+            except Exception as _:
+                quantities = []
+
+        # If CSV or policy provided as file paths, load file contents
+        if isinstance(unit_costs_csv, str) and os.path.exists(unit_costs_csv):
+            try:
+                with open(unit_costs_csv, "r", encoding="utf-8") as f:
+                    unit_costs_csv = f.read()
+            except Exception:
+                pass
+
+        if isinstance(vendor_quotes_csv, str) and os.path.exists(vendor_quotes_csv):
+            try:
+                with open(vendor_quotes_csv, "r", encoding="utf-8") as f:
+                    vendor_quotes_csv = f.read()
+            except Exception:
+                pass
+
+        if isinstance(policy_yaml, str) and os.path.exists(policy_yaml):
+            try:
+                with open(policy_yaml, "r", encoding="utf-8") as f:
+                    policy_yaml = f.read()
+            except Exception:
+                pass
 
         result = price_quantities(
             quantities=quantities,
@@ -471,6 +514,56 @@ async def health_check():
             "excel_reports": EXCEL_AVAILABLE
         }
     }
+
+@app.post("/v1/takeoff")
+async def takeoff_v1(req: Dict[str, Any]):
+    """
+    Minimal PDF plan reader → v0 quantities (schemas/trade_quantities.schema.json)
+    Accepts either:
+      A) {"project_id": "...", "pdf_path": "path/to.pdf"}
+      B) {"project_id": "...", "pdf_base64": "<base64>"}
+    Logs steps to output/TAKEOFF_RUN.log and validates output at runtime.
+    """
+    # Logging helper (local)
+    def _log(msg: str) -> None:
+        try:
+            os.makedirs("output", exist_ok=True)
+            with open("output/TAKEOFF_RUN.log", "a", encoding="utf-8") as f:
+                f.write(msg.rstrip() + "\n")
+        except Exception:
+            pass
+
+    project_id = (req or {}).get("project_id")
+    pdf_path = (req or {}).get("pdf_path")
+    pdf_b64 = (req or {}).get("pdf_base64")
+
+    if not project_id or not (pdf_path or pdf_b64):
+        raise HTTPException(status_code=400, detail="project_id and one of pdf_path|pdf_base64 are required")
+
+    try:
+        eng = TakeoffEngine(max_pages=3)
+        _log("[F2] /v1/takeoff: start")
+        meta, pages, pages_text = eng.load_pdf(pdf_path=pdf_path, pdf_base64=pdf_b64)
+        meta.project_id = project_id
+
+        scale = eng.detect_scale(pages_text)
+        geom = eng.extract_geometry(pages)
+        fixtures = eng.detect_fixtures(pages_text)
+
+        quantities_v0 = eng.to_quantities(project_id, meta, geom, fixtures, scale)
+
+        # Runtime validation against authoritative v0 schema
+        with open("schemas/trade_quantities.schema.json", "r", encoding="utf-8") as f:
+            schema = json.load(f)
+        jsonschema.validate(instance=quantities_v0, schema=schema)
+
+        _log("[F2] /v1/takeoff: success")
+        return quantities_v0
+    except HTTPException:
+        raise
+    except Exception as e:
+        _log(f"[F2] /v1/takeoff: error {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/comprehensive-estimate")
 async def comprehensive_estimate(

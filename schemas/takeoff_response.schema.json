@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jcw/specs/schemas/takeoff_response.schema.json",
+  "title": "JCW Takeoff Response (v1)",
+  "description": "Response body for /v1/takeoff. This endpoint returns a v0-conformant Trade Quantities document.",
+  "allOf": [
+    { "$ref": "trade_quantities.schema.json" }
+  ]
+}
