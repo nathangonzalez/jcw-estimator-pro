@@ -20,6 +20,7 @@ import hashlib
 from datetime import datetime
 from .pricing_engine import price_quantities
 from .takeoff_engine import TakeoffEngine
+from .plan_reader import extract_plan_features
 import jsonschema
 
 # Add paths for imports
@@ -514,6 +515,30 @@ async def health_check():
             "excel_reports": EXCEL_AVAILABLE
         }
     }
+
+@app.post("/v1/plan/features")
+async def plan_features_v1(req: Dict[str, Any]):
+    """
+    Minimal plan features reader (v0) — extracts doc meta, sheets and scales.
+    Body: {"pdf_path": "path/to.pdf"}
+    """
+    try:
+        pdf_path = (req or {}).get("pdf_path")
+        if not pdf_path or not os.path.exists(pdf_path):
+            raise HTTPException(status_code=400, detail="pdf_path missing or file not found")
+
+        data = extract_plan_features(pdf_path)
+
+        # Runtime validation against authoritative v0 schema
+        with open("schemas/plan_features.schema.json", "r", encoding="utf-8") as f:
+            schema = json.load(f)
+        jsonschema.validate(instance=data, schema=schema)
+
+        return data
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/v1/takeoff")
 async def takeoff_v1(req: Dict[str, Any]):

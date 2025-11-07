@@ -66,3 +66,20 @@ Artifacts (F1):
 - tests/unit/test_pricing_engine.py
 - data/unit_costs.sample.csv
 - data/vendor_quotes.sample.csv
+
+---
+
+## Feature Sprint F2 — Minimal Plan Reader (DEV-FAST)
+- Added minimal plan reader service producing PlanFeaturesV0.
+- New endpoint: POST /v1/plan/features { pdf_path } → PlanFeaturesV0 (runtime-validated).
+- CLI script for local smoke; docs and OpenAPI contract added.
+
+Artifacts (F2):
+- schemas/plan_features.schema.json
+- web/backend/plan_reader.py
+- web/backend/app_comprehensive.py  (added /v1/plan/features)
+- openapi/contracts/plan.features.v1.contract.json
+- scripts/run_plan_reader_local.ps1
+- tests/unit/test_plan_reader.py  (no-run scaffold)
+- data/plan/README.md
+- docs/ESTIMATING_PIPELINE.md (F2 section)

@@ -1,0 +1,36 @@
+{
+  "openapi": "3.0.3",
+  "info": { "title": "JCW Plan Features API", "version": "1.0.0" },
+  "paths": {
+    "/v1/plan/features": {
+      "post": {
+        "summary": "Extract minimal plan features (v0) from a PDF on disk",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["pdf_path"],
+                "properties": {
+                  "pdf_path": { "type": "string", "description": "Absolute or repo-relative path to a PDF" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PlanFeaturesV0 document",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "../../schemas/plan_features.schema.json" }
+              }
+            }
+          },
+          "400": { "description": "file missing or unreadable" }
+        }
+      }
+    }
+  }
+}
