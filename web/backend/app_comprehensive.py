@@ -18,6 +18,7 @@ import io
 import json
 import hashlib
 from datetime import datetime
+from .pricing_engine import price_quantities
 
 # Add paths for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
@@ -390,33 +391,52 @@ def generate_comprehensive_excel(
 @app.post("/v1/estimate", response_model=EstimateResponse)
 async def estimate_v1(req: Request):
     body = await req.json()
-    is_m01 = "quantities" in body
+    # Prefer M01 when quantities present
+    if "quantities" in body:
+        quantities = body.get("quantities") or []
+        region = body.get("region")
+        policy_yaml = body.get("policy")  # optional inline YAML
+        unit_costs_csv = body.get("unit_costs_csv")
+        vendor_quotes_csv = body.get("vendor_quotes_csv")
 
-    warnings = []
-    if not is_m01:
-        warnings.append("Deprecated request shape used; please migrate to Module-01 body.")
+        result = price_quantities(
+            quantities=quantities,
+            policy_yaml=policy_yaml,
+            region=region,
+            unit_costs_csv=unit_costs_csv,
+            vendor_quotes_csv=vendor_quotes_csv,
+        )
+        result.setdefault("warnings", []).append("using_m01_request_shape")
+        return result
 
-    inputs_digest = hashlib.sha256(json.dumps(body, sort_keys=True).encode("utf-8")).hexdigest()
+    # Legacy fallback (simple placeholder) + deprecation warning
+    area = float(body.get("area_sqft", 0.0))
+    quality = str(body.get("quality", "standard"))
+    complexity = str(body.get("complexity", "normal"))
 
-    resp = {
+    baseline = 250.0  # $/sf placeholder
+    quality_factor = {"economy": 0.85, "standard": 1.0, "premium": 1.3}.get(quality, 1.0)
+    complexity_factor = {"simple": 0.9, "normal": 1.0, "complex": 1.2}.get(complexity, 1.0)
+
+    est = round(area * baseline * quality_factor * complexity_factor, 2)
+    return {
         "version": "v0",
-        "request_id": inputs_digest[:12],
-        "currency": "USD",
-        "total_cost": 0.0,
-        "subtotal_cost": 0.0,
-        "contingency_cost": 0.0,
-        "overhead_cost": 0.0,
-        "profit_cost": 0.0,
-        "tax_cost": 0.0,
-        "pricing_policy_id": body.get("policy"),
-        "inputs_digest": inputs_digest,
-        "trades": {},
-        "assumptions": [],
-        "warnings": warnings,
-        "notes": "Stub response for schema conformance; engine wiring pending.",
-        "debug": {"shape": "M01" if is_m01 else "LEGACY"}
+        "policy_id": "legacy_placeholder",
+        "region": "unspecified",
+        "trades": [{"trade": "general", "subtotal": est}],
+        "line_items": [{
+            "trade": "general",
+            "code": "LEGACY",
+            "description": "legacy estimate",
+            "uom": "SF",
+            "qty": area,
+            "unit_cost": round(baseline * quality_factor * complexity_factor, 2),
+            "total": est,
+            "source": "legacy"
+        }],
+        "grand_total": est,
+        "warnings": ["legacy_request_shape_used"]
     }
-    return resp
 
 
 # ============================================================================

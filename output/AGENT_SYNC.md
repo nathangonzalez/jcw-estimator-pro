@@ -53,3 +53,16 @@ Artifacts
 ### Module 1 — SYNC Complete
 - Commit performed; see git log for SHA.
 - Artifacts updated as listed above.
+
+---
+
+## Feature Sprint F1 — Pricing Engine (SYNC-ONLY)
+- Implemented minimal pricing engine and wired /v1/estimate to prefer M01 shape; legacy retained with deprecation warning.
+- Added unit test and sample CSVs; no execution performed.
+
+Artifacts (F1):
+- web/backend/pricing_engine.py
+- web/backend/app_comprehensive.py
+- tests/unit/test_pricing_engine.py
+- data/unit_costs.sample.csv
+- data/vendor_quotes.sample.csv

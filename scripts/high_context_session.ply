@@ -1,0 +1,22 @@
+# Goal: run high-context ingest + summarize (sync-only)
+
+- step: collect
+  do:
+    - scan: schemas/, openapi/contracts/, web/backend/, data/, output/
+    - note: prioritize contracts/schemas first
+
+- step: summarize_and_index
+  out:
+    - /output/CTX_INDEX.json
+    - /output/CTX_SUMMARY.md
+    - /output/TOKEN_POLICY.md
+
+- step: propose_commit
+  out:
+    - message: "chore(context): add high-token session index, summary, and plan (sync-only)"
+    - staged:
+      - prompts/MAXI_SUPERPROMPT.md
+      - scripts/high_context_session.ply
+      - output/CTX_INDEX.json
+      - output/CTX_SUMMARY.md
+      - output/TOKEN_POLICY.md

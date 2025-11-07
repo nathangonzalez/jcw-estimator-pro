@@ -1,0 +1,7 @@
+trade,code,unit_cost
+concrete,FOOTING,180
+concrete,SLAB,8.5
+framing,STUD_WALL,12.25
+plumbing,ROUGH,2500
+electrical,ROUGH,2200
+drywall,HANG_FINISH,2.50

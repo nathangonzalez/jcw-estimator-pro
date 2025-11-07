@@ -1,0 +1,21 @@
+{
+  "generated_at": "2025-11-05T00:00:00Z",
+  "mode": "SYNC_ONLY",
+  "notes": "SHA-256 and byte sizes are placeholders in sync-only mode. Use scripts/audit_m01.ps1 after explicit execution approval to compute real values.",
+  "files": [
+    { "path": "schemas/trade_quantities.schema.json", "size_bytes": null, "sha256": null, "why": "Authoritative v0 quantities schema" },
+    { "path": "schemas/estimate_response.schema.json", "size_bytes": null, "sha256": null, "why": "Authoritative v0 estimate response schema" },
+    { "path": "schemas/pricing_policy.v0.yaml", "size_bytes": null, "sha256": null, "why": "Pricing policy seed (region, markups, resolution order)" },
+    { "path": "data/quantities.sample.json", "size_bytes": null, "sha256": null, "why": "Conformant M01 sample quantities" },
+    { "path": "openapi/contracts/estimate.v1.contract.json", "size_bytes": null, "sha256": null, "why": "Dual-shape request contract + response ref" },
+    { "path": "web/backend/app_comprehensive.py", "size_bytes": null, "sha256": null, "why": "FastAPI app; /v1/estimate shim (legacy+M01)" },
+    { "path": "web/backend/schemas.py", "size_bytes": null, "sha256": null, "why": "Pydantic shims: Legacy, M01, v0 EstimateResponse" },
+    { "path": "tests/contract/test_estimate_v1_contract.py", "size_bytes": null, "sha256": null, "why": "Contract shapes placeholder (no-run)" },
+    { "path": "docs/JCW_SUITE_BIGPICTURE.md", "size_bytes": null, "sha256": null, "why": "Big-picture living document" },
+    { "path": "scripts/audit_m01.ps1", "size_bytes": null, "sha256": null, "why": "Read-only audit script to compute hashes and checks" },
+    { "path": "output/AGENT_SYNC.md", "size_bytes": null, "sha256": null, "why": "Human sync log" },
+    { "path": "output/CLINE_STATUS.json", "size_bytes": null, "sha256": null, "why": "Machine-readable session status" },
+    { "path": "output/M01_ENV.md", "size_bytes": null, "sha256": null, "why": "Repo environment snapshot" },
+    { "path": "output/M01_STATUS.json", "size_bytes": null, "sha256": null, "why": "Module status line per spec" }
+  ]
+}
