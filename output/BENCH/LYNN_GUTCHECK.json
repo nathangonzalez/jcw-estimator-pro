@@ -1,0 +1,59 @@
+{
+  "totals": {
+    "estimate_total": 0.0,
+    "area_sqft": 3600.0,
+    "dollars_per_sf": 0.0
+  },
+  "trade_breakdown": [
+    {
+      "trade": "concrete",
+      "subtotal": 0.0,
+      "pct": 0.0
+    },
+    {
+      "trade": "framing",
+      "subtotal": 0.0,
+      "pct": 0.0
+    },
+    {
+      "trade": "plumbing",
+      "subtotal": 0.0,
+      "pct": 0.0
+    }
+  ],
+  "outliers": [],
+  "coverage": {
+    "expected_trades_present": [
+      "concrete",
+      "framing",
+      "plumbing"
+    ],
+    "missing_trades": [],
+    "pass": true
+  },
+  "sensitivity": {
+    "unit_costs": {
+      "plus10_pct": 0.0,
+      "minus10_pct": 0.0
+    },
+    "waste": {
+      "plus10_pct": 0.0,
+      "minus10_pct": 0.0
+    }
+  },
+  "vendor": null,
+  "bootstrap": {
+    "P50_dollars_per_sf": 0.0,
+    "P90_dollars_per_sf": 0.0,
+    "sigma": 0.075,
+    "samples": 500
+  },
+  "band_provisional": {
+    "p25": 0.0,
+    "p75": 0.0
+  },
+  "band_pass": true,
+  "warnings": [
+    "estimate_total_is_zero"
+  ]
+}
