@@ -1,0 +1,32 @@
+---
+project_types:
+  - SOD
+
+variables:
+  exterior_wall_lf: "area_sqft * 0.08"   # crude perimeter heuristic
+  exterior_wall_sf: "exterior_wall_lf * 10"  # assume 10 ft wall height
+
+assemblies:
+  - trade: siding
+    item: lap_siding
+    unit: SF
+    formula: "exterior_wall_sf"
+    notes: "Heuristic: perimeter * 10 ft height"
+
+  - trade: exterior_paint
+    item: facade_paint
+    unit: SF
+    formula: "exterior_wall_sf"
+    notes: "One coat baseline for facade"
+
+  - trade: roofing
+    item: asphalt_shingles
+    unit: SF
+    formula: "area_sqft * 1.1"
+    notes: "Roof area ~ 1.1x floor area (slope + overhang)"
+
+  - trade: windows
+    item: exterior_windows
+    unit: EA
+    formula: "max(4, fixture_count * 0.1)"
+    notes: "Heuristic: 1 window per 10 fixtures, minimum 4"

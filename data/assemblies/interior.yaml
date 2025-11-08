@@ -1,0 +1,37 @@
+---
+project_types:
+  - SOD
+
+variables:
+  wall_sf: "area_sqft * 0.5"
+
+assemblies:
+  - trade: drywall
+    item: gypsum_board
+    unit: SF
+    formula: "wall_sf"
+    notes: "Approximate interior wall surface (0.5x floor area)"
+
+  - trade: paint
+    item: interior_paint
+    unit: SF
+    formula: "wall_sf"
+    notes: "One coat baseline (match interior wall SF)"
+
+  - trade: flooring
+    item: base_flooring
+    unit: SF
+    formula: "area_sqft"
+    notes: "Assume flooring coverage equals floor area"
+
+  - trade: doors
+    item: interior_doors
+    unit: EA
+    formula: "max(1, fixture_count * 0.2)"
+    notes: "Heuristic: 1 door per 5 fixtures"
+
+  - trade: trim
+    item: baseboards
+    unit: LF
+    formula: "area_sqft * 0.7"
+    notes: "Perimeter heuristic from area"

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ScheduleV0",
+  "description": "Minimal project schedule schema (v0) for allocating cashflow across dated tasks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "tasks"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "v0",
+      "description": "Schema version identifier"
+    },
+    "tasks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "start", "end"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Task name"
+          },
+          "start": {
+            "type": "string",
+            "format": "date",
+            "description": "Task start date (YYYY-MM-DD)"
+          },
+          "end": {
+            "type": "string",
+            "format": "date",
+            "description": "Task end date (YYYY-MM-DD)"
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Optional relative weight (fraction of total). If omitted, equal weights are assumed."
+          }
+        }
+      },
+      "description": "Ordered list of tasks; cashflow is allocated across weekly buckets between start and end."
+    }
+  }
+}

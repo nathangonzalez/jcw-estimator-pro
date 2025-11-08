@@ -204,13 +204,38 @@ def _percentile(vs: List[float], pct: float) -> float:
     return d0 + d1
 
 
-def bands_from_history(dollars_per_sf: float) -> Dict[str, float]:
+def bands_from_history(
+    dollars_per_sf: float,
+    project_type: Optional[str] = None,
+    csv_path: str = "data/benchmarks/us_boston_sod_v0.csv",
+) -> Dict[str, float]:
     """
-    Provisional band around current $/SF with ±15% padding.
+    Resolve a provisional $/SF band.
+    Priority:
+      1) If a benchmark CSV exists and project_type provided, use its lo/hi band for that type.
+         CSV expected columns: project_type,lo,hi
+      2) Fallback to ±15% padding around current $/SF.
+    Returns a dict with keys: {'lo', 'hi', 'p25', 'p75'} for compatibility.
     """
-    lower = max(0.0, dollars_per_sf * 0.85)
-    upper = max(lower, dollars_per_sf * 1.15)
-    return {"p25": lower, "p75": upper}
+    lo = hi = None
+    if project_type and os.path.exists(csv_path):
+        try:
+            with open(csv_path, "r", encoding="utf-8") as f:
+                reader = csv.DictReader(f)
+                for r in reader:
+                    if str(r.get("project_type") or "").strip().lower() == str(project_type).strip().lower():
+                        lo = _to_float(r.get("lo"), None)
+                        hi = _to_float(r.get("hi"), None)
+                        break
+        except Exception:
+            lo = hi = None
+
+    if lo is None or hi is None:
+        lower = max(0.0, dollars_per_sf * 0.85)
+        upper = max(lower, dollars_per_sf * 1.15)
+        lo, hi = lower, upper
+
+    return {"lo": lo, "hi": hi, "p25": lo, "p75": hi}
 
 
 def metrics(
@@ -374,8 +399,11 @@ def metrics(
     p90 = _percentile(dpsf_samples, 0.90) if dpsf_samples else dollars_per_sf
 
     # Bands
-    band = bands_from_history(dollars_per_sf)
-    band_pass = (band["p25"] <= dollars_per_sf <= band["p75"])
+    project_type = str((features or {}).get("project_type") or "SOD")
+    band = bands_from_history(dollars_per_sf, project_type=project_type)
+    lo_chk = band.get("lo", band.get("p25", 0.0))
+    hi_chk = band.get("hi", band.get("p75", 0.0))
+    band_pass = (lo_chk <= dollars_per_sf <= hi_chk)
 
     # Warnings
     warnings: List[str] = []
