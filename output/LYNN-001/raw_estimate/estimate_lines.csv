@@ -1,0 +1,10 @@
+﻿project_id,trade,item,quantity,unit,unit_cost,line_total,source
+LYNN-001,concrete,slab_area,3600,SF,0,0,engine:policy
+LYNN-001,framing,wall_linear,900,LF,0,0,engine:policy
+LYNN-001,plumbing,fixtures,17,EA,0,0,engine:policy
+LYNN-001,plumbing,toilet,1,EA,0,0,engine:policy
+LYNN-001,plumbing,lavatory_sink,1,EA,0,0,engine:policy
+LYNN-001,plumbing,shower,1,EA,0,0,engine:policy
+LYNN-001,plumbing,bathtub,1,EA,0,0,engine:policy
+LYNN-001,plumbing,hose_bibb,1,EA,0,0,engine:policy
+LYNN-001,plumbing,floor_drain,1,EA,0,0,engine:policy
