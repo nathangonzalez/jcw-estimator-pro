@@ -1,0 +1,29 @@
+rules:
+  # Simple filename/dirname contains match (case-insensitive)
+  - match: "plumb"
+    vendor: "acme_plumbing"
+    trade: "plumbing"
+    doc_type: "quote"
+  - match: "elect"
+    vendor: "volt_electrical"
+    trade: "electrical"
+    doc_type: "quote"
+  - match: "hvac|mechanical"
+    vendor: "climate_hvac"
+    trade: "hvac"
+    doc_type: "quote"
+  - match: "concrete|crete"
+    vendor: "rock_concrete"
+    trade: "concrete"
+    doc_type: "quote"
+  - match: "framing|lumber"
+    vendor: "frame_supplies"
+    trade: "framing"
+    doc_type: "quote"
+
+defaults:
+  doc_type_by_ext:
+    ".pdf": "pdf"
+    ".csv": "csv"
+    ".xlsx": "xlsx"
+    ".json": "json"
