@@ -1,0 +1,9 @@
+{
+  "type": "per_trade_item_multiplier",
+  "factors": {},
+  "meta": {
+    "estimate_csv_sha256": "",
+    "vendor_csv_sha256": "",
+    "count_factors": "0"
+  }
+}
