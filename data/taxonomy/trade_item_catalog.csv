@@ -1,0 +1,11 @@
+trade,item,aliases,unit_hint
+concrete,foundation,footing|stem wall|slab,CY
+framing,framing lumber,studs|plates|joists|rafters,SF
+plumbing,rough-in,rough plumbing|DWV|supply lines,LS
+electrical,rough-in,rough electrical|outlets|switches,LS
+roofing,roof assembly,shingles|tile|underlayment,SF
+drywall,gypsum board,drywall|sheetrock,SF
+tile,floor tile,thinset|grout|tile install,SF
+hvac,system install,air handler|condensing unit|ducts,LS
+insulation,thermal insulation,batt|blown,SF
+paint,interior paint,prime|finish,SF

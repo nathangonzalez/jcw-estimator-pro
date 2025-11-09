@@ -1,0 +1,37 @@
+version: v0
+normalizers:
+  # simple text filters for vendor lines
+  - pattern: "[^a-z0-9\\s]"
+    replace: ""
+  - pattern: "\\s+"
+    replace: " "
+
+rules:
+  # map vendor phrase → (trade,item)
+  - if: "footing|stem wall|foundation|slab"
+    to: { trade: "concrete", item: "foundation" }
+  - if: "stud|framing|plate|joist|rafter"
+    to: { trade: "framing", item: "framing lumber" }
+  - if: "rough plumbing|dwv|pvc|copper"
+    to: { trade: "plumbing", item: "rough-in" }
+  - if: "electrical rough|outlet|switch|breaker|panel"
+    to: { trade: "electrical", item: "rough-in" }
+  - if: "shingle|tile roof|underlayment|felt"
+    to: { trade: "roofing", item: "roof assembly" }
+  - if: "drywall|sheetrock|gypsum"
+    to: { trade: "drywall", item: "gypsum board" }
+  - if: "tile|thinset|grout"
+    to: { trade: "tile", item: "floor tile" }
+  - if: "air handler|condenser|duct"
+    to: { trade: "hvac", item: "system install" }
+  - if: "insulation|batt|blown"
+    to: { trade: "insulation", item: "thermal insulation" }
+  - if: "paint|primer|finish"
+    to: { trade: "paint", item: "interior paint" }
+unit_overrides:
+  sf: SF
+  sy: SY
+  lf: LF
+  cy: CY
+  ea: EA
+  ls: LS

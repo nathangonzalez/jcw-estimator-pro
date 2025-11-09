@@ -7,6 +7,9 @@ from typing import Dict, Tuple
 def _key(trade:str, item:str)->str:
     return f"{trade.strip().lower()}::{item.strip().lower()}"
 
+def normalize_key(trade: str, item: str) -> str:
+    return f"{(trade or '').strip().lower()}::{(item or '').strip().lower()}"
+
 def load_raw_estimate_lines(csv_path: Path) -> Dict[str, float]:
     """
     Input: output/LYNN-001/raw_estimate/estimate_lines.csv OR data/lynn/working/estimate_lines.csv
@@ -26,7 +29,8 @@ def load_raw_estimate_lines(csv_path: Path) -> Dict[str, float]:
                 lt = float(r.get("line_total", 0) or 0)
             except:
                 lt = 0.0
-            totals[_key(trade,item)] += max(0.0, lt)
+            if lt > 0.0:
+                totals[normalize_key(trade,item)] += lt
     return totals
 
 def load_vendor_canonical(csv_path: Path) -> Dict[str, float]:
@@ -42,11 +46,19 @@ def load_vendor_canonical(csv_path: Path) -> Dict[str, float]:
         for r in reader:
             trade = (r.get("trade") or "").strip()
             item  = (r.get("item") or "").strip()
+            # prefer quoted_total, fallback to line_total if present
+            raw_qt = r.get("quoted_total", None)
+            if raw_qt is None:
+                raw_qt = r.get("line_total", 0)
             try:
-                qt = float(r.get("quoted_total", 0) or 0)
+                qt = float((raw_qt or 0))
             except:
-                qt = 0.0
-            totals[_key(trade,item)] += max(0.0, qt)
+                try:
+                    qt = float(str(raw_qt).replace(",", "").replace("$", ""))
+                except:
+                    qt = 0.0
+            if trade and item and qt > 0.0:
+                totals[normalize_key(trade,item)] += qt
     return totals
 
 def compute_multipliers(estimate: Dict[str,float], vendor: Dict[str,float],

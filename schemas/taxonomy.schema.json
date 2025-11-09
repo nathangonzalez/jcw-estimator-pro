@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"JCW Taxonomy v0",
+  "type":"object",
+  "required":["version","items"],
+  "properties":{
+    "version":{"type":"string"},
+    "items":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "required":["trade","item","aliases"],
+        "properties":{
+          "trade":{"type":"string"},
+          "item":{"type":"string"},
+          "aliases":{"type":"array","items":{"type":"string"}},
+          "unit_hint":{"type":"string","enum":["EA","LF","SF","SY","CY","LS"]}
+        }
+      }
+    }
+  }
+}
