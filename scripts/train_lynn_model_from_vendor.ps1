@@ -7,6 +7,16 @@ param(
 
 $ErrorActionPreference = "Stop"
 Write-Host "== F4: Training calibration from vendor vs raw estimate =="
+# Fallback to canonical in data/vendor_quotes if working canonical missing or header-only
+$AltVendor = "data/vendor_quotes/LYNN-001/quotes.canonical.csv"
+$lines = @()
+if (Test-Path $VendorCsv) { $lines = Get-Content -TotalCount 2 -Encoding UTF8 $VendorCsv }
+if (-not (Test-Path $VendorCsv) -or ($lines.Count -lt 2)) {
+  if (Test-Path $AltVendor) {
+    Write-Host "Using fallback vendor canonical -> $AltVendor"
+    $VendorCsv = $AltVendor
+  }
+}
 
 # Python inline runner (PowerShell-safe temp file)
 $RepoRoot = (Split-Path $PSScriptRoot -Parent)

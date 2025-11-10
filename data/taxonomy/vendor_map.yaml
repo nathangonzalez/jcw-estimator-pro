@@ -28,6 +28,30 @@ rules:
     to: { trade: "insulation", item: "thermal insulation" }
   - if: "paint|primer|finish"
     to: { trade: "paint", item: "interior paint" }
+
+  # F4b Lynn-specific phrases (appended)
+  - if: "abco|sprinkler|fire protection|wet system|dry system"
+    to: { trade: "fire protection", item: "sprinkler system" }
+  - if: "panel|breaker|meter|rough electrical|outlet|switch|lighting"
+    to: { trade: "electrical", item: "rough-in" }
+  - if: "tile|thinset|grout|schluter|floor tile|wall tile"
+    to: { trade: "tile", item: "floor tile" }
+  - if: "hvac|air handler|condenser|duct|line set|mini split"
+    to: { trade: "hvac", item: "system install" }
+  - if: "insulation|batt|blown|spray foam"
+    to: { trade: "insulation", item: "thermal insulation" }
+  - if: "roof|underlayment|shingle|tile roof|flashing|drip edge"
+    to: { trade: "roofing", item: "roof assembly" }
+  - if: "plumbing rough|dwv|copper|pvc|pex|fixtures"
+    to: { trade: "plumbing", item: "rough-in" }
+  - if: "drywall|sheetrock|gypsum|taping|finishing"
+    to: { trade: "drywall", item: "gypsum board" }
+  - if: "paint|primer|finish|interior paint"
+    to: { trade: "paint", item: "interior paint" }
+  - if: "foundation|footing|stem wall|slab|concrete"
+    to: { trade: "concrete", item: "foundation" }
+  - if: "cabinet|millwork|vanity"
+    to: { trade: "casework", item: "cabinets" }
 unit_overrides:
   sf: SF
   sy: SY

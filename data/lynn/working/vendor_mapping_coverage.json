@@ -1,0 +1,50 @@
+{
+  "mapped": 3,
+  "unmapped": 234,
+  "by_vendor": {
+    "Lynn-Abbate Tile 10.31.25 - Copy": {
+      "mapped": 0,
+      "unmapped": 23
+    },
+    "Lynn-ABCO (REV) Proposal Package 10.28.25 - Copy": {
+      "mapped": 0,
+      "unmapped": 0
+    },
+    "volt_electrical": {
+      "mapped": 0,
+      "unmapped": 0
+    },
+    "Lynn-Barker AC 10.9.25": {
+      "mapped": 0,
+      "unmapped": 0
+    },
+    "Lynn-Cirtus Roofing 10.24.25": {
+      "mapped": 0,
+      "unmapped": 33
+    },
+    "rock_concrete": {
+      "mapped": 0,
+      "unmapped": 9
+    },
+    "Lynn-Final Touch Cabinets 10.8.25": {
+      "mapped": 0,
+      "unmapped": 18
+    },
+    "Lynn-Forrest Forms 11.4.25": {
+      "mapped": 0,
+      "unmapped": 0
+    },
+    "Lynn-Gale Insulation 10.24.25": {
+      "mapped": 0,
+      "unmapped": 55
+    },
+    "Lynn-Gator 11.6.25": {
+      "mapped": 3,
+      "unmapped": 96
+    },
+    "Lynn-HBS 10.31.25": {
+      "mapped": 0,
+      "unmapped": 0
+    }
+  }
+}

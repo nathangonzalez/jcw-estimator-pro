@@ -36,7 +36,7 @@ try:
 except Exception:
     yaml = None
 
-REPO = Path(__file__).resolve().parents[1]
+REPO = Path(__file__).resolve().parents[2]
 LYNN = REPO / "data" / "lynn"
 RAW_VENDOR = LYNN / "raw" / "vendor"
 WORKING = LYNN / "working"
