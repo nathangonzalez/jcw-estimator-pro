@@ -1,0 +1,44 @@
+{
+  "version": "v0.3",
+  "timestamp": "2025-11-11T13:01:52-05:00",
+  "status": "success",
+  "data_sources": {
+    "csv_transactions": 7,
+    "pdf_transactions": 0,
+    "merged_transactions": 7,
+    "dedup_count": 0,
+    "recon_keys": 7
+  },
+  "categorization": {
+    "uncategorized_rows": 0,
+    "categories": ["payroll", "materials", "other"]
+  },
+  "financial_metrics": {
+    "current_balance_proxy": 2002.50,
+    "ytd_inflow": 2002.50,
+    "ytd_outflow": 1365.50,
+    "ytd_net": 637.00
+  },
+  "forecast": {
+    "horizon_months": 6,
+    "starting_balance": 2002.50,
+    "projected_ending_next_month": 2639.50
+  },
+  "burn_runway": {
+    "30_day_burn": 45.50,
+    "60_day_burn": 31.67,
+    "90_day_burn": 21.11,
+    "runway_months": 44.1
+  },
+  "artifacts": [
+    "output/FINANCE_RUN.md",
+    "output/FINANCE_CASHFLOW.md",
+    "output/FINANCE_CASHFLOW.html",
+    "output/FINANCE_FORECAST.md",
+    "output/FINANCE_FORECAST.html",
+    "output/FINANCE_BURN.md",
+    "output/FINANCE_BURN.html",
+    "output/FINANCE_QA.md"
+  ],
+  "notes": "Smoke run with dummy data, all outputs regenerated successfully"
+}
