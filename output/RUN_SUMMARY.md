@@ -1,11 +1,11 @@
 ﻿# RUN SUMMARY
 
-- When: 2025-11-11T09:15:18.5413993-05:00
+- When: 2025-11-11T13:10:39.2890456-05:00
 - Canonical rows (valid trade,item,quoted_total>0): 377
 - Factors count: 8
 - Dashboard: output/LYNN_DELTA_DASHBOARD.html
 - Receipt (if committed): output/F4B_DATA_RECEIPT.md
-- HEAD: 1fc861e8376ec55191b16a1cf90d2e52be3b8755
+- HEAD: 00e710b8e5fa0735cf60f646c835ec43dce1ec5c
 
 ## Top 3 deltas (by |Vendor-Est|)
 | trade | item | est_total | vdr_total | delta_total |

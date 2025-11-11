@@ -84,25 +84,16 @@ unit_overrides:
   ls: LS
 
 parsing:
-  max_line_amount: 1000000
+  max_line_amount: 800000
   drop_total_keywords:
-    - total
-    - total bid
-    - proposal total
-    - grand total
     - subtotal
+    - total
+    - grand total
     - price
     - description
     - amount due
-    - page total
-    - carried forward
-    - balance
-    - brought forward
-    - contract amount
-    - total contract
-    - base bid
-    - amount
-  dedupe_window: 200
+    - invoice total
+  dedupe_window: 250
   drop_line_keywords:
     - tax
     - allowance
@@ -115,15 +106,8 @@ parsing:
     - supervision
     - alt
     - alternate
-    - add alt
-    - revision
-    - rev
-    - fee
-    - fees
-    - general conditions
-    - contingency
-    - equipment
-  numeric_only_desc_min_len: 6
+    - option
+  numeric_only_desc_min_len: 5
   accept_suffixes: ["K","M"]
   prefer_latest_file: true
-  acceptable_ratio: 3.0
+  acceptable_ratio: 0.3..3.0

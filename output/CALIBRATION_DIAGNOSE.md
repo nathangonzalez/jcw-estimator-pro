@@ -1,7 +1,7 @@
 # CALIBRATION DIAGNOSE
 
 - SUM_EST: 62232.38
-- SUM_VEN: 1100219.90
+- SUM_VEN: 100219.90
 
 ## Estimate by trade
 {
@@ -14,7 +14,7 @@
 {
   "tile": 1570.0,
   "plumbing": 19.0,
-  "concrete": 1011096.0,
+  "concrete": 11096.0,
   "hvac": 24.0,
   "roofing": 2966.75,
   "insulation": 30220.5,

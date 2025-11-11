@@ -1,0 +1,215 @@
+﻿{
+  "config": {
+    "configFile": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\playwright.config.ts",
+    "rootDir": "C:/Users/natha/dev/repos/jcw-estimator-pro/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/natha/dev/repos/jcw-estimator-pro/output/playwright-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/natha/dev/repos/jcw-estimator-pro/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 10,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "uat.r2.spec.ts",
+      "file": "uat.r2.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "UAT R2 - Health check",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 69,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-11T18:14:33.759Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\output\\playwright-artifacts\\uat.r2-UAT-R2---Health-check-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fc8b155ffaeaf0247520-997271350294e562f6c7",
+          "file": "uat.r2.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "UAT R2 - Estimate API",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15,
+                  "error": {
+                    "message": "Error: Cannot find module '../../../data/quantities.sample.json'\nRequire stack:\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\transform\\transform.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\configLoader.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\worker\\workerMain.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\process.js",
+                    "stack": "Error: Cannot find module '../../../data/quantities.sample.json'\nRequire stack:\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\transform\\transform.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\configLoader.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\worker\\workerMain.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\process.js\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:11:11",
+                    "location": {
+                      "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                      "column": 11,
+                      "line": 11
+                    },
+                    "snippet": "\u001b[0m \u001b[90m  9 |\u001b[39m test(\u001b[32m'UAT R2 - Estimate API'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m   \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m'/v1/estimate'\u001b[39m\u001b[33m,\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     data\u001b[33m:\u001b[39m require(\u001b[32m'../../../data/quantities.sample.json'\u001b[39m)\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m   expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                        "column": 11,
+                        "line": 11
+                      },
+                      "message": "Error: Cannot find module '../../../data/quantities.sample.json'\nRequire stack:\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\transform\\transform.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\configLoader.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\worker\\workerMain.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\process.js\n\n   9 | test('UAT R2 - Estimate API', async ({ request }) => {\n  10 |   const response = await request.post('/v1/estimate', {\n> 11 |     data: require('../../../data/quantities.sample.json')\n     |           ^\n  12 |   });\n  13 |   expect(response.status()).toBe(200);\n  14 |   const body = await response.json();\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:11:11"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-11T18:14:33.868Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\output\\playwright-artifacts\\uat.r2-UAT-R2---Estimate-API-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                    "column": 11,
+                    "line": 11
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fc8b155ffaeaf0247520-101501c6c5627b54b63b",
+          "file": "uat.r2.spec.ts",
+          "line": 9,
+          "column": 5
+        },
+        {
+          "title": "UAT R2 - Files exist",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-11T18:14:34.829Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\output\\playwright-artifacts\\uat.r2-UAT-R2---Files-exist-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fc8b155ffaeaf0247520-5b1b25d7b96a9c6ca2d1",
+          "file": "uat.r2.spec.ts",
+          "line": 18,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-11-11T18:14:32.804Z",
+    "duration": 2090.4079999999994,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
