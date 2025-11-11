@@ -18,3 +18,10 @@ R2 interactive superprompt and commit helper persisted successfully.
 - Artifacts: All schemas, engines, defaults, API, frontend, tests, scripts, docs created
 - Endpoints: /v1/plan/assess (stubbed), /v1/estimate interactive (stubbed)
 - Acceptance: PASS (stubbed implementation complete)
+- Final SHA: cc62521
+
+## Run Summary
+- API start: OK (127.0.0.1:8001)
+- UAT: 6 passed, 3 failed (missing quantities.sample.json, interactive endpoints 500)
+- Smoke: FAIL (interactive endpoints 500)
+- Paths: output/playwright-report/index.html, output/UAT_STATUS.json, output/UAT_RECEIPT.md, output/INTERACTIVE/ (empty)
