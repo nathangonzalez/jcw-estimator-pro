@@ -1,0 +1,12 @@
+rules:
+  - match: "(?i)home depot|lowe's|gator"
+    category: materials
+  - match: "(?i)abco|plumb"
+    category: plumbing
+  - match: "(?i)payroll|adp"
+    category: payroll
+  - match: "(?i)insurance"
+    category: insurance
+  - match: "(?i)fuel|gas"
+    category: fuel
+default_category: other

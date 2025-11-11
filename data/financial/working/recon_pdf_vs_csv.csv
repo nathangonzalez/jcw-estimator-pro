@@ -1,8 +1,12 @@
 key,in_pdf,in_csv,amount_pdf,amount_csv,delta,description_sample
-"('2025-07-01', 1500.0, 'ach credit payroll', 'nan', 'nan')",False,True,0,1500.0,0,ACH CREDIT PAYROLL
-"('2025-07-05', -5.5, 'pos purchase starbucks', 'nan', 'nan')",False,True,0,-5.5,0,POS PURCHASE STARBUCKS
-"('2025-07-10', -1200.0, 'check 1234 rent', '1234.0', 'nan')",False,True,0,-1200.0,0,CHECK 1234 RENT
-"('2025-08-01', -150.0, 'ach debit insurance', 'nan', 'nan')",False,True,0,-150.0,0,ACH DEBIT INSURANCE
-"('2025-08-15', 500.0, 'deposit atm', 'nan', 'nan')",False,True,0,500.0,0,DEPOSIT ATM
-"('2025-09-01', -10.0, 'fee monthly', 'nan', 'nan')",False,True,0,-10.0,0,FEE MONTHLY
-"('2025-10-01', 2.5, 'interest credit', 'nan', 'nan')",False,True,0,2.5,0,INTEREST CREDIT
+"('2025-07-01', 1500.0, 'ach credit payroll', 'nan', 'nan')",False,True,0.0,1500.0,0,ACH CREDIT PAYROLL
+"('2025-07-05', -5.5, 'pos purchase starbucks', 'nan', 'nan')",False,True,0.0,-5.5,0,POS PURCHASE STARBUCKS
+"('2025-07-10', -1200.0, 'check 1234 rent', '1234.0', 'nan')",False,True,0.0,-1200.0,0,CHECK 1234 RENT
+"('2025-08-01', -150.0, 'ach debit insurance', 'nan', 'nan')",False,True,0.0,-150.0,0,ACH DEBIT INSURANCE
+"('2025-08-15', 500.0, 'deposit atm', 'nan', 'nan')",False,True,0.0,500.0,0,DEPOSIT ATM
+"('2025-09-01', -10.0, 'fee monthly', 'nan', 'nan')",False,True,0.0,-10.0,0,FEE MONTHLY
+"('2025-10-01', 2.5, 'interest credit', 'nan', 'nan')",False,True,0.0,2.5,0,INTEREST CREDIT
+"('08/01/2025', 8.0, 'for the period  to //', 'nan', 'nan')",True,False,8.0,0.0,0,For the Period  to //
+"('07/09/2025', 7.0, 'for the period  to //', 'nan', 'nan')",True,False,7.0,0.0,0,For the Period  to //
+"('10/01/2025', 10.0, 'for the period  to //', 'nan', 'nan')",True,False,10.0,0.0,0,For the Period  to //
+"('08/30/2025', 8.0, 'for the period  to //', 'nan', 'nan')",True,False,8.0,0.0,0,For the Period  to //

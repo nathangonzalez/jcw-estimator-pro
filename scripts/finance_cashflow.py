@@ -27,7 +27,7 @@ def main():
         }
 
     # Cashflow
-    ledger_df['date'] = pd.to_datetime(ledger_df['date'])
+    ledger_df['date'] = pd.to_datetime(ledger_df['date'], format='%m/%d/%Y', errors='coerce')
     ledger_df['month'] = ledger_df['date'].dt.to_period('M')
     ledger_df['year'] = ledger_df['date'].dt.year
 
@@ -50,16 +50,20 @@ def main():
     outflow_df['amount'] = outflow_df['amount'].abs()
     top_outflow = outflow_df.groupby('counterparty')['amount'].sum().nlargest(10).reset_index()
 
-    # Emit FINANCE_RUN.md
-    with open('output/FINANCE_RUN.md', 'w') as f:
-        f.write('# Finance Run Receipt\n\n')
-        f.write(f'- CSV rows: {csv_count}\n')
-        f.write(f'- PDF rows: {pdf_count}\n')
-        f.write(f'- Merged rows: {merged_count}\n')
-        f.write(f'- Dedup count: {dedup_count}\n')
-        f.write(f'- Recon keys: {recon_stats.get("total_keys", 0)}\n')
-        f.write(f'- Recon in both: {recon_stats.get("in_both", 0)}\n')
-        f.write(f'- Recon deltas: {recon_stats.get("deltas", 0)}\n')
+    # By-category monthly rollup
+    category_monthly = ledger_df.groupby(['month', 'category']).agg(
+        inflow=('amount', lambda x: x[x > 0].sum()),
+        outflow=('amount', lambda x: abs(x[x < 0].sum())),
+        net=('amount', 'sum')
+    ).reset_index()
+
+    # Uncategorize count
+    uncategorized = ledger_df[ledger_df['category'].isnull() | (ledger_df['category'] == '')].shape[0]
+
+    # Append to FINANCE_RUN.md
+    with open('output/FINANCE_RUN.md', 'a') as f:
+        f.write('\n## QA Section\n\n')
+        f.write(f'- Uncategorize rows: {uncategorized}\n')
         f.write(f'- Months covered: {ledger_df["month"].nunique()}\n')
         f.write(f'- Cash-flow outputs: output/FINANCE_CASHFLOW.md, output/FINANCE_CASHFLOW.html\n')
 
@@ -72,6 +76,8 @@ def main():
         f.write(f'- Net: {ytd_net:.2f}\n\n')
         f.write('## Monthly\n\n')
         f.write(monthly.to_markdown(index=False))
+        f.write('\n\n## By-Category Monthly\n\n')
+        f.write(category_monthly.to_markdown(index=False))
         f.write('\n\n## Top 10 Outflow Counterparties\n\n')
         f.write(top_outflow.to_markdown(index=False))
 
@@ -83,6 +89,8 @@ def main():
     html += f'<p>Net: {ytd_net:.2f}</p>'
     html += '<h2>Monthly</h2>'
     html += monthly.to_html(index=False)
+    html += '<h2>By-Category Monthly</h2>'
+    html += category_monthly.to_html(index=False)
     html += '<h2>Top 10 Outflow Counterparties</h2>'
     html += top_outflow.to_html(index=False)
     html += '</body></html>'
