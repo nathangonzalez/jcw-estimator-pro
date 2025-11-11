@@ -1,8 +1,8 @@
 ﻿{
-    "timestamp":  "2025-11-11T14:43:12",
+    "timestamp":  "2025-11-11T15:01:13",
     "exit_code":  1,
     "plan_pdf":  "",
     "artifacts":  "output/playwright-artifacts",
-    "api_pid":  8588,
+    "api_pid":  75880,
     "report":  "output/playwright-report/index.html"
 }
