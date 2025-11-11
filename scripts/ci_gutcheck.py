@@ -30,7 +30,8 @@ status_notes = []
 pass_flag = True
 
 dpsf = metrics.get("totals", {}).get("dollars_per_sf")
-band  = benchmarking.bands_from_history(metrics)  # provisional band; expect dict or None
+ptype = (features.get("project_type") if isinstance(features, dict) else None) or "SOD"
+band  = benchmarking.bands_from_history(dpsf or 0.0, project_type=ptype)
 if dpsf is not None and band:
     lo, hi = band.get("lo", 0), band.get("hi", 0)
     if not (lo <= dpsf <= hi):

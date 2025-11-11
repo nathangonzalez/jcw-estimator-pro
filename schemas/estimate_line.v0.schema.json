@@ -1,0 +1,18 @@
+{
+  "$id": "estimate_line.v0",
+  "type": "object",
+  "required": ["project_id","wbs_code","trade","item","qty","unit","unit_cost","line_total","source"],
+  "properties": {
+    "project_id":{"type":"string"},
+    "wbs_code":{"type":"string"},
+    "trade":{"type":"string"},
+    "item":{"type":"string"},
+    "scope_notes":{"type":"string"},
+    "qty":{"type":"number","minimum":0},
+    "unit":{"type":"string"},
+    "unit_cost":{"type":"number","minimum":0},
+    "line_total":{"type":"number","minimum":0},
+    "source":{"type":"string"},
+    "tags":{"type":"array","items":{"type":"string"}}
+  }
+}

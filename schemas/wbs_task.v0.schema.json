@@ -1,0 +1,16 @@
+{
+  "$id": "wbs_task.v0",
+  "type":"object",
+  "required":["project_id","wbs_code","name","duration_days","dependencies"],
+  "properties":{
+    "project_id":{"type":"string"},
+    "wbs_code":{"type":"string"},
+    "name":{"type":"string"},
+    "start_date":{"type":["string","null"],"format":"date"},
+    "end_date":{"type":["string","null"],"format":"date"},
+    "duration_days":{"type":"number","minimum":0},
+    "dependencies":{"type":"array","items":{"type":"string"}},
+    "assignee":{"type":["string","null"]},
+    "notes":{"type":["string","null"]}
+  }
+}

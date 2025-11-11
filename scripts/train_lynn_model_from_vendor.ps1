@@ -18,10 +18,21 @@ if (-not (Test-Path $VendorCsv) -or ($lines.Count -lt 2)) {
   }
 }
 
+# Fallback to RAW estimate export if working estimate CSV missing or header-only
+$AltEstimate = "output/LYNN-001/raw_estimate/estimate_lines.csv"
+$elines = @()
+if (Test-Path $EstimateCsv) { $elines = Get-Content -TotalCount 2 -Encoding UTF8 $EstimateCsv }
+if (-not (Test-Path $EstimateCsv) -or ($elines.Count -lt 2)) {
+  if (Test-Path $AltEstimate) {
+    Write-Host "Using fallback estimate CSV -> $AltEstimate"
+    $EstimateCsv = $AltEstimate
+  }
+}
+
 # Python inline runner (PowerShell-safe temp file)
 $RepoRoot = (Split-Path $PSScriptRoot -Parent)
 $py = @"
-import sys, pathlib
+import sys, pathlib, json
 sys.path.insert(0, r'$RepoRoot')
 from pathlib import Path
 from web.backend.model_calibration import (load_raw_estimate_lines, load_vendor_canonical,
@@ -31,6 +42,37 @@ est_p = Path(r'$EstimateCsv'); ven_p = Path(r'$VendorCsv')
 est = load_raw_estimate_lines(est_p)
 ven = load_vendor_canonical(ven_p)
 factors = compute_multipliers(est, ven)
+
+# Diagnostics: totals and trade breakdowns
+from collections import defaultdict as _dd
+def _sum_by_trade(d):
+    res = _dd(float)
+    for k, v in d.items():
+        t = k.split("::", 1)[0] if "::" in k else k
+        res[t] += float(v)
+    return dict(res)
+
+tot_est = sum(float(v) for v in est.values())
+tot_ven = sum(float(v) for v in ven.values())
+# Console diagnostics for pipeline log
+print("SUM_EST", f"{tot_est:.2f}")
+print("SUM_VEN", f"{tot_ven:.2f}")
+print("EST_COUNT", len(est))
+print("VEN_COUNT", len(ven))
+try:
+    print("VEN_SAMPLE_KEYS", list(ven.keys())[:5])
+except Exception:
+    pass
+est_tr = _sum_by_trade(est)
+ven_tr = _sum_by_trade(ven)
+
+diag_md = "# CALIBRATION DIAGNOSE\n\n"
+diag_md += f"- SUM_EST: {tot_est:.2f}\n- SUM_VEN: {tot_ven:.2f}\n"
+diag_md += "\n## Estimate by trade\n" + json.dumps(est_tr, indent=2) + "\n"
+diag_md += "\n## Vendor by trade\n" + json.dumps(ven_tr, indent=2) + "\n"
+
+Path("output").mkdir(parents=True, exist_ok=True)
+Path("output/CALIBRATION_DIAGNOSE.md").write_text(diag_md, encoding="utf-8")
 
 meta = {
   "estimate_csv_sha256": digest_file(est_p),

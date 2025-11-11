@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": ["v0"]
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "trade": {
+            "type": "string"
+          },
+          "item": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["critical", "normal", "nice_to_have"]
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "suggested_answers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": ["key", "label"]
+            }
+          }
+        },
+        "required": ["id", "severity", "rationale", "prompt"]
+      }
+    }
+  },
+  "required": ["version", "project_id", "questions"]
+}

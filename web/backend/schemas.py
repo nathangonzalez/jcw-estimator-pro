@@ -1,5 +1,5 @@
 from typing import Optional, Dict, Any, List
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, RootModel
 
 # Legacy body
 class LegacyEstimateRequest(BaseModel):
@@ -21,12 +21,12 @@ class M01EstimateRequest(BaseModel):
     unit_costs_csv: Optional[str] = None
     vendor_quotes_csv: Optional[str] = None
 
-class EstimateRequest(BaseModel):
+class EstimateRequest(RootModel[Dict[str, Any]]):
     """
     Dual-shape shim. If `quantities` present -> treat as M01; else fall back to Legacy.
     """
     # Accept arbitrary keys; validate shape at runtime in route handler.
-    __root__: Dict[str, Any]
+    root: Dict[str, Any]
 
 # Response (skeleton aligning to estimate_response.schema.json v0)
 class LineItemCost(BaseModel):

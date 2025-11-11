@@ -28,6 +28,21 @@
     "assumptions": { "type": "array", "items": { "type": "string" } },
     "warnings": { "type": "array", "items": { "type": "string" } },
     "notes": { "type": "string" },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "interactive": {
+          "type": "object",
+          "properties": {
+            "coverage_score": { "type": "number", "minimum": 0, "maximum": 1 },
+            "questions_count": { "type": "integer", "minimum": 0 },
+            "unresolved_count": { "type": "integer", "minimum": 0 },
+            "used_defaults": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      },
+      "additionalProperties": true
+    },
     "debug": { "type": "object", "additionalProperties": true }
   },
   "$defs": {

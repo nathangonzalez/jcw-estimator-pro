@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://jcw-estimator-pro/schemas/vendor_quotes_canonical.strict.schema.json",
+  "title": "Vendor Quotes Canonical (Strict)",
+  "description": "Strict canonical schema for parsed vendor quote rows used in calibration and pricing pipelines.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "vendor": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Normalized vendor identifier (e.g., filename-derived or from mapping rules)."
+    },
+    "trade": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Mapped trade (e.g., concrete, framing, plumbing)."
+    },
+    "item": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Mapped item key (snake_case)."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Original description text (normalized)."
+    },
+    "unit": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Normalized unit (EA, LF, SF, CY, SY, ...)",
+      "enum": ["EA", "LF", "SF", "CY", "SY", "LS", "ea", "lf", "sf", "cy", "sy", "ls"]
+    },
+    "qty": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Quantity for this line (>= 0)."
+    },
+    "unit_cost": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "description": "Optional unit cost if present/derivable (>= 0)."
+    },
+    "line_total": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 10000000,
+      "description": "Raw parsed line total (>= 0, <= 10,000,000)."
+    },
+    "quoted_total": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10000000,
+      "description": "Canonical total for this line (>= 0, <= 10,000,000)."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional freeform notes.",
+      "default": ""
+    }
+  },
+  "required": ["vendor", "trade", "item", "unit", "qty", "quoted_total"]
+}

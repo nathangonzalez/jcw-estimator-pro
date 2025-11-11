@@ -1,0 +1,28 @@
+quality_map:
+  economy: 0.9
+  standard: 1.0
+  premium: 1.2
+
+complexity_map:
+  simple: 0.95
+  normal: 1.0
+  complex: 1.15
+
+required_items_by_trade:
+  roofing: ["materials"]
+  foundation: ["type"]
+  windows: ["frame"]
+  hvac: ["system"]
+
+material_toggles:
+  roofing:
+    shingle: 1.0
+    metal: 1.25
+    tile: 1.3
+  windows:
+    vinyl: 1.0
+    aluminum: 1.15
+  foundation:
+    slab: 1.0
+    crawl: 1.1
+    basement: 1.4
