@@ -29,3 +29,6 @@ python-dotenv==1.0.0
 pdfminer.six==20240706
 jsonschema==4.23.0
 pyyaml
+
+# Date parsing
+python-dateutil==2.8.2

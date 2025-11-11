@@ -1,0 +1,14 @@
+# Do not commit vendor PDFs (local inputs)
+data/lynn/raw/vendor/**/*.pdf
+
+# Do not commit archives
+data/lynn/_archive/**
+
+# Ueltchi MVP template files
+data/templates/estimating/*.xls
+data/templates/estimating/*.xlsx
+data/templates/schedule/*.xls
+data/templates/schedule/*.xlsx
+
+# Finance raw data (local inputs)
+data/financial/raw/**
