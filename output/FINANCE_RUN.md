@@ -15,3 +15,9 @@
 - Uncategorize rows: 0
 - Months covered: 3
 - Cash-flow outputs: output/FINANCE_CASHFLOW.md, output/FINANCE_CASHFLOW.html
+
+## QA Section
+
+- Uncategorize rows: 0
+- Months covered: 3
+- Cash-flow outputs: output/FINANCE_CASHFLOW.md, output/FINANCE_CASHFLOW.html

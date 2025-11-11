@@ -1,0 +1,5 @@
+start_month: "2025-01-01"      # ISO date of first forecast month
+horizon_months: 6              # project forward N months
+working_capital_buffer: 0      # optional positive buffer
+smoothing_window_days: 14      # moving average for cash-in/out baselines
+seasonality: {}                # optional per-month multipliers { "01": 1.05, ... }
