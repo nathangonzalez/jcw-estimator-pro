@@ -52,6 +52,29 @@ rules:
     to: { trade: "concrete", item: "foundation" }
   - if: "cabinet|millwork|vanity"
     to: { trade: "casework", item: "cabinets" }
+
+  # Align vendor phrases to RAW estimate keys (to enable calibration overlap)
+  - if: "(?i)\\bslab(s)?\\b"
+    to: { trade: "concrete", item: "slab_area" }
+  - if: "(?i)\\bwall(s)?\\b"
+    to: { trade: "framing", item: "wall_linear" }
+
+  # Plumbing specific items from RAW estimate
+  - if: "(?i)\\b(toilet|wc|water\\s*closet)\\b"
+    to: { trade: "plumbing", item: "toilet" }
+  - if: "(?i)\\b(lav|lavatory|vanity|sink)\\b"
+    to: { trade: "plumbing", item: "lavatory_sink" }
+  - if: "(?i)\\bshower\\b"
+    to: { trade: "plumbing", item: "shower" }
+  - if: "(?i)\\b(tub|bathtub)\\b"
+    to: { trade: "plumbing", item: "bathtub" }
+  - if: "(?i)\\bhose\\s*bibb\\b"
+    to: { trade: "plumbing", item: "hose_bibb" }
+  - if: "(?i)\\bfloor\\s*drain\\b"
+    to: { trade: "plumbing", item: "floor_drain" }
+  - if: "(?i)\\bfixture(s)?\\b"
+    to: { trade: "plumbing", item: "fixtures" }
+
 unit_overrides:
   sf: SF
   sy: SY
@@ -59,3 +82,48 @@ unit_overrides:
   cy: CY
   ea: EA
   ls: LS
+
+parsing:
+  max_line_amount: 1000000
+  drop_total_keywords:
+    - total
+    - total bid
+    - proposal total
+    - grand total
+    - subtotal
+    - price
+    - description
+    - amount due
+    - page total
+    - carried forward
+    - balance
+    - brought forward
+    - contract amount
+    - total contract
+    - base bid
+    - amount
+  dedupe_window: 200
+  drop_line_keywords:
+    - tax
+    - allowance
+    - freight
+    - delivery
+    - permit
+    - bond
+    - insurance
+    - mobilization
+    - supervision
+    - alt
+    - alternate
+    - add alt
+    - revision
+    - rev
+    - fee
+    - fees
+    - general conditions
+    - contingency
+    - equipment
+  numeric_only_desc_min_len: 6
+  accept_suffixes: ["K","M"]
+  prefer_latest_file: true
+  acceptable_ratio: 3.0

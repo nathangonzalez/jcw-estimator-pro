@@ -1,0 +1,20 @@
+﻿{
+    "branch":  "master",
+    "time":  "2025-11-07T09:02:39.2922429-05:00",
+    "result":  "committed",
+    "commit":  "3670eb1fbf705ee1501fcdb270c714c665dcee65",
+    "files":  [
+                  "data/unit_costs.sample.csv",
+                  "data/vendor_quotes.sample.csv",
+                  "output/AGENT_SYNC.md",
+                  "output/CTX_INDEX.json",
+                  "output/CTX_SUMMARY.md",
+                  "output/TOKEN_POLICY.md",
+                  "prompts/MAXI_SUPERPROMPT.md",
+                  "scripts/audit_m01.ps1",
+                  "scripts/high_context_session.ply",
+                  "tests/unit/test_pricing_engine.py",
+                  "web/backend/app_comprehensive.py",
+                  "web/backend/pricing_engine.py"
+              ]
+}
