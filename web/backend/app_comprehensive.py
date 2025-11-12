@@ -24,6 +24,7 @@ from .takeoff_engine import TakeoffEngine
 from .plan_reader import extract_plan_features
 from .trade_inference import infer_trades
 from .clarifier import make_questions
+from .interactive_engine import InteractiveEngine
 import jsonschema
 import yaml
 import traceback
@@ -1000,13 +1001,61 @@ async def interactive_assess(req: Request):
         _write_interactive_log({'route':'interactive/assess','stage':'validate_shape','detail':'body not dict'})
         return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'request body must be a dict'})
 
-    project_id = data.get('project_id') or 'UNKNOWN'
-    # Minimal scaffolded response for missing inputs
-    return {
-        'project_id': project_id,
-        'signals': {'needs_clarification': True},
-        'questions': [{'id': 'scope-1', 'text': 'Upload a plan PDF or provide area_sqft/quality to begin.'}]
-    }
+    project_id = data.get('project_id')
+    pdf_path = data.get('pdf_path')
+    pdf_b64 = data.get('pdf_base64')
+
+    if not project_id or not (pdf_path or pdf_b64):
+        _write_interactive_log({'route':'interactive/assess','stage':'validate_input','detail':'project_id and pdf required'})
+        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'project_id and pdf_path or pdf_base64 required'})
+
+    try:
+        # Extract plan features
+        if pdf_path:
+            plan_features = extract_plan_features(pdf_path)
+        else:
+            # Save base64 to temp file
+            with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+                tmp_file.write(base64.b64decode(pdf_b64))
+                temp_pdf_path = tmp_file.name
+            try:
+                plan_features = extract_plan_features(temp_pdf_path)
+            finally:
+                os.unlink(temp_pdf_path)
+
+        # Infer trades
+        inferred = infer_trades(plan_features)
+
+        # Generate questions using InteractiveEngine
+        engine = InteractiveEngine()
+        questions = engine.generate_questions(plan_features, project_id=project_id)
+
+        # Build assess response
+        assess_response = {
+            "project_id": project_id,
+            "coverage_score": len(inferred) / 10.0,  # Simple coverage calculation
+            "trades_inferred": inferred,
+            "questions_ref": f"output/{project_id}/QUESTIONS.json",
+            "notes": []
+        }
+
+        # Validate response
+        with open("schemas/assess_response.schema.json", "r") as f:
+            schema = json.load(f)
+        jsonschema.validate(assess_response, schema)
+
+        # Write output files
+        os.makedirs(f"output/{project_id}", exist_ok=True)
+        with open(f"output/{project_id}/QUESTIONS.json", "w") as f:
+            json.dump({"version": "v0", "project_id": project_id, "questions": questions}, f, indent=2)
+        with open(f"output/{project_id}/ASSESS_RESPONSE.json", "w") as f:
+            json.dump(assess_response, f, indent=2)
+
+        return assess_response
+
+    except Exception as e:
+        _write_interactive_log({'route':'interactive/assess','stage':'processing','error':str(e)})
+        return JSONResponse(status_code=500, content={'error':'PROCESSING','detail':str(e)})
 
 
 @app.post("/v1/interactive/qna")
@@ -1021,13 +1070,73 @@ async def interactive_qna(req: Request):
         _write_interactive_log({'route':'interactive/qna','stage':'validate_shape','detail':'body not dict'})
         return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'request body must be a dict'})
 
-    project_id = data.get('project_id') or 'UNKNOWN'
-    # Minimal scaffolded response
-    return {
-        'project_id': project_id,
-        'answered': [],
-        'next_questions': []
-    }
+    project_id = data.get('project_id')
+    answers = data.get('answers', [])
+
+    if not project_id:
+        _write_interactive_log({'route':'interactive/qna','stage':'validate_input','detail':'project_id required'})
+        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'project_id required'})
+
+    try:
+        # Load existing questions
+        questions_path = f"output/{project_id}/QUESTIONS.json"
+        if not os.path.exists(questions_path):
+            _write_interactive_log({'route':'interactive/qna','stage':'load_questions','missing':questions_path})
+            return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'QUESTIONS.json not found - run assess first'})
+
+        with open(questions_path, 'r') as f:
+            questions_data = json.load(f)
+
+        questions = questions_data.get('questions', [])
+
+        # Process answers
+        answered = []
+        unresolved_questions = []
+
+        for q in questions:
+            q_id = q['id']
+            matching_answer = None
+            for ans in answers:
+                if ans.get('id') == q_id:
+                    matching_answer = ans
+                    break
+
+            if matching_answer:
+                answered.append({
+                    'id': q_id,
+                    'question': q['prompt'],
+                    'answer': matching_answer.get('key') or matching_answer.get('text', 'unknown'),
+                    'severity': q.get('severity', 'normal')
+                })
+            else:
+                unresolved_questions.append(q)
+
+        # For now, return all answered and indicate if more questions needed
+        # In a full implementation, this might generate follow-up questions
+        next_questions = []
+        if len(answered) < len(questions):
+            # Still have unresolved questions
+            next_questions = unresolved_questions[:3]  # Return next batch
+
+        response = {
+            'project_id': project_id,
+            'answered': answered,
+            'next_questions': next_questions,
+            'completion_status': 'complete' if not next_questions else 'in_progress',
+            'total_answered': len(answered),
+            'total_questions': len(questions)
+        }
+
+        # Write updated state
+        qna_path = f"output/{project_id}/QNA_RESPONSE.json"
+        with open(qna_path, 'w') as f:
+            json.dump(response, f, indent=2)
+
+        return response
+
+    except Exception as e:
+        _write_interactive_log({'route':'interactive/qna','stage':'processing','error':str(e)})
+        return JSONResponse(status_code=500, content={'error':'PROCESSING','detail':str(e)})
 
 
 @app.post("/v1/interactive/estimate")
