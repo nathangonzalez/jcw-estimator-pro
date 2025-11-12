@@ -241,3 +241,46 @@ class TestInteractiveEngine:
 
         # Layout-dependent trades should be missing or minimal
         assert "windows" not in context or context["windows"]["count"] == 0
+
+    def test_missing_plan_features_fallback(self, engine):
+        """Test graceful fallback when plan_features is None or empty"""
+        # Test with None
+        result = engine.generate_questions(None, {}, project_id="fallback-test")
+        assert "questions" in result
+        assert "signals" in result
+
+        # Should have fallback signals
+        signals = result["signals"]
+        fallback_signals = [s for s in signals if s.get("type") == "fallback_mode"]
+        assert len(fallback_signals) >= 1
+
+        # Should generate generic questions
+        questions = result["questions"]
+        assert len(questions) > 0
+        assert any("generic" in q["id"] for q in questions)
+
+    def test_missing_layout_meta_fallback(self, engine, sample_plan_features):
+        """Test graceful fallback when layout_meta is None or empty"""
+        result = engine.generate_questions(sample_plan_features, None, project_id="layout-fallback-test")
+
+        # Should have fallback signals
+        signals = result["signals"]
+        fallback_signals = [s for s in signals if s.get("type") == "fallback_mode"]
+        assert len(fallback_signals) >= 1
+
+        # Should still generate questions
+        questions = result["questions"]
+        assert isinstance(questions, list)
+
+    def test_empty_questions_fallback(self, engine):
+        """Test fallback when no context generates questions"""
+        # Empty plan features that won't match any trade context
+        empty_features = {"full_text": "random text with no trade keywords"}
+        empty_layout = {}
+
+        result = engine.generate_questions(empty_features, empty_layout, project_id="empty-test")
+
+        # Should generate generic questions as fallback
+        questions = result["questions"]
+        assert len(questions) > 0
+        assert any("generic" in q["id"] for q in questions)

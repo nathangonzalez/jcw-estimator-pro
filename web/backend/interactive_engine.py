@@ -27,7 +27,7 @@ class InteractiveEngine:
         self.prompts = CLARIFICATIONS_PROMPTS
 
     def generate_questions(self, plan_features: Dict[str, Any], layout_meta: Optional[Dict[str, Any]] = None,
-                          project_id: str = "unknown") -> List[Dict[str, Any]]:
+                          project_id: str = "unknown") -> Dict[str, Any]:
         """
         Generate clarification questions based on plan features and layout metadata
 
@@ -37,9 +37,27 @@ class InteractiveEngine:
             project_id: Project identifier for deterministic generation
 
         Returns:
-            List of question objects conforming to questions.schema.json
+            Dict with "questions" list and "signals" list
         """
         questions = []
+        signals = []
+
+        # Guardrail: If plan_features or layout_meta missing, fall back gracefully
+        if not plan_features:
+            plan_features = {}
+            signals.append({
+                "type": "fallback_mode",
+                "message": "No plan features provided, using generic clarifications",
+                "severity": "warning"
+            })
+
+        if not layout_meta:
+            layout_meta = {}
+            signals.append({
+                "type": "fallback_mode",
+                "message": "No layout metadata provided, using generic clarifications",
+                "severity": "warning"
+            })
 
         # Extract trade context from plan features
         trade_context = self._extract_trade_context(plan_features, layout_meta)
@@ -49,6 +67,45 @@ class InteractiveEngine:
             trade_questions = self._generate_trade_questions(trade, context, plan_features)
             questions.extend(trade_questions)
 
+        # If no questions generated from context, provide generic fallback questions
+        if not questions:
+            questions = self._generate_generic_questions()
+
+        # Add inference signals based on layout_meta
+        if layout_meta:
+            # Check for legend fixtures without quantities
+            legend_items = layout_meta.get("legend_items", [])
+            if legend_items:
+                plumbing_fixtures = [item for item in legend_items if item.get("hint_trade") == "plumbing"]
+                if plumbing_fixtures:
+                    signals.append({
+                        "type": "legend_fixtures_missing_quantities",
+                        "message": f"Legend contains {len(plumbing_fixtures)} plumbing fixtures but quantities not determined",
+                        "fixtures": [item.get("text") for item in plumbing_fixtures]
+                    })
+
+            # Check for scale conflict
+            flags = layout_meta.get("flags", {})
+            if flags.get("scale_conflict"):
+                signals.append({
+                    "type": "scale_conflict_detected",
+                    "message": "Scale sanity check indicates potential scale mismatch between titleblock and room areas",
+                    "severity": "warning"
+                })
+
+            # Check for area mismatch
+            rooms_area = layout_meta.get("rooms_area_sf", 0)
+            provided_area = plan_features.get("area_sqft", 0)
+            if rooms_area > 0 and provided_area > 0:
+                ratio = rooms_area / provided_area
+                if ratio < 0.8 or ratio > 1.2:  # 20% tolerance
+                    signals.append({
+                        "type": "area_mismatch",
+                        "message": f"Room-detected area ({rooms_area:.0f} sf) differs from provided area ({provided_area:.0f} sf)",
+                        "detected_area": rooms_area,
+                        "provided_area": provided_area
+                    })
+
         # Sort by severity and limit total questions
         questions.sort(key=lambda q: {"critical": 0, "normal": 1, "nice_to_have": 2}.get(q["severity"], 3))
         questions = questions[:5]  # Limit to 5 questions max
@@ -57,7 +114,7 @@ class InteractiveEngine:
         for i, q in enumerate(questions):
             q["id"] = f"{project_id}_{q['id']}_{i}"
 
-        return questions
+        return {"questions": questions, "signals": signals}
 
     def _extract_trade_context(self, plan_features: Dict[str, Any], layout_meta: Optional[Dict[str, Any]]) -> Dict[str, Any]:
         """Extract trade-specific context from plan features"""
@@ -375,6 +432,35 @@ class InteractiveEngine:
                 self._apply_trade_multiplier(modified_quantities, "windows", multiplier, f"user-clarification: {key}")
 
         return modified_quantities
+
+    def _generate_generic_questions(self) -> List[Dict[str, Any]]:
+        """Generate generic fallback questions when no context is available"""
+        return [
+            {
+                "id": "generic_quality",
+                "trade": "general",
+                "severity": "critical",
+                "rationale": "Finish quality significantly impacts cost (15-25% swing)",
+                "prompt": "What overall finish quality level is desired?",
+                "suggested_answers": [
+                    {"key": "economy", "label": "Economy/Basic"},
+                    {"key": "standard", "label": "Standard"},
+                    {"key": "premium", "label": "Premium"}
+                ]
+            },
+            {
+                "id": "generic_foundation",
+                "trade": "concrete",
+                "severity": "critical",
+                "rationale": "Foundation type affects structural cost (15-25% swing)",
+                "prompt": "What foundation type will be used?",
+                "suggested_answers": [
+                    {"key": "slab", "label": "Slab-on-grade"},
+                    {"key": "crawl", "label": "Crawl space"},
+                    {"key": "basement", "label": "Full basement"}
+                ]
+            }
+        ]
 
     def _apply_trade_multiplier(self, quantities: Dict[str, Any], trade: str, multiplier: float, source: str):
         """Apply multiplier to trade items with source tracking"""

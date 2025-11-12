@@ -25,10 +25,13 @@ from .plan_reader import extract_plan_features
 from .trade_inference import infer_trades
 from .clarifier import make_questions
 from .interactive_engine import InteractiveEngine
+from .schemas import InteractiveAssessRequest, InteractiveQnaRequest
 import jsonschema
 import yaml
 import traceback
 import pathlib
+import uuid
+import time
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[3] if (pathlib.Path(__file__).resolve().parts[-3:] and True) else pathlib.Path(__file__).resolve().parents[2]
 
@@ -732,7 +735,23 @@ async def takeoff_v1(req: Dict[str, Any]):
                 if pdf_b64 and actual_pdf_path != pdf_path:
                     os.unlink(actual_pdf_path)  # cleanup temp file
 
-        quantities_v0 = eng.to_quantities(project_id, meta, geom, fixtures, scale, layout)
+        # R2.2: Optional rooms detection
+        rooms = None
+        if os.environ.get("TAKEOFF_ENABLE_ROOMFINDER", "").lower() == "true":
+            _log("[R2.2] /v1/takeoff: room detection enabled")
+            actual_pdf_path = pdf_path if pdf_path else None
+            if not actual_pdf_path and pdf_b64:
+                # Save base64 to temp file for room analysis
+                import tempfile
+                with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+                    tmp_file.write(base64.b64decode(pdf_b64))
+                    actual_pdf_path = tmp_file.name
+            if actual_pdf_path:
+                rooms = eng.detect_rooms(actual_pdf_path)
+                if pdf_b64 and actual_pdf_path != pdf_path:
+                    os.unlink(actual_pdf_path)  # cleanup temp file
+
+        quantities_v0 = eng.to_quantities(project_id, meta, geom, fixtures, scale, layout, rooms)
 
         # Runtime validation against authoritative v0 schema (object form),
         # then normalize trades to array shape for clients/UAT.
@@ -991,47 +1010,93 @@ def _ensure_v0_quantities(obj: dict):
 
 @app.post("/v1/interactive/assess")
 async def interactive_assess(req: Request):
+    """Interactive assess endpoint with hardened error handling"""
+    request_id = str(uuid.uuid4())
+    start_time = time.time()
+
+    # Log request start
     try:
-        data = await req.json()
-    except Exception as e:
-        _write_interactive_log({'route':'interactive/assess','stage':'read_json','error':str(e)})
-        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'invalid JSON'})
-
-    if not isinstance(data, dict):
-        _write_interactive_log({'route':'interactive/assess','stage':'validate_shape','detail':'body not dict'})
-        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'request body must be a dict'})
-
-    project_id = data.get('project_id')
-    pdf_path = data.get('pdf_path')
-    pdf_b64 = data.get('pdf_base64')
-
-    if not project_id or not (pdf_path or pdf_b64):
-        _write_interactive_log({'route':'interactive/assess','stage':'validate_input','detail':'project_id and pdf required'})
-        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'project_id and pdf_path or pdf_base64 required'})
+        os.makedirs("output/INTERACTIVE", exist_ok=True)
+        with open("output/INTERACTIVE/INTERACTIVE_RUN.log", "a", encoding="utf-8") as f:
+            f.write(json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "request_id": request_id,
+                "endpoint": "/v1/interactive/assess",
+                "stage": "start",
+                "body_keys": list((await req.json()).keys()) if req.method == "POST" else []
+            }) + "\n")
+    except Exception:
+        pass  # Continue if logging fails
 
     try:
+        # Parse and validate request
+        try:
+            data = await req.json()
+        except Exception as e:
+            return JSONResponse(status_code=422, content={
+                'error': 'VALIDATION',
+                'detail': 'invalid JSON',
+                'request_id': request_id
+            })
+
+        # Validate request structure
+        try:
+            validated = InteractiveAssessRequest(**data)
+        except Exception as e:
+            return JSONResponse(status_code=422, content={
+                'error': 'VALIDATION',
+                'detail': f'invalid request structure: {str(e)}',
+                'request_id': request_id
+            })
+
+        project_id = validated.project_id
+        pdf_path = getattr(validated, 'plan_features', {}).get('pdf_path') if hasattr(validated, 'plan_features') else None
+        pdf_b64 = getattr(validated, 'plan_features', {}).get('pdf_base64') if hasattr(validated, 'plan_features') else None
+
+        # For backward compatibility, also check direct fields
+        if not pdf_path and not pdf_b64:
+            pdf_path = data.get('pdf_path')
+            pdf_b64 = data.get('pdf_base64')
+
+        if not project_id or not (pdf_path or pdf_b64):
+            return JSONResponse(status_code=422, content={
+                'error': 'VALIDATION',
+                'detail': 'project_id and pdf_path or pdf_base64 required',
+                'request_id': request_id
+            })
+
         # Extract plan features
-        if pdf_path:
-            plan_features = extract_plan_features(pdf_path)
-        else:
-            # Save base64 to temp file
-            with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
-                tmp_file.write(base64.b64decode(pdf_b64))
-                temp_pdf_path = tmp_file.name
-            try:
-                plan_features = extract_plan_features(temp_pdf_path)
-            finally:
-                os.unlink(temp_pdf_path)
+        try:
+            if pdf_path:
+                plan_features = extract_plan_features(pdf_path)
+            else:
+                # Save base64 to temp file
+                with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+                    tmp_file.write(base64.b64decode(pdf_b64))
+                    temp_pdf_path = tmp_file.name
+                try:
+                    plan_features = extract_plan_features(temp_pdf_path)
+                finally:
+                    os.unlink(temp_pdf_path)
+        except Exception as e:
+            return JSONResponse(status_code=422, content={
+                'error': 'VALIDATION',
+                'detail': f'failed to extract plan features: {str(e)}',
+                'request_id': request_id
+            })
 
         # Infer trades
         inferred = infer_trades(plan_features)
 
         # Generate questions using InteractiveEngine
         engine = InteractiveEngine()
-        questions = engine.generate_questions(plan_features, project_id=project_id)
+        result = engine.generate_questions(plan_features, project_id=project_id)
+        questions = result.get("questions", [])
+        signals = result.get("signals", [])
 
         # Build assess response
         assess_response = {
+            "request_id": request_id,
             "project_id": project_id,
             "coverage_score": len(inferred) / 10.0,  # Simple coverage calculation
             "trades_inferred": inferred,
@@ -1051,41 +1116,110 @@ async def interactive_assess(req: Request):
         with open(f"output/{project_id}/ASSESS_RESPONSE.json", "w") as f:
             json.dump(assess_response, f, indent=2)
 
+        # Log success
+        duration_ms = int((time.time() - start_time) * 1000)
+        with open("output/INTERACTIVE/INTERACTIVE_RUN.log", "a", encoding="utf-8") as f:
+            f.write(json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "request_id": request_id,
+                "endpoint": "/v1/interactive/assess",
+                "stage": "success",
+                "duration_ms": duration_ms,
+                "questions_count": len(questions)
+            }) + "\n")
+
         return assess_response
 
     except Exception as e:
-        _write_interactive_log({'route':'interactive/assess','stage':'processing','error':str(e)})
-        return JSONResponse(status_code=500, content={'error':'PROCESSING','detail':str(e)})
+        # Log error
+        duration_ms = int((time.time() - start_time) * 1000)
+        with open("output/INTERACTIVE/INTERACTIVE_RUN.log", "a", encoding="utf-8") as f:
+            f.write(json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "request_id": request_id,
+                "endpoint": "/v1/interactive/assess",
+                "stage": "error",
+                "duration_ms": duration_ms,
+                "error": str(e)
+            }) + "\n")
+
+        return JSONResponse(status_code=500, content={
+            'error': 'PROCESSING',
+            'detail': str(e),
+            'request_id': request_id
+        })
 
 
 @app.post("/v1/interactive/qna")
 async def interactive_qna(req: Request):
+    """Interactive QnA endpoint with hardened error handling"""
+    request_id = str(uuid.uuid4())
+    start_time = time.time()
+
+    # Log request start
     try:
-        data = await req.json()
-    except Exception as e:
-        _write_interactive_log({'route':'interactive/qna','stage':'read_json','error':str(e)})
-        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'invalid JSON'})
-
-    if not isinstance(data, dict):
-        _write_interactive_log({'route':'interactive/qna','stage':'validate_shape','detail':'body not dict'})
-        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'request body must be a dict'})
-
-    project_id = data.get('project_id')
-    answers = data.get('answers', [])
-
-    if not project_id:
-        _write_interactive_log({'route':'interactive/qna','stage':'validate_input','detail':'project_id required'})
-        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'project_id required'})
+        os.makedirs("output/INTERACTIVE", exist_ok=True)
+        with open("output/INTERACTIVE/INTERACTIVE_RUN.log", "a", encoding="utf-8") as f:
+            f.write(json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "request_id": request_id,
+                "endpoint": "/v1/interactive/qna",
+                "stage": "start",
+                "body_keys": list((await req.json()).keys()) if req.method == "POST" else []
+            }) + "\n")
+    except Exception:
+        pass  # Continue if logging fails
 
     try:
+        # Parse and validate request
+        try:
+            data = await req.json()
+        except Exception as e:
+            return JSONResponse(status_code=422, content={
+                'error': 'VALIDATION',
+                'detail': 'invalid JSON',
+                'request_id': request_id
+            })
+
+        # Validate request structure
+        try:
+            validated = InteractiveQnaRequest(**data)
+        except Exception as e:
+            return JSONResponse(status_code=422, content={
+                'error': 'VALIDATION',
+                'detail': f'invalid request structure: {str(e)}',
+                'request_id': request_id
+            })
+
+        project_id = validated.project_id
+        answers = validated.answers
+
+        # Validate answers array is not empty
+        if not answers or len(answers) == 0:
+            return JSONResponse(status_code=422, content={
+                'error': 'VALIDATION',
+                'detail': 'answers array cannot be empty',
+                'request_id': request_id
+            })
+
         # Load existing questions
         questions_path = f"output/{project_id}/QUESTIONS.json"
         if not os.path.exists(questions_path):
-            _write_interactive_log({'route':'interactive/qna','stage':'load_questions','missing':questions_path})
-            return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'QUESTIONS.json not found - run assess first'})
+            return JSONResponse(status_code=422, content={
+                'error': 'VALIDATION',
+                'detail': 'QUESTIONS.json not found - run assess first',
+                'request_id': request_id
+            })
 
-        with open(questions_path, 'r') as f:
-            questions_data = json.load(f)
+        try:
+            with open(questions_path, 'r') as f:
+                questions_data = json.load(f)
+        except Exception as e:
+            return JSONResponse(status_code=422, content={
+                'error': 'VALIDATION',
+                'detail': f'failed to load QUESTIONS.json: {str(e)}',
+                'request_id': request_id
+            })
 
         questions = questions_data.get('questions', [])
 
@@ -1119,6 +1253,7 @@ async def interactive_qna(req: Request):
             next_questions = unresolved_questions[:3]  # Return next batch
 
         response = {
+            'request_id': request_id,
             'project_id': project_id,
             'answered': answered,
             'next_questions': next_questions,
@@ -1132,11 +1267,38 @@ async def interactive_qna(req: Request):
         with open(qna_path, 'w') as f:
             json.dump(response, f, indent=2)
 
+        # Log success
+        duration_ms = int((time.time() - start_time) * 1000)
+        with open("output/INTERACTIVE/INTERACTIVE_RUN.log", "a", encoding="utf-8") as f:
+            f.write(json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "request_id": request_id,
+                "endpoint": "/v1/interactive/qna",
+                "stage": "success",
+                "duration_ms": duration_ms,
+                "answered_count": len(answered)
+            }) + "\n")
+
         return response
 
     except Exception as e:
-        _write_interactive_log({'route':'interactive/qna','stage':'processing','error':str(e)})
-        return JSONResponse(status_code=500, content={'error':'PROCESSING','detail':str(e)})
+        # Log error
+        duration_ms = int((time.time() - start_time) * 1000)
+        with open("output/INTERACTIVE/INTERACTIVE_RUN.log", "a", encoding="utf-8") as f:
+            f.write(json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "request_id": request_id,
+                "endpoint": "/v1/interactive/qna",
+                "stage": "error",
+                "duration_ms": duration_ms,
+                "error": str(e)
+            }) + "\n")
+
+        return JSONResponse(status_code=500, content={
+            'error': 'PROCESSING',
+            'detail': str(e),
+            'request_id': request_id
+        })
 
 
 @app.post("/v1/interactive/estimate")

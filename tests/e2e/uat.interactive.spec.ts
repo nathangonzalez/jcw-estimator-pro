@@ -97,6 +97,78 @@ test('UAT Interactive - Assess validation errors', async ({ request }) => {
   expect(response2.status()).toBe(422);
 });
 
+test('UAT Interactive - Assess endpoint happy-path with request_id', async ({ request }) => {
+  const testPdfB64 = Buffer.from('%PDF-1.4\n1 0 obj\n<<\n/Type /Catalog\n/Pages 2 0 R\n>>\nendobj\n2 0 obj\n<<\n/Type /Pages\n/Kids [3 0 R]\n/Count 1\n>>\nendobj\n3 0 obj\n<<\n/Type /Page\n/Parent 2 0 R\n/MediaBox [0 0 612 792]\n/Contents 4 0 R\n>>\nendobj\n4 0 obj\n<<\n/Length 44\n>>\nstream\nBT\n/F1 12 Tf\n100 700 Td\n(roof shingle window vinyl) Tj\nET\nendstream\nendobj\nxref\n0 5\n0000000000 65535 f\n0000000009 00000 n\n0000000058 00000 n\n0000000115 00000 n\n0000000200 00000 n\ntrailer\n<<\n/Size 5\n/Root 1 0 R\n>>\nstartxref\n284\n%%EOF').toString('base64');
+
+  const response = await request.post('/v1/interactive/assess', {
+    data: {
+      project_id: 'uat-assess-request-id-test',
+      pdf_base64: testPdfB64
+    }
+  });
+
+  expect(response.status()).toBe(200);
+  const body = await response.json();
+
+  // Should include request_id in response
+  expect(body).toHaveProperty('request_id');
+  expect(typeof body.request_id).toBe('string');
+  expect(body.request_id.length).toBeGreaterThan(0);
+});
+
+test('UAT Interactive - QnA endpoint with empty questions returns 422', async ({ request }) => {
+  const response = await request.post('/v1/interactive/qna', {
+    data: {
+      project_id: 'uat-empty-answers-test',
+      answers: []  // Empty array
+    }
+  });
+
+  expect(response.status()).toBe(422);
+  const body = await response.json();
+
+  expect(body).toHaveProperty('error', 'VALIDATION');
+  expect(body).toHaveProperty('detail', 'answers array cannot be empty');
+  expect(body).toHaveProperty('request_id');
+});
+
+test('UAT Interactive - QnA endpoint with well-formed payload returns 200', async ({ request }) => {
+  // First create questions via assess
+  const testPdfB64 = Buffer.from('%PDF-1.4\n1 0 obj\n<<\n/Type /Catalog\n/Pages 2 0 R\n>>\nendobj\n2 0 obj\n<<\n/Type /Pages\n/Kids [3 0 R]\n/Count 1\n>>\nendobj\n3 0 obj\n<<\n/Type /Page\n/Parent 2 0 R\n/MediaBox [0 0 612 792]\n/Contents 4 0 R\n>>\nendobj\n4 0 obj\n<<\n/Length 44\n>>\nstream\nBT\n/F1 12 Tf\n100 700 Td\n(foundation slab window aluminum) Tj\nET\nendstream\nendobj\nxref\n0 5\n0000000000 65535 f\n0000000009 00000 n\n0000000058 00000 n\n0000000115 00000 n\n0000000200 00000 n\ntrailer\n<<\n/Size 5\n/Root 1 0 R\n>>\nstartxref\n284\n%%EOF').toString('base64');
+
+  await request.post('/v1/interactive/assess', {
+    data: {
+      project_id: 'uat-qna-well-formed-test',
+      pdf_base64: testPdfB64
+    }
+  });
+
+  // Now test QnA with well-formed answers
+  const qnaResponse = await request.post('/v1/interactive/qna', {
+    data: {
+      project_id: 'uat-qna-well-formed-test',
+      answers: [
+        { id: 'uat-qna-well-formed-test_generic_quality_0', key: 'standard' }
+      ]
+    }
+  });
+
+  expect(qnaResponse.status()).toBe(200);
+  const qnaBody = await qnaResponse.json();
+
+  expect(qnaBody).toHaveProperty('request_id');
+  expect(qnaBody).toHaveProperty('project_id', 'uat-qna-well-formed-test');
+  expect(qnaBody).toHaveProperty('answered');
+  expect(qnaBody).toHaveProperty('next_questions');
+  expect(qnaBody).toHaveProperty('completion_status');
+  expect(qnaBody).toHaveProperty('total_answered');
+  expect(qnaBody).toHaveProperty('total_questions');
+
+  // Should have applied_overlays or empty array
+  expect(qnaBody).toHaveProperty('applied_overlays');
+  expect(Array.isArray(qnaBody.applied_overlays)).toBe(true);
+});
+
 test('UAT Interactive - QnA validation errors', async ({ request }) => {
   // Test missing project_id
   const response1 = await request.post('/v1/interactive/qna', {

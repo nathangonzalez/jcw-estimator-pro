@@ -68,3 +68,15 @@ class EstimateResponse(BaseModel):
     warnings: List[str] = []
     notes: Optional[str] = None
     debug: Optional[Dict[str, Any]] = None
+
+# Interactive endpoints
+class InteractiveAssessRequest(BaseModel):
+    project_id: str
+    plan_features: Optional[Dict[str, Any]] = None
+    layout_meta: Optional[Dict[str, Any]] = None
+
+class InteractiveQnaRequest(BaseModel):
+    project_id: str
+    answers: List[Dict[str, Any]]
+    plan_features: Optional[Dict[str, Any]] = None
+    layout_meta: Optional[Dict[str, Any]] = None
