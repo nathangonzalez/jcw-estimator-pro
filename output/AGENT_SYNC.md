@@ -133,3 +133,11 @@ Integrated LayoutParser + OCR stage into /v1/takeoff for enhanced blueprint unde
 - **Interactive:** Endpoints implemented but need debugging (500 errors)
 - **Finance:** Export pipeline working, 3 CSVs generated
 - **Next:** Debug interactive endpoints, fix test data issues
+
+## R2.2.1 Interactive Endpoint Stabilization
+- **Status:** COMPLETE
+- **Commit:** 1232848
+- **Receipt:** output/R22.1_INTERACTIVE_RECEIPT.md
+- **Changes:** Hardened endpoints with 422 validation, request IDs, logging, guardrails
+- **Tests:** Added unit/E2E tests for fallback scenarios and validation
+- **Next:** Start API server and run UAT to verify fixes
