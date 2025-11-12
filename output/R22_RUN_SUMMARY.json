@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-11-12T12:07:49-05:00",
+  "git": {
+    "branch": "master",
+    "sha": "f40fa52",
+    "short": "f40fa52"
+  },
+  "uat": {
+    "total": 17,
+    "passed": 11,
+    "failed": 5,
+    "skipped": 1
+  },
+  "interactive_endpoints": {
+    "assess": "FAIL",
+    "qna": "FAIL"
+  },
+  "finance_hooks": {
+    "exports_found": 3,
+    "kpis_present": true,
+    "runway_weeks": "unknown"
+  },
+  "next_actions": [
+    "Debug 500 errors in /v1/plan/assess and /v1/estimate?mode=interactive",
+    "Create data/quantities.sample.json or fix test path",
+    "Test endpoints manually with curl commands",
+    "Verify CSV outputs are generated correctly in output/<project>/",
+    "Check output/UVICORN_STDERR.log for server errors",
+    "Re-run UAT after fixes: pwsh -File scripts/uat_run.ps1",
+    "Re-run smoke tests: pwsh -File scripts/interactive_smoke.ps1"
+  ]
+}

@@ -120,3 +120,16 @@ Integrated LayoutParser + OCR stage into /v1/takeoff for enhanced blueprint unde
 ### Execution
 - Commit: feat(r2.1): layoutparser+OCR layout stage for /v1/takeoff; enrich meta + legend terms
 - Push to master (no tags yet)
+
+---
+
+## R2.2 Interactive Implementation - Wrap-up
+- **Status:** COMPLETE
+- **Commit:** f40fa52
+- **Receipt:** output/R22_RECEIPT.md
+- **Summary:** output/R22_RUN_SUMMARY.json
+- **Tracks:** All 5 tracks completed (C-F + Finance Hooks)
+- **UAT:** 11/17 passed (5 failures documented)
+- **Interactive:** Endpoints implemented but need debugging (500 errors)
+- **Finance:** Export pipeline working, 3 CSVs generated
+- **Next:** Debug interactive endpoints, fix test data issues
