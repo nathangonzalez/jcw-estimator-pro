@@ -1,0 +1,8 @@
+date,description,type,amount,debit,credit,check_no,counterparty,category,account_last4,source,source_pdf,source_row
+2025-07-01,ACH CREDIT PAYROLL,ach_in,1500.0,0.0,1500.0,,,,,csv,,1
+2025-07-05,POS PURCHASE STARBUCKS,card,-5.5,-5.5,0.0,,,,,csv,,2
+2025-07-10,CHECK 1234 RENT,check,-1200.0,-1200.0,0.0,1234,,,,csv,,3
+2025-08-01,ACH DEBIT INSURANCE,ach_out,-150.0,-150.0,0.0,,,,,csv,,4
+2025-08-15,DEPOSIT ATM,deposit,500.0,0.0,500.0,,,,,csv,,5
+2025-09-01,FEE MONTHLY,fee,-10.0,-10.0,0.0,,,,,csv,,6
+2025-10-01,INTEREST CREDIT,interest,2.5,0.0,2.5,,,,,csv,,7

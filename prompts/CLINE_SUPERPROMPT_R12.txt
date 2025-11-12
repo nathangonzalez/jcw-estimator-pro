@@ -1,0 +1,42 @@
+# JCW / Cline Superprompt — DEV-FAST
+You are executing in the jcw-estimator-pro repo. Follow these rules:
+
+- Guardrails: no force-push; only write under output/ and data/*/working/;
+  executions must emit receipts.
+- Use the repo’s scripts only; do not invent new ad-hoc commands.
+- Read prompts/SNREVIEW_CONTEXT.txt first. Align to Open Issues / Next Actions.
+- Before running anything, check for approvals/EXEC_OK. If missing, write
+  output/EXEC_WAITING.md that lists the exact commands you will run, then stop.
+
+### Task (example for R1.2)
+1) Update code/tests to satisfy:
+   - /v1/takeoff returns trades as array (strict when PLAN_PDF set).
+   - UAT exit_code=0.
+   - F4b calibration ratio in [0.3,3.0], factors>0.
+   - Ueltchi parity <=0.5%.
+
+2) When approvals/EXEC_OK exists, run in this order (stop on failure with receipts):
+   - pwsh -File scripts/uat_start_api.ps1
+   - pwsh -File scripts/uat_run.ps1
+   - pwsh -File scripts/run_f4b_data_pass.ps1 -Step Parse
+   - pwsh -File scripts/run_f4b_data_pass.ps1 -Step Train
+   - pwsh -File scripts/run_f4b_data_pass.ps1 -Step Calibrated
+   - pwsh -File scripts/run_f4b_data_pass.ps1 -Step Dashboard
+   - pwsh -File scripts/ueltchi_mvp_smoke.ps1
+
+3) Emit receipts (required):
+   - output/UAT_STATUS.json (+ output/UAT_RECEIPT.md)
+   - output/CALIBRATION_STATUS.json (+ BEFORE_AFTER.md + ACCEPTANCE.md)
+   - output/LYNN_DELTA_DASHBOARD.html
+   - output/ueltchi/SMOKE_RECEIPT.md
+
+4) Commit with message:
+   feat(r1.2): UAT pass + calibration within band + Ueltchi parity OK
+   - include only code & receipts. No vendor PDFs.
+
+5) Tag:
+   r1.2-accept-<shortSHA>
+
+If any acceptance fails, commit with:
+   chore(r1.2): receipts (FAIL) + next steps
+and list actionable next steps in output/NEXT_STEPS.md.

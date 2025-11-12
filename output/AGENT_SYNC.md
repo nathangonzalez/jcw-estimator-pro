@@ -83,3 +83,40 @@ Artifacts (F2):
 - tests/unit/test_plan_reader.py  (no-run scaffold)
 - data/plan/README.md
 - docs/ESTIMATING_PIPELINE.md (F2 section)
+
+---
+
+## R2.1 — Layout Stage Integration (DEV-FAST, no force push)
+
+Integrated LayoutParser + OCR stage into /v1/takeoff for enhanced blueprint understanding. Detects title block + legend regions, extracts scale/notes, feeds into existing takeoff → quantities v0. Backward-compatible outputs.
+
+### Dependencies
+- requirements.txt: added layoutparser==0.3.4, opencv-python-headless>=4.8, ocrmypdf>=15.0.0 (optional), pytesseract>=0.3.10 (optional), paddleocr>=2.7.0 (optional)
+- Guarded imports; no break if OCR extras absent.
+
+### New Module
+- web/backend/blueprint_parsers/layout_stage.py
+  - detect_regions(pdf_path) → dict with bboxes for title_block, legend, notes
+  - extract_text(pdf_path, bbox) → str (pdfminer first; OCR fallback)
+  - parse_titleblock(text) → {"scale": "...", "sheet": "...", "project":"..."} using existing regexes
+  - parse_legend(text) → [{"symbol":"...", "desc":"..."}] heuristic
+
+### Wiring
+- web/backend/takeoff_engine.py: added detect_layout() method; enriched to_quantities() with layout metadata
+- web/backend/app_comprehensive.py: POST /v1/takeoff behind TAKEOFF_ENABLE_LAYOUT=true env flag
+- Response includes metadata.layout_detected=true/false and parsed fields; keeps trades normalized
+
+### Tests & Scripts
+- tests/unit/test_layout_stage.py: deterministic tests for parse_titleblock() and parse_legend()
+- scripts/smoke_takeoff_v1.ps1: logs layout fields if present
+- tests/e2e/uat.release.spec.ts: asserts metadata.layout_detected is boolean; meta.scale exists when title block detected
+
+### Docs & Receipts
+- docs/ESTIMATING_PIPELINE.md: added "Layout Stage" subsection with knobs/fallbacks
+- output/AGENT_SYNC.md: this summary
+- output/R21_LAYOUT_RECEIPT.md: detection results on sample (dry-run notes if deps blocked)
+- output/TAKEOFF_RUN.log: updated with layout stage notes
+
+### Execution
+- Commit: feat(r2.1): layoutparser+OCR layout stage for /v1/takeoff; enrich meta + legend terms
+- Push to master (no tags yet)

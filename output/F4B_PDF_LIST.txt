@@ -1,0 +1,17 @@
+﻿
+FullName                                                                                                               Length LastWriteTime       
+--------                                                                                                               ------ -------------       
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-Abbate Tile 10.31.25 - Copy.pdf                    98282 11/8/2025 4:25:44 PM
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-ABCO (REV) Proposal Package 10.28.25 - Copy.pdf  5237224 11/8/2025 4:26:01 PM
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-Advanced Electrical 11.4.25.pdf                   748229 11/8/2025 4:56:56 PM
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-Barker AC 10.9.25.pdf                            1250025 11/8/2025 4:56:56 PM
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-Cirtus Roofing 10.24.25.pdf                       251239 11/8/2025 4:56:56 PM
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-Designer Concrete (Fireplace) 10.29.25.pdf        214297 11/8/2025 4:56:56 PM
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-Final Touch Cabinets 10.8.25.pdf                   59838 11/8/2025 4:56:56 PM
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-Forrest Forms 11.4.25.pdf                       19420256 11/8/2025 4:56:57 PM
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-Gale Insulation 10.24.25.pdf                      459667 11/8/2025 4:56:56 PM
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-Gator 11.6.25.pdf                                1158917 11/8/2025 4:56:56 PM
+C:\Users\natha\dev\repos\jcw-estimator-pro\data\lynn\raw\vendor\Lynn-HBS 10.31.25.pdf                                 8858214 11/8/2025 4:56:57 PM
+
+
+

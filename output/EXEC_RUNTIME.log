@@ -1,0 +1,48 @@
+﻿2025-11-07 15:31:13 STEP0: pip install -r requirements.txt
+2025-11-07 15:32:05 Starting API at http://127.0.0.1:8001 ...
+2025-11-07 15:33:06 API failed to become healthy at http://127.0.0.1:8001/docs
+2025-11-07 16:36:18 STEP0: pip install -r requirements.txt
+2025-11-07 16:36:23 Starting API at http://127.0.0.1:8001 ...
+2025-11-07 16:37:54 API failed to become healthy at http://127.0.0.1:8001/health
+2025-11-07 16:39:08 STEP0: pip install -r requirements.txt
+2025-11-07 16:39:13 Starting API at http://127.0.0.1:8002 ...
+API_READY: http://127.0.0.1:8002
+2025-11-07 16:39:15 TAKEOFF HTTP 200 -> output\TAKEOFF_RESPONSE.json
+2025-11-07 16:39:15 ESTIMATE ERROR HTTP 500 -> output\PIPELINE_ESTIMATE_ERROR.json
+2025-11-07 16:39:15 CSV summary error: Cannot find path 'C:\Users\natha\dev\repos\jcw-estimator-pro\output\PIPELINE_ESTIMATE_RESPONSE.json' because it does not exist.
+2025-11-07 16:39:16 Node detected (v22.19.0), attempting Playwright E2E (non-blocking)
+2025-11-07 16:39:28 BaseURL used: http://127.0.0.1:8002 ; TAKEOFF=200 ; ESTIMATE=500
+2025-11-07 16:39:28 Appended server extraction log to output\SMOKE_STDOUT.log
+2025-11-07 16:43:42 STEP0: pip install -r requirements.txt
+2025-11-07 16:43:43 API already running at http://127.0.0.1:8001
+API_READY: http://127.0.0.1:8001
+2025-11-07 16:43:44 TAKEOFF HTTP 200 -> output\TAKEOFF_RESPONSE.json
+2025-11-07 16:43:44 ESTIMATE HTTP 200 -> output\PIPELINE_ESTIMATE_RESPONSE.json
+2025-11-07 16:43:44 CSV summary -> output\LYNN-001\raw_estimate\estimate_lines.csv
+2025-11-07 16:43:44 Node detected (v22.19.0), attempting Playwright E2E (non-blocking)
+2025-11-07 16:43:53 BaseURL used: http://127.0.0.1:8001 ; TAKEOFF=200 ; ESTIMATE=200
+2025-11-07 16:43:53 Appended server extraction log to output\SMOKE_STDOUT.log
+2025-11-07 16:43:53 Commit/push error (continuing): fatal: pathspec 'output/TAKEOFF_ERROR.json' did not match any files
+2025-11-07 16:43:53 DONE start=2025-11-07 16:43:42 end=2025-11-07 16:43:53 port=8001
+2025-11-09 20:26:21 STEP0: pip install -r requirements.txt
+2025-11-09 20:26:29 Starting API at http://127.0.0.1:8001 ...
+API_READY: http://127.0.0.1:8001
+2025-11-09 20:26:34 TAKEOFF HTTP 200 -> output\TAKEOFF_RESPONSE.json
+2025-11-09 20:26:34 ESTIMATE HTTP 200 -> output\PIPELINE_ESTIMATE_RESPONSE.json
+2025-11-09 20:26:34 CSV summary -> output\LYNN-001\raw_estimate\estimate_lines.csv
+2025-11-09 20:26:34 Node detected (v22.19.0), attempting Playwright E2E (non-blocking)
+2025-11-09 20:26:43 BaseURL used: http://127.0.0.1:8001 ; TAKEOFF=200 ; ESTIMATE=200
+2025-11-09 20:26:43 Appended server extraction log to output\SMOKE_STDOUT.log
+2025-11-09 20:26:43 Commit/push error (continuing): fatal: pathspec 'output/TAKEOFF_ERROR.json' did not match any files
+2025-11-09 20:26:43 DONE start=2025-11-09 20:26:21 end=2025-11-09 20:26:43 port=8001
+2025-11-09 20:31:27 STEP0: pip install -r requirements.txt
+2025-11-09 20:31:32 Starting API at http://127.0.0.1:8002 ...
+API_READY: http://127.0.0.1:8002
+2025-11-09 20:31:34 TAKEOFF HTTP 200 -> output\TAKEOFF_RESPONSE.json
+2025-11-09 20:31:34 ESTIMATE HTTP 200 -> output\PIPELINE_ESTIMATE_RESPONSE.json
+2025-11-09 20:31:34 CSV summary -> output\LYNN-001\raw_estimate\estimate_lines.csv
+2025-11-09 20:31:34 Node detected (v22.19.0), attempting Playwright E2E (non-blocking)
+2025-11-09 20:31:42 BaseURL used: http://127.0.0.1:8002 ; TAKEOFF=200 ; ESTIMATE=200
+2025-11-09 20:31:42 Appended server extraction log to output\SMOKE_STDOUT.log
+2025-11-09 20:31:42 Commit/push error (continuing): fatal: pathspec 'output/TAKEOFF_ERROR.json' did not match any files
+2025-11-09 20:31:42 DONE start=2025-11-09 20:31:27 end=2025-11-09 20:31:42 port=8002

@@ -32,6 +32,23 @@ Goal: robust, small, deterministic takeoff with clear logging and runtime valida
   - Normalize architectural/metric patterns into a ratio.
   - If missing, assume 1/8"=1'-0" (ratio 96.0) and add signal "scale:assumed".
 
+### Layout Stage (R2.1)
+
+Optional layout analysis using LayoutParser + OCR for enhanced blueprint understanding.
+
+- **Knobs**: Enabled via `TAKEOFF_ENABLE_LAYOUT=true` environment variable.
+- **Detection**: Uses LayoutParser to identify title block, legend, and notes regions.
+- **Extraction**:
+  - Title block: scale, sheet, project, date via regex patterns.
+  - Legend: symbol-description pairs (e.g., "WC - Water Closet").
+  - Fallback: pdfminer text extraction first, OCR (Tesseract/PaddleOCR) if needed.
+- **Enrichment**: Adds `metadata.layout_detected=true/false`, `meta.scale`, `meta.sheet`, `meta.project`, `meta.legend_terms[]`.
+- **Quantities**: Provisional legend items (e.g., "hose bibb" → plumbing fixture) marked as `source:"legend"`.
+- **Fallbacks**:
+  - If LayoutParser unavailable: skip with signal "layout:error".
+  - If OCR fails: use text-only extraction.
+  - Dependencies guarded: layoutparser, opencv-python-headless, pytesseract/paddleocr (optional).
+
 ### Files
 
 - web/backend/blueprint_parsers/pdf_titleblock.py

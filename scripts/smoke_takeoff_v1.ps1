@@ -70,6 +70,20 @@ try {
   $json | Out-File -Encoding UTF8 output\TAKEOFF_RESPONSE.json
   Write-Host "HTTP: 200 OK"
   Write-Host "Wrote output/TAKEOFF_RESPONSE.json"
+
+  # R2.1: Log layout stage results if present
+  if ($resp.metadata -and $resp.metadata.layout_detected) {
+    Write-Host "LAYOUT DETECTED:"
+    Write-Host "  Scale: $($resp.metadata.scale)"
+    Write-Host "  Sheet: $($resp.metadata.sheet)"
+    Write-Host "  Project: $($resp.metadata.project)"
+    if ($resp.metadata.legend_terms) {
+      Write-Host "  Legend Terms: $($resp.metadata.legend_terms -join ', ')"
+    }
+  } elseif ($resp.metadata -and $resp.metadata.PSObject.Properties.Name -contains 'layout_detected') {
+    Write-Host "LAYOUT STAGE: not detected"
+  }
+
   exit 0
 }
 catch {

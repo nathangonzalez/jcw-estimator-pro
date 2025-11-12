@@ -9,6 +9,6 @@
   "digests": {
     "quantities_json_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
     "policy_yaml_sha256": "67cac549e56a3c850ed36aece17fd68f172d34058d69de8488e501d5a3c8d205",
-    "unit_costs_csv_sha256": "f3a7c40fbe01320e9d2cd06216c286d27655c91655cb5d6aaa707fc38a8bfc26"
+    "unit_costs_csv_sha256": "687ee0cb92ce3b19dc1d4ae7bac112fa5cd1bc4a6aaec350293e438324f76b9b"
   }
 }

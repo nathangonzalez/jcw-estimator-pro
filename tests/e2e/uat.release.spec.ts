@@ -28,11 +28,11 @@ test.describe('R1 UAT — API happy paths', () => {
     });
     expect(resp.ok()).toBeTruthy();
     const body = await resp.json();
-  
+
     expect(body).toBeDefined();
     expect(body.project_id || body.metadata?.project_id).toBeDefined();
     expect(body.trades).toBeDefined();
-  
+
     const trades = body.trades;
     // For real plans (PLAN_PDF provided), require normalized array shape.
     if (process.env.PLAN_PDF) {
@@ -41,6 +41,17 @@ test.describe('R1 UAT — API happy paths', () => {
       if (Array.isArray(trades) && trades.length > 0) {
         expect(trades[0]).toHaveProperty('trade');
         expect(trades[0]).toHaveProperty('items');
+      }
+
+      // R2.1: Layout stage assertions
+      expect(body.metadata).toBeDefined();
+      expect(typeof body.metadata.layout_detected).toBe('boolean');
+
+      // If title block text includes a scale token, meta.scale should exist
+      // This is a heuristic check - in practice, layout detection may or may not find scale
+      if (body.metadata.layout_detected && body.metadata.scale) {
+        expect(typeof body.metadata.scale).toBe('string');
+        expect(body.metadata.scale.length).toBeGreaterThan(0);
       }
     } else {
       // Placeholder input: accept either array or object to avoid false negatives on sample

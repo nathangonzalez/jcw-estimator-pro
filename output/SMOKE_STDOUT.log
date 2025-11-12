@@ -1,38 +1,108 @@
-# UAT Smoke Test Standard Output Log
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251107100139
+Username: MSI\natha
+RunAs User: MSI\natha
+Configuration Name: 
+Machine: MSI (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/smoke_log_wrapper.ps1
+Process ID: 49800
+PSVersion: 5.1.26100.6899
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.6899
+BuildVersion: 10.0.26100.6899
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+PS>TerminatingError(Invoke-RestMethod): "{"detail":"Not Found"}"
+HTTP: 404
+**********************
+Windows PowerShell transcript end
+End time: 20251107100141
+**********************
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
 
-Command: powershell -ExecutionPolicy Bypass -File scripts/smoke_estimate_v1.ps1
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
 
-## Server Startup Output
-[INFO] Server started successfully on port 8000
-[INFO] Health check available at: http://127.0.0.1:8000/health
-[INFO] API docs available at: http://127.0.0.1:8000/docs
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
 
-## Test Request Execution
-[INFO] Preparing POST request to /v1/estimate
-[INFO] Using payload from scripts/smoke_estimate_v1.json
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
 
-## Error Output
-Invoke-RestMethod : Unable to connect to the remote server
-At C:\Users\natha\dev\repos\jcw-estimator-pro\scripts\smoke_estima
-te_v1.ps1:16 char:12
-+ $respObj = Invoke-RestMethod -Method Post -Uri $Url -Body
-$payload -C ...
-+
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (:) [Invoke-RestMetho  
-   d], WebException
-    + FullyQualifiedErrorId : System.Net.WebException,Microsoft.P  
-   owerShell.Commands.InvokeRestMethodCommand
-
-## Result File Created
-Path: output/ESTIMATE_V1_SMOKE_RESULT.json
-Content: JSON validation error indicating malformed request body
-
-## Analysis
-- Server starts successfully
-- Connection issue at REST call time
-- Suggests JSON serialization problem in PowerShell script
-- Server returned 422 Unprocessable Entity
-
----
-Log captured: 2025-10-31 15:39 PM EST

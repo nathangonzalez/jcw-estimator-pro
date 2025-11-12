@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple
 
 from .blueprint_parsers.pdf_titleblock import find_scale_strings, normalize_scale
+from .blueprint_parsers.layout_stage import detect_regions, extract_text, parse_titleblock, parse_legend
 from pathlib import Path
 import re
 try:
@@ -250,6 +251,77 @@ class TakeoffEngine:
         _log(f"[F2] detect_fixtures: count={total}; rules={len(rule_hits)}")
         return {"fixtures": int(total), "signals": signals, "rule_hits": rule_hits}
 
+    # -------------------- LAYOUT STAGE (R2.1) --------------------
+
+    def detect_layout(self, pdf_path: str) -> Dict[str, Any]:
+        """
+        Run layout analysis to detect title block, legend, and notes regions.
+        Returns enriched metadata dict.
+        """
+        result = {
+            "layout_detected": False,
+            "scale": None,
+            "sheet": None,
+            "project": None,
+            "legend_terms": [],
+            "signals": []
+        }
+
+        try:
+            # Detect regions
+            regions_result = detect_regions(pdf_path)
+            regions = regions_result.get("regions", {})
+
+            if regions_result.get("error"):
+                _log(f"[R2.1] detect_layout: error {regions_result['error']}")
+                result["signals"].append("layout:error")
+                return result
+
+            # Extract and parse title block
+            if "title_block" in regions:
+                bbox = regions["title_block"]
+                text = extract_text(pdf_path, bbox)
+                if text.strip():
+                    parsed = parse_titleblock(text)
+                    result.update({
+                        "scale": parsed.get("scale"),
+                        "sheet": parsed.get("sheet"),
+                        "project": parsed.get("project"),
+                    })
+                    result["signals"].append("layout:titleblock:parsed")
+
+            # Extract and parse legend
+            if "legend" in regions:
+                bbox = regions["legend"]
+                text = extract_text(pdf_path, bbox)
+                if text.strip():
+                    legend_items = parse_legend(text)
+                    result["legend_terms"] = [item["desc"] for item in legend_items if item.get("desc")]
+                    result["signals"].append("layout:legend:parsed")
+
+                    # Add provisional quantity items from legend
+                    for item in legend_items:
+                        desc = item.get("desc", "").lower()
+                        if "hose bibb" in desc:
+                            # Add to fixtures rule_hits style
+                            result.setdefault("legend_rule_hits", []).append({
+                                "trade": "plumbing",
+                                "item": "hose_bibb",
+                                "unit": "ea",
+                                "qty": 1,  # unknown quantity
+                                "source": "legend"
+                            })
+
+            if regions:
+                result["layout_detected"] = True
+                _log(f"[R2.1] detect_layout: found regions {list(regions.keys())}")
+
+        except Exception as e:
+            _log(f"[R2.1] detect_layout: exception {e}")
+            result["signals"].append("layout:exception")
+
+        return result
+
     # -------------------- QUANTITIES BUILDER --------------------
 
     def to_quantities(self,
@@ -257,7 +329,8 @@ class TakeoffEngine:
                       pdf_meta: PdfMeta,
                       geom: Dict[str, Any],
                       fixtures: Dict[str, Any],
-                      scale: Dict[str, Any]) -> Dict[str, Any]:
+                      scale: Dict[str, Any],
+                      layout: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         Build a v0-conformant trade quantities structure.
         Units must be lower-case to satisfy the v0 schema.
@@ -296,22 +369,52 @@ class TakeoffEngine:
             except Exception:
                 continue
 
+        # Add legend-driven items (if any)
+        if layout and layout.get("legend_rule_hits"):
+            for hit in layout["legend_rule_hits"]:
+                try:
+                    items_plumbing.append({
+                        "code": str(hit.get("item", "fixture")),
+                        "description": "Fixture (legend)",
+                        "unit": str(hit.get("unit", "ea")).lower(),
+                        "quantity": float(hit.get("qty", 1) or 0),
+                        "notes": f"Detected by layout.legend: {hit.get('trade','plumbing')}/{hit.get('item','')}"
+                    })
+                except Exception:
+                    continue
+
         meta_notes = ["Derived via F2 heuristics"]
         signals = []
         signals.extend(scale.get("signals", []))
         signals.extend(geom.get("signals", []))
         signals.extend(fixtures.get("signals", []))
+        if layout:
+            signals.extend(layout.get("signals", []))
         if "scale:assumed" in signals:
             meta_notes.append("scale:assumed")
 
+        # Enrich meta with layout data
+        meta_dict = {
+            "project_id": project_id,
+            "source": "ai_takeoff",
+            "plan_path": pdf_meta.source_pdf,
+            "notes": "; ".join(meta_notes)
+        }
+        if layout:
+            if layout.get("layout_detected"):
+                meta_dict["layout_detected"] = True
+            if layout.get("scale"):
+                meta_dict["scale"] = layout["scale"]
+            if layout.get("sheet"):
+                meta_dict["sheet"] = layout["sheet"]
+            if layout.get("project"):
+                meta_dict["project"] = layout["project"]
+            if layout.get("legend_terms"):
+                meta_dict["legend_terms"] = layout["legend_terms"]
+
         quantities_v0 = {
             "version": "v0",
-            "meta": {
-                "project_id": project_id,
-                "source": "ai_takeoff",
-                "plan_path": pdf_meta.source_pdf,
-                "notes": "; ".join(meta_notes)
-            },
+            "meta": meta_dict,
             "trades": {
                 "concrete": {
                     "scope_notes": "Derived via F2 heuristics",

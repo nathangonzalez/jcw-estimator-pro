@@ -1,0 +1,8 @@
+txn_id,date,source,account,description,category,amount,sign
+csv_0,2025-07-01,csv,unknown,ACH CREDIT PAYROLL,unknown,1500.0,1
+csv_1,2025-07-05,csv,unknown,POS PURCHASE STARBUCKS,unknown,-5.5,-1
+csv_2,2025-07-10,csv,unknown,CHECK 1234 RENT,unknown,-1200.0,-1
+csv_3,2025-08-01,csv,unknown,ACH DEBIT INSURANCE,unknown,-150.0,-1
+csv_4,2025-08-15,csv,unknown,DEPOSIT ATM,unknown,500.0,1
+csv_5,2025-09-01,csv,unknown,FEE MONTHLY,unknown,-10.0,-1
+csv_6,2025-10-01,csv,unknown,INTEREST CREDIT,unknown,2.5,1

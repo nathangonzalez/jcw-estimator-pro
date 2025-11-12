@@ -5,3 +5,11 @@ framing,STUD_WALL,12.25
 plumbing,ROUGH,2500
 electrical,ROUGH,2200
 drywall,HANG_FINISH,2.50
+concrete,slab_area,9.00
+framing,wall_linear,15.00
+plumbing,toilet,450.00
+plumbing,lavatory_sink,350.00
+plumbing,shower,1200.00
+plumbing,bathtub,1500.00
+plumbing,hose_bibb,125.00
+plumbing,floor_drain,180.00

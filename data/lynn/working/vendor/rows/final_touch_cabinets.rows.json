@@ -1,0 +1,86 @@
+[
+  {
+    "vendor": "final_touch_cabinets",
+    "trade": "casework",
+    "item": "494_4th_pl_sw",
+    "description": "494 4th Pl SW",
+    "unit": "EA",
+    "qty": 494.0,
+    "unit_cost": null,
+    "line_total": 494.0,
+    "quoted_total": 494.0,
+    "notes": ""
+  },
+  {
+    "vendor": "final_touch_cabinets",
+    "trade": "casework",
+    "item": "291_sea_oak_drive",
+    "description": "291 SEA OAK DRIVE",
+    "unit": "EA",
+    "qty": 291.0,
+    "unit_cost": null,
+    "line_total": 291.0,
+    "quoted_total": 291.0,
+    "notes": ""
+  },
+  {
+    "vendor": "final_touch_cabinets",
+    "trade": "casework",
+    "item": "1",
+    "description": "1",
+    "unit": "EA",
+    "qty": 1.0,
+    "unit_cost": null,
+    "line_total": 1.0,
+    "quoted_total": 1.0,
+    "notes": ""
+  },
+  {
+    "vendor": "final_touch_cabinets",
+    "trade": "casework",
+    "item": "bath_1",
+    "description": "BATH 1",
+    "unit": "EA",
+    "qty": 1.0,
+    "unit_cost": null,
+    "line_total": 1.0,
+    "quoted_total": 1.0,
+    "notes": ""
+  },
+  {
+    "vendor": "final_touch_cabinets",
+    "trade": "casework",
+    "item": "bath_2",
+    "description": "BATH 2",
+    "unit": "EA",
+    "qty": 2.0,
+    "unit_cost": null,
+    "line_total": 2.0,
+    "quoted_total": 2.0,
+    "notes": ""
+  },
+  {
+    "vendor": "final_touch_cabinets",
+    "trade": "casework",
+    "item": "bath_3",
+    "description": "BATH 3",
+    "unit": "EA",
+    "qty": 3.0,
+    "unit_cost": null,
+    "line_total": 3.0,
+    "quoted_total": 3.0,
+    "notes": ""
+  },
+  {
+    "vendor": "final_touch_cabinets",
+    "trade": "casework",
+    "item": "bath_4",
+    "description": "BATH 4",
+    "unit": "EA",
+    "qty": 4.0,
+    "unit_cost": null,
+    "line_total": 4.0,
+    "quoted_total": 4.0,
+    "notes": ""
+  }
+]

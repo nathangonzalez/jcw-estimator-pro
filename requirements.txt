@@ -30,5 +30,12 @@ pdfminer.six==20240706
 jsonschema==4.23.0
 pyyaml
 
+# Layout Analysis & OCR (R2.1)
+layoutparser==0.3.4
+opencv-python-headless>=4.8
+ocrmypdf>=15.0.0 ; optional
+pytesseract>=0.3.10 ; optional
+paddleocr>=2.7.0 ; optional
+
 # Date parsing
 python-dateutil==2.8.2

@@ -17,6 +17,7 @@ import sys
 import io
 import json
 import hashlib
+import base64
 from datetime import datetime
 from .pricing_engine import price_quantities
 from .takeoff_engine import TakeoffEngine
@@ -25,6 +26,25 @@ from .trade_inference import infer_trades
 from .clarifier import make_questions
 import jsonschema
 import yaml
+import traceback
+import pathlib
+
+REPO_ROOT = pathlib.Path(__file__).resolve().parents[3] if (pathlib.Path(__file__).resolve().parts[-3:] and True) else pathlib.Path(__file__).resolve().parents[2]
+
+def _repo_path(p: str | None) -> str | None:
+    if not p: return None
+    pp = pathlib.Path(p)
+    if not pp.is_absolute(): pp = REPO_ROOT / p
+    return str(pp)
+
+def _write_interactive_log(payload: dict | str):
+    try:
+        outdir = REPO_ROOT / 'output' / 'INTERACTIVE'
+        outdir.mkdir(parents=True, exist_ok=True)
+        with open(outdir / 'route_errors.log', 'a', encoding='utf-8') as f:
+            f.write(json.dumps(payload, ensure_ascii=False) + '\n')
+    except Exception:
+        pass
 
 # --- takeoff helpers ---
 def _normalize_trades_shape(q: dict) -> dict:
@@ -695,7 +715,23 @@ async def takeoff_v1(req: Dict[str, Any]):
         geom = eng.extract_geometry(pages)
         fixtures = eng.detect_fixtures(pages_text)
 
-        quantities_v0 = eng.to_quantities(project_id, meta, geom, fixtures, scale)
+        # R2.1: Optional layout stage
+        layout = None
+        if os.environ.get("TAKEOFF_ENABLE_LAYOUT", "").lower() == "true":
+            _log("[R2.1] /v1/takeoff: layout stage enabled")
+            actual_pdf_path = pdf_path if pdf_path else None
+            if not actual_pdf_path and pdf_b64:
+                # Save base64 to temp file for layout analysis
+                import tempfile
+                with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+                    tmp_file.write(base64.b64decode(pdf_b64))
+                    actual_pdf_path = tmp_file.name
+            if actual_pdf_path:
+                layout = eng.detect_layout(actual_pdf_path)
+                if pdf_b64 and actual_pdf_path != pdf_path:
+                    os.unlink(actual_pdf_path)  # cleanup temp file
+
+        quantities_v0 = eng.to_quantities(project_id, meta, geom, fixtures, scale, layout)
 
         # Runtime validation against authoritative v0 schema (object form),
         # then normalize trades to array shape for clients/UAT.
@@ -931,6 +967,122 @@ async def get_model_info():
             "special_features": list(SPECIAL_FEATURES.keys())
         }
     }
+
+def _ensure_v0_quantities(obj: dict):
+    if not isinstance(obj, dict): return (False, None, 'body must be an object')
+    ver = obj.get('version')
+    trades = obj.get('trades')
+    if ver != 'v0': return (False, None, 'version must be v0')
+    if trades is None: return (False, None, 'trades missing')
+    # Accept dict or array; normalize to dict-of-arrays
+    if isinstance(trades, list):
+        norm = {}
+        for t in trades:
+            name = t.get('trade')
+            items = t.get('items', [])
+            if not name: return (False, None, 'trade name missing')
+            norm[name] = items if isinstance(items, list) else []
+        obj = {**obj, 'trades': norm}
+    elif not isinstance(trades, dict):
+        return (False, None, 'trades must be dict or array')
+    return (True, obj, None)
+
+
+@app.post("/v1/interactive/assess")
+async def interactive_assess(req: Request):
+    try:
+        data = await req.json()
+    except Exception as e:
+        _write_interactive_log({'route':'interactive/assess','stage':'read_json','error':str(e)})
+        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'invalid JSON'})
+
+    if not isinstance(data, dict):
+        _write_interactive_log({'route':'interactive/assess','stage':'validate_shape','detail':'body not dict'})
+        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'request body must be a dict'})
+
+    project_id = data.get('project_id') or 'UNKNOWN'
+    # Minimal scaffolded response for missing inputs
+    return {
+        'project_id': project_id,
+        'signals': {'needs_clarification': True},
+        'questions': [{'id': 'scope-1', 'text': 'Upload a plan PDF or provide area_sqft/quality to begin.'}]
+    }
+
+
+@app.post("/v1/interactive/qna")
+async def interactive_qna(req: Request):
+    try:
+        data = await req.json()
+    except Exception as e:
+        _write_interactive_log({'route':'interactive/qna','stage':'read_json','error':str(e)})
+        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'invalid JSON'})
+
+    if not isinstance(data, dict):
+        _write_interactive_log({'route':'interactive/qna','stage':'validate_shape','detail':'body not dict'})
+        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'request body must be a dict'})
+
+    project_id = data.get('project_id') or 'UNKNOWN'
+    # Minimal scaffolded response
+    return {
+        'project_id': project_id,
+        'answered': [],
+        'next_questions': []
+    }
+
+
+@app.post("/v1/interactive/estimate")
+async def interactive_estimate(req: Request):
+    try:
+        data = await req.json()
+    except Exception as e:
+        _write_interactive_log({'route':'interactive/estimate','stage':'read_json','error':str(e)})
+        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'invalid JSON'})
+
+    # resolve file inputs if present
+    qp = data.get('quantities') or None
+    qp_path = data.get('quantities_path') or None
+    if qp_path and not qp:
+        qp_abs = _repo_path(qp_path)
+        if not os.path.exists(qp_abs):
+            _write_interactive_log({'route':'interactive/estimate','stage':'read_quantities_path','missing':qp_abs})
+            return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':f'quantities_path not found: {qp_path}'})
+        try:
+            with open(qp_abs,'r',encoding='utf-8') as f:
+                qp = json.load(f)
+        except Exception as e:
+            _write_interactive_log({'route':'interactive/estimate','stage':'load_quantities_path','error':str(e)})
+            return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':f'cannot parse quantities_path: {qp_path}'})
+
+    ok, qnorm, emsg = _ensure_v0_quantities(qp) if qp else (False,None,'quantities required (v0)')
+    if not ok:
+        _write_interactive_log({'route':'interactive/estimate','stage':'validate_v0','detail':emsg})
+        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':emsg})
+
+    # (optional) jsonschema validation with first error message caught in try-except
+    try:
+        with open("schemas/trade_quantities.schema.json", "r", encoding="utf-8") as f:
+            schema = json.load(f)
+        jsonschema.validate(qnorm, schema)
+    except Exception as e:
+        _write_interactive_log({'route':'interactive/estimate','stage':'jsonschema','error':str(e)})
+        return JSONResponse(status_code=422, content={'error':'VALIDATION','detail':'quantities schema invalid'})
+
+    # price via existing pricing engine, guard any exception
+    try:
+        policy = data.get('policy')
+        unit_costs_csv = data.get('unit_costs_csv')
+        vendor_quotes_csv = data.get('vendor_quotes_csv')
+        result = price_quantities(
+            quantities=qnorm,
+            policy_yaml=policy,
+            unit_costs_csv=unit_costs_csv,
+            vendor_quotes_csv=vendor_quotes_csv,
+        )
+        return result
+    except Exception as e:
+        _write_interactive_log({'route':'interactive/estimate','stage':'pricing','error':traceback.format_exc()})
+        return JSONResponse(status_code=422, content={'error':'PRICING','detail':'pricing failed; see route_errors.log'})
+
 
 @app.post("/v1/plan/assess")
 async def plan_assess(req: Dict[str, Any]):

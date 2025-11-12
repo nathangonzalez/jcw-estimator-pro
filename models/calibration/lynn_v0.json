@@ -1,9 +1,18 @@
 {
   "type": "per_trade_item_multiplier",
-  "factors": {},
+  "factors": {
+    "concrete::slab_area": 0.4,
+    "framing::wall_linear": 0.4,
+    "plumbing::toilet": 0.4,
+    "plumbing::lavatory_sink": 0.4,
+    "plumbing::shower": 0.4,
+    "plumbing::bathtub": 0.4,
+    "plumbing::hose_bibb": 0.4,
+    "plumbing::floor_drain": 0.4
+  },
   "meta": {
-    "estimate_csv_sha256": "",
-    "vendor_csv_sha256": "458ba826e9b80dcf95e2dd921940bc325ea1a278e6a0eeefc4f64f73a709e895",
-    "count_factors": "0"
+    "estimate_csv_sha256": "0d375fa996d6f6ca041bf73b34c24b2384f655b79dfdb0d2ebb8abb2a5f7d43e",
+    "vendor_csv_sha256": "36f429812be26de0fcba3d210fc0d1d23b07bf08a23631718b9d4e1c7f7aa0cc",
+    "count_factors": "8"
   }
 }

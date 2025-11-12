@@ -1,12 +1,12 @@
 {
-  "mapped": 3,
-  "unmapped": 234,
+  "mapped": 377,
+  "unmapped": 0,
   "by_vendor": {
-    "Lynn-Abbate Tile 10.31.25 - Copy": {
-      "mapped": 0,
-      "unmapped": 23
+    "abbate_tile": {
+      "mapped": 11,
+      "unmapped": 0
     },
-    "Lynn-ABCO (REV) Proposal Package 10.28.25 - Copy": {
+    "abco_fire": {
       "mapped": 0,
       "unmapped": 0
     },
@@ -14,33 +14,33 @@
       "mapped": 0,
       "unmapped": 0
     },
-    "Lynn-Barker AC 10.9.25": {
+    "barker_ac": {
       "mapped": 0,
       "unmapped": 0
     },
-    "Lynn-Cirtus Roofing 10.24.25": {
-      "mapped": 0,
-      "unmapped": 33
+    "citrus_roofing": {
+      "mapped": 29,
+      "unmapped": 0
     },
     "rock_concrete": {
-      "mapped": 0,
-      "unmapped": 9
+      "mapped": 8,
+      "unmapped": 0
     },
-    "Lynn-Final Touch Cabinets 10.8.25": {
-      "mapped": 0,
-      "unmapped": 18
+    "final_touch_cabinets": {
+      "mapped": 7,
+      "unmapped": 0
     },
-    "Lynn-Forrest Forms 11.4.25": {
+    "forrest_forms": {
       "mapped": 0,
       "unmapped": 0
     },
-    "Lynn-Gale Insulation 10.24.25": {
-      "mapped": 0,
-      "unmapped": 55
+    "gale_insulation": {
+      "mapped": 20,
+      "unmapped": 0
     },
-    "Lynn-Gator 11.6.25": {
-      "mapped": 3,
-      "unmapped": 96
+    "gator_supply": {
+      "mapped": 302,
+      "unmapped": 0
     },
     "Lynn-HBS 10.31.25": {
       "mapped": 0,

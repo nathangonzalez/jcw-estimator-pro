@@ -1,0 +1,14 @@
+﻿{
+  "parsed": {
+    "project_id": "LYNN-001",
+    "files_parsed": 11,
+    "row_count": 377
+  },
+  "out": {
+    "compare_csv": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\data\\lynn\\working\\vendor_vs_estimate.csv",
+    "compare_json": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\data\\lynn\\working\\vendor_vs_estimate.json",
+    "summary_md": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\data\\lynn\\working\\VENDOR_COMPARE_SUMMARY.md",
+    "canonical_csv": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\data\\lynn\\working\\vendor_quotes.canonical.csv",
+    "canonical_json": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\data\\lynn\\working\\vendor_quotes.canonical.json"
+  }
+}

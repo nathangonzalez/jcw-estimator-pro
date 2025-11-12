@@ -1,0 +1,352 @@
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 3 pages from C:\Users\natha\OneDrive\Aquisition Lab\Deals\JC Welton\Post Day 1 Ops\Estimating\Lynn\251020_291 SOD - Building Permit Set.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=17; rules=6
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: error [{'trade': 'concrete', 'items': [{'code': 'slab_area', 'description': 'Slab area (heuristic)', 'unit': 'sf', 'quantity': 1200.0, 'notes': 'Derived via F2 heuristics; scale=1/8"=1\'-0" (assumed)'}]}, {'trade': 'framing', 'items': [{'code': 'wall_linear', 'description': 'Wall linear (heuristic)', 'unit': 'lf', 'quantity': 300.0, 'notes': 'Derived via F2 heuristics'}]}, {'trade': 'plumbing', 'items': [{'code': 'fixtures', 'description': 'Fixture count (keyword scan)', 'unit': 'ea', 'quantity': 0, 'notes': 'Derived via F2 keyword heuristics'}]}] is not of type 'object'
+
+Failed validating 'type' in schema['properties']['trades']:
+    {'type': 'object',
+     'description': 'Per-trade quantity line items. Keys are snake_case '
+                    'trade names.',
+     'minProperties': 1,
+     'additionalProperties': False,
+     'properties': {'concrete': {'$ref': '#/$defs/trade'},
+                    'framing': {'$ref': '#/$defs/trade'},
+                    'roofing': {'$ref': '#/$defs/trade'},
+                    'plumbing': {'$ref': '#/$defs/trade'},
+                    'electrical': {'$ref': '#/$defs/trade'},
+                    'hvac': {'$ref': '#/$defs/trade'},
+                    'finishes': {'$ref': '#/$defs/trade'},
+                    'sitework': {'$ref': '#/$defs/trade'},
+                    'drywall': {'$ref': '#/$defs/trade'},
+                    'paint': {'$ref': '#/$defs/trade'},
+                    'flooring': {'$ref': '#/$defs/trade'}},
+     'patternProperties': {'^[a-z][a-z0-9_]*$': {'$ref': '#/$defs/trade'}}}
+
+On instance['trades']:
+    [{'trade': 'concrete',
+      'items': [{'code': 'slab_area',
+                 'description': 'Slab area (heuristic)',
+                 'unit': 'sf',
+                 'quantity': 1200.0,
+                 'notes': 'Derived via F2 heuristics; scale=1/8"=1\'-0" '
+                          '(assumed)'}]},
+     {'trade': 'framing',
+      'items': [{'code': 'wall_linear',
+                 'description': 'Wall linear (heuristic)',
+                 'unit': 'lf',
+                 'quantity': 300.0,
+                 'notes': 'Derived via F2 heuristics'}]},
+     {'trade': 'plumbing',
+      'items': [{'code': 'fixtures',
+                 'description': 'Fixture count (keyword scan)',
+                 'unit': 'ea',
+                 'quantity': 0,
+                 'notes': 'Derived via F2 keyword heuristics'}]}]
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: error [{'trade': 'concrete', 'items': [{'code': 'slab_area', 'description': 'Slab area (heuristic)', 'unit': 'sf', 'quantity': 1200.0, 'notes': 'Derived via F2 heuristics; scale=1/8"=1\'-0" (assumed)'}]}, {'trade': 'framing', 'items': [{'code': 'wall_linear', 'description': 'Wall linear (heuristic)', 'unit': 'lf', 'quantity': 300.0, 'notes': 'Derived via F2 heuristics'}]}, {'trade': 'plumbing', 'items': [{'code': 'fixtures', 'description': 'Fixture count (keyword scan)', 'unit': 'ea', 'quantity': 0, 'notes': 'Derived via F2 keyword heuristics'}]}] is not of type 'object'
+
+Failed validating 'type' in schema['properties']['trades']:
+    {'type': 'object',
+     'description': 'Per-trade quantity line items. Keys are snake_case '
+                    'trade names.',
+     'minProperties': 1,
+     'additionalProperties': False,
+     'properties': {'concrete': {'$ref': '#/$defs/trade'},
+                    'framing': {'$ref': '#/$defs/trade'},
+                    'roofing': {'$ref': '#/$defs/trade'},
+                    'plumbing': {'$ref': '#/$defs/trade'},
+                    'electrical': {'$ref': '#/$defs/trade'},
+                    'hvac': {'$ref': '#/$defs/trade'},
+                    'finishes': {'$ref': '#/$defs/trade'},
+                    'sitework': {'$ref': '#/$defs/trade'},
+                    'drywall': {'$ref': '#/$defs/trade'},
+                    'paint': {'$ref': '#/$defs/trade'},
+                    'flooring': {'$ref': '#/$defs/trade'}},
+     'patternProperties': {'^[a-z][a-z0-9_]*$': {'$ref': '#/$defs/trade'}}}
+
+On instance['trades']:
+    [{'trade': 'concrete',
+      'items': [{'code': 'slab_area',
+                 'description': 'Slab area (heuristic)',
+                 'unit': 'sf',
+                 'quantity': 1200.0,
+                 'notes': 'Derived via F2 heuristics; scale=1/8"=1\'-0" '
+                          '(assumed)'}]},
+     {'trade': 'framing',
+      'items': [{'code': 'wall_linear',
+                 'description': 'Wall linear (heuristic)',
+                 'unit': 'lf',
+                 'quantity': 300.0,
+                 'notes': 'Derived via F2 heuristics'}]},
+     {'trade': 'plumbing',
+      'items': [{'code': 'fixtures',
+                 'description': 'Fixture count (keyword scan)',
+                 'unit': 'ea',
+                 'quantity': 0,
+                 'notes': 'Derived via F2 keyword heuristics'}]}]
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: error [{'trade': 'concrete', 'items': [{'code': 'slab_area', 'description': 'Slab area (heuristic)', 'unit': 'sf', 'quantity': 1200.0, 'notes': 'Derived via F2 heuristics; scale=1/8"=1\'-0" (assumed)'}]}, {'trade': 'framing', 'items': [{'code': 'wall_linear', 'description': 'Wall linear (heuristic)', 'unit': 'lf', 'quantity': 300.0, 'notes': 'Derived via F2 heuristics'}]}, {'trade': 'plumbing', 'items': [{'code': 'fixtures', 'description': 'Fixture count (keyword scan)', 'unit': 'ea', 'quantity': 0, 'notes': 'Derived via F2 keyword heuristics'}]}] is not of type 'object'
+
+Failed validating 'type' in schema['properties']['trades']:
+    {'type': 'object',
+     'description': 'Per-trade quantity line items. Keys are snake_case '
+                    'trade names.',
+     'minProperties': 1,
+     'additionalProperties': False,
+     'properties': {'concrete': {'$ref': '#/$defs/trade'},
+                    'framing': {'$ref': '#/$defs/trade'},
+                    'roofing': {'$ref': '#/$defs/trade'},
+                    'plumbing': {'$ref': '#/$defs/trade'},
+                    'electrical': {'$ref': '#/$defs/trade'},
+                    'hvac': {'$ref': '#/$defs/trade'},
+                    'finishes': {'$ref': '#/$defs/trade'},
+                    'sitework': {'$ref': '#/$defs/trade'},
+                    'drywall': {'$ref': '#/$defs/trade'},
+                    'paint': {'$ref': '#/$defs/trade'},
+                    'flooring': {'$ref': '#/$defs/trade'}},
+     'patternProperties': {'^[a-z][a-z0-9_]*$': {'$ref': '#/$defs/trade'}}}
+
+On instance['trades']:
+    [{'trade': 'concrete',
+      'items': [{'code': 'slab_area',
+                 'description': 'Slab area (heuristic)',
+                 'unit': 'sf',
+                 'quantity': 1200.0,
+                 'notes': 'Derived via F2 heuristics; scale=1/8"=1\'-0" '
+                          '(assumed)'}]},
+     {'trade': 'framing',
+      'items': [{'code': 'wall_linear',
+                 'description': 'Wall linear (heuristic)',
+                 'unit': 'lf',
+                 'quantity': 300.0,
+                 'notes': 'Derived via F2 heuristics'}]},
+     {'trade': 'plumbing',
+      'items': [{'code': 'fixtures',
+                 'description': 'Fixture count (keyword scan)',
+                 'unit': 'ea',
+                 'quantity': 0,
+                 'notes': 'Derived via F2 keyword heuristics'}]}]
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: error [{'trade': 'concrete', 'items': [{'code': 'slab_area', 'description': 'Slab area (heuristic)', 'unit': 'sf', 'quantity': 1200.0, 'notes': 'Derived via F2 heuristics; scale=1/8"=1\'-0" (assumed)'}]}, {'trade': 'framing', 'items': [{'code': 'wall_linear', 'description': 'Wall linear (heuristic)', 'unit': 'lf', 'quantity': 300.0, 'notes': 'Derived via F2 heuristics'}]}, {'trade': 'plumbing', 'items': [{'code': 'fixtures', 'description': 'Fixture count (keyword scan)', 'unit': 'ea', 'quantity': 0, 'notes': 'Derived via F2 keyword heuristics'}]}] is not of type 'object'
+
+Failed validating 'type' in schema['properties']['trades']:
+    {'type': 'object',
+     'description': 'Per-trade quantity line items. Keys are snake_case '
+                    'trade names.',
+     'minProperties': 1,
+     'additionalProperties': False,
+     'properties': {'concrete': {'$ref': '#/$defs/trade'},
+                    'framing': {'$ref': '#/$defs/trade'},
+                    'roofing': {'$ref': '#/$defs/trade'},
+                    'plumbing': {'$ref': '#/$defs/trade'},
+                    'electrical': {'$ref': '#/$defs/trade'},
+                    'hvac': {'$ref': '#/$defs/trade'},
+                    'finishes': {'$ref': '#/$defs/trade'},
+                    'sitework': {'$ref': '#/$defs/trade'},
+                    'drywall': {'$ref': '#/$defs/trade'},
+                    'paint': {'$ref': '#/$defs/trade'},
+                    'flooring': {'$ref': '#/$defs/trade'}},
+     'patternProperties': {'^[a-z][a-z0-9_]*$': {'$ref': '#/$defs/trade'}}}
+
+On instance['trades']:
+    [{'trade': 'concrete',
+      'items': [{'code': 'slab_area',
+                 'description': 'Slab area (heuristic)',
+                 'unit': 'sf',
+                 'quantity': 1200.0,
+                 'notes': 'Derived via F2 heuristics; scale=1/8"=1\'-0" '
+                          '(assumed)'}]},
+     {'trade': 'framing',
+      'items': [{'code': 'wall_linear',
+                 'description': 'Wall linear (heuristic)',
+                 'unit': 'lf',
+                 'quantity': 300.0,
+                 'notes': 'Derived via F2 heuristics'}]},
+     {'trade': 'plumbing',
+      'items': [{'code': 'fixtures',
+                 'description': 'Fixture count (keyword scan)',
+                 'unit': 'ea',
+                 'quantity': 0,
+                 'notes': 'Derived via F2 keyword heuristics'}]}]
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success
+[F2] /v1/takeoff: start
+[F2] TakeoffEngine.load_pdf: start
+[F2] Using PyMuPDF for parsing
+[F2] Loaded 1 pages from data/blueprints/LYNN-001.sample.pdf
+[F2] detect_scale: no label found, assuming 1/8"=1'-0" (96.0)
+[F2] extract_geometry: error orphaned object: parent is None; using deterministic fallback
+[F2] detect_fixtures: count=0; rules=0
+[F2] /v1/takeoff: success

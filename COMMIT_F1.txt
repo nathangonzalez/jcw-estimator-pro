@@ -1,0 +1,8 @@
+feat(f1-estimator): implement pricing engine and wire /v1/estimate (sync-only)
+
+- add pricing_engine.py with policy+override merge, waste/markups/tax/escalation
+- wire app_comprehensive.py to prefer M01 request shape, keep legacy fallback
+- add unit test for pricing engine
+- add sample unit_costs and vendor_quotes CSVs
+- doc: append F1 entry to output/AGENT_SYNC.md
+- SYNC-ONLY: no installs or servers run

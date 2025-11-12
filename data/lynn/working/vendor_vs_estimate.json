@@ -1,687 +1,37 @@
 [
   {
-    "trade": "",
-    "item": "10_cancellation_this_agreement_or_any_pa",
-    "est_qty": 0.0,
-    "vdr_qty": 10.0,
-    "delta_qty": -10.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "112_x714_net_poplar_bullnose",
-    "est_qty": 0.0,
-    "vdr_qty": 112.0,
-    "delta_qty": -112.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "1136_old_dixie_highway_vero_beach_fl",
-    "est_qty": 0.0,
-    "vdr_qty": 1136.0,
-    "delta_qty": -1136.0,
-    "est_total": 0.0,
-    "vdr_total": 32960.0,
-    "delta_total": -32960.0
-  },
-  {
-    "trade": "",
-    "item": "11_default_you_may_terminate_this_agreem",
-    "est_qty": 0.0,
-    "vdr_qty": 11.0,
-    "delta_qty": -11.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "12_assignment_you_may_not_assign_this_ag",
-    "est_qty": 0.0,
-    "vdr_qty": 12.0,
-    "delta_qty": -12.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "13_governing_law_this_agreement_shall_be",
-    "est_qty": 0.0,
-    "vdr_qty": 13.0,
-    "delta_qty": -13.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "14_disputes_and_mandatory_mediation_in_t",
-    "est_qty": 0.0,
-    "vdr_qty": 14.0,
-    "delta_qty": -14.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "15_per_month_18_per_annum_to_the_extent",
-    "est_qty": 0.0,
-    "vdr_qty": 15.0,
-    "delta_qty": -15.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "16_severability_if_any_provision_on_this",
-    "est_qty": 0.0,
-    "vdr_qty": 16.0,
-    "delta_qty": -16.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "17_entire_agreement_this_instrument_cont",
-    "est_qty": 0.0,
-    "vdr_qty": 17.0,
-    "delta_qty": -17.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "18_indemnity_each_of_the_parties_to_this",
-    "est_qty": 0.0,
-    "vdr_qty": 18.0,
-    "delta_qty": -18.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "1_15_non_refundable_deposit",
+    "trade": "casework",
+    "item": "1",
     "est_qty": 0.0,
     "vdr_qty": 1.0,
     "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 17664.0,
-    "delta_total": -17664.0
-  },
-  {
-    "trade": "",
-    "item": "1_acceptance_this_agreement_is_expressly",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "1_new_construction_home_assumes_all_plyw",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "1x12_s4s_poplar_10_wall",
-    "est_qty": 0.0,
-    "vdr_qty": 10.0,
-    "delta_qty": -10.0,
     "est_total": 0.0,
     "vdr_total": 1.0,
     "delta_total": -1.0
   },
   {
-    "trade": "",
-    "item": "1x4_cypress_select_tg_soffit_1_oc",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "1x8_s4s_poplar_6_wall",
-    "est_qty": 0.0,
-    "vdr_qty": 6.0,
-    "delta_qty": -6.0,
-    "est_total": 0.0,
-    "vdr_total": 5.0,
-    "delta_total": -5.0
-  },
-  {
-    "trade": "",
-    "item": "20_min",
-    "est_qty": 0.0,
-    "vdr_qty": 20.0,
-    "delta_qty": -20.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "24x70x_134_all_poplar_frame_with_54_jamb",
-    "est_qty": 0.0,
-    "vdr_qty": 134.0,
-    "delta_qty": -134.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "26x70x_134_all_poplar_frame_with_54_jamb",
-    "est_qty": 0.0,
-    "vdr_qty": 134.0,
-    "delta_qty": -134.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "28x70x_134_all_poplar_frame_with_54_jamb",
-    "est_qty": 0.0,
-    "vdr_qty": 134.0,
-    "delta_qty": -134.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "291_sea_oak_dr",
-    "est_qty": 0.0,
-    "vdr_qty": 582.0,
-    "delta_qty": -582.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
+    "trade": "casework",
     "item": "291_sea_oak_drive",
     "est_qty": 0.0,
-    "vdr_qty": 582.0,
-    "delta_qty": -582.0,
+    "vdr_qty": 291.0,
+    "delta_qty": -291.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 291.0,
+    "delta_total": -291.0
   },
   {
-    "trade": "",
-    "item": "2_2x6x16_pt_prime_ledger_1s8",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "2_2x8x16_pt_ledger_2s7_1s7",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "2_50_at_completion_of_dry_in",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 5888000.0,
-    "delta_total": -5888000.0
-  },
-  {
-    "trade": "",
-    "item": "2_home_assumes_permit_expenses_to_be_by",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "2_limited_warranty_all_work_performed_by",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "2_weeks_lead_time_lumber",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "2x12_cypress_2_bird_blocking",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "2x4_cypress_2_facia",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "30_days_of_when_the_dispute_arose_one_wi",
-    "est_qty": 0.0,
-    "vdr_qty": 30.0,
-    "delta_qty": -30.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "30x70x_134_all_poplar_frame_with_54_jamb",
-    "est_qty": 0.0,
-    "vdr_qty": 134.0,
-    "delta_qty": -134.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "34x4_net_s4s_poplar_2_sides_single_lock",
-    "est_qty": 0.0,
-    "vdr_qty": 6.0,
-    "delta_qty": -6.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "34x4x10_birch_plywood_12_wall",
-    "est_qty": 0.0,
-    "vdr_qty": 12.0,
-    "delta_qty": -12.0,
-    "est_total": 0.0,
-    "vdr_total": 2.0,
-    "delta_total": -2.0
-  },
-  {
-    "trade": "",
-    "item": "34x634_net_s4s_poplar_2_sides_single_loc",
-    "est_qty": 0.0,
-    "vdr_qty": 6.0,
-    "delta_qty": -6.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "34x6_net_s4s_poplar_1_bottom_dbl_lock_mi",
-    "est_qty": 0.0,
-    "vdr_qty": 3.0,
-    "delta_qty": -3.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "34x6_net_s4s_poplar_2_sides_single_lock",
-    "est_qty": 0.0,
-    "vdr_qty": 4.0,
-    "delta_qty": -4.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "36x12x_134_trg300_transom_single_quarter",
-    "est_qty": 0.0,
-    "vdr_qty": 134.0,
-    "delta_qty": -134.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "3900_pinecone_ln_vero_beach_fl",
-    "est_qty": 0.0,
-    "vdr_qty": 3900.0,
-    "delta_qty": -3900.0,
-    "est_total": 0.0,
-    "vdr_total": 32968.0,
-    "delta_total": -32968.0
-  },
-  {
-    "trade": "",
-    "item": "3_35_balance_upon_completion_of_job",
-    "est_qty": 0.0,
-    "vdr_qty": 3.0,
-    "delta_qty": -3.0,
-    "est_total": 0.0,
-    "vdr_total": 41216000.0,
-    "delta_total": -41216000.0
-  },
-  {
-    "trade": "",
-    "item": "3_administration_fee_for_all_non_achchec",
-    "est_qty": 0.0,
-    "vdr_qty": 3.0,
-    "delta_qty": -3.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "3_insurance_contractor_shall_maintain_wo",
-    "est_qty": 0.0,
-    "vdr_qty": 3.0,
-    "delta_qty": -3.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "3_mineral_wool",
-    "est_qty": 0.0,
-    "vdr_qty": 3.0,
-    "delta_qty": -3.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
+    "trade": "casework",
     "item": "494_4th_pl_sw",
     "est_qty": 0.0,
     "vdr_qty": 494.0,
     "delta_qty": -494.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 494.0,
+    "delta_total": -494.0
   },
   {
-    "trade": "",
-    "item": "4_limitation_of_remedies_your_sole_and_e",
-    "est_qty": 0.0,
-    "vdr_qty": 4.0,
-    "delta_qty": -4.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "50_deposit_due_to_order_50_upon_delivery",
-    "est_qty": 0.0,
-    "vdr_qty": 50.0,
-    "delta_qty": -50.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "50_deposit_is_due_upon_acceptance_of_pro",
-    "est_qty": 0.0,
-    "vdr_qty": 50.0,
-    "delta_qty": -50.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "58_4x8_sheathing_backer",
-    "est_qty": 0.0,
-    "vdr_qty": 116.0,
-    "delta_qty": -116.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "58_pop_stop_12x112_og_1279_pc_sq_butt_hi",
-    "est_qty": 0.0,
-    "vdr_qty": 116.0,
-    "delta_qty": -116.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "5_limitations_on_actions_and_liability_a",
-    "est_qty": 0.0,
-    "vdr_qty": 5.0,
-    "delta_qty": -5.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "6_color_matched_mortar_to_be_used_cosmet",
-    "est_qty": 0.0,
-    "vdr_qty": 6.0,
-    "delta_qty": -6.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "6_prices_terms_and_shipment_no_cash_disc",
-    "est_qty": 0.0,
-    "vdr_qty": 6.0,
-    "delta_qty": -6.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "7707_us_highway_1_ste",
-    "est_qty": 0.0,
-    "vdr_qty": 15414.0,
-    "delta_qty": -15414.0,
-    "est_total": 0.0,
-    "vdr_total": 20.0,
-    "delta_total": -20.0
-  },
-  {
-    "trade": "",
-    "item": "772",
-    "est_qty": 0.0,
-    "vdr_qty": 1544.0,
-    "delta_qty": -1544.0,
-    "est_total": 0.0,
-    "vdr_total": 7777764.0,
-    "delta_total": -7777764.0
-  },
-  {
-    "trade": "",
-    "item": "7_all_valleys_and_associated_trim_inters",
-    "est_qty": 0.0,
-    "vdr_qty": 7.0,
-    "delta_qty": -7.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "7_force_majeure_contractor_shall_not_be",
-    "est_qty": 0.0,
-    "vdr_qty": 7.0,
-    "delta_qty": -7.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "8_confidentiality_if_you_visit_contracto",
-    "est_qty": 0.0,
-    "vdr_qty": 8.0,
-    "delta_qty": -8.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "9_credit_approval_shipment_and_delivery",
-    "est_qty": 0.0,
-    "vdr_qty": 9.0,
-    "delta_qty": -9.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "acceptance_contractor_may_change_andor_w",
-    "est_qty": 0.0,
-    "vdr_qty": 10.0,
-    "delta_qty": -10.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "actions_andor_lawsuits_of_any_kind_or_na",
-    "est_qty": 0.0,
-    "vdr_qty": 18.0,
-    "delta_qty": -18.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "allege_damages_within_30_days_you_hereby",
-    "est_qty": 0.0,
-    "vdr_qty": 30.0,
-    "delta_qty": -30.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "and_marble_may_withdraw_this_proposal_at",
-    "est_qty": 0.0,
-    "vdr_qty": 30.0,
-    "delta_qty": -30.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "bath",
-    "est_qty": 0.0,
-    "vdr_qty": 4.0,
-    "delta_qty": -4.0,
-    "est_total": 0.0,
-    "vdr_total": 10.0,
-    "delta_total": -10.0
-  },
-  {
-    "trade": "",
-    "item": "bath_1_price_for_3cm_stonequartz_with_a",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "bath_2_tub_bath_price_for_3cm_stonequart",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "bath_3_price_for_3cm_stonequartz_with_a",
-    "est_qty": 0.0,
-    "vdr_qty": 3.0,
-    "delta_qty": -3.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "bath_4_price_for_3cm_stonequartz_with_a",
-    "est_qty": 0.0,
-    "vdr_qty": 4.0,
-    "delta_qty": -4.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "bedroom",
+    "trade": "casework",
+    "item": "bath_1",
     "est_qty": 0.0,
     "vdr_qty": 1.0,
     "delta_qty": -1.0,
@@ -690,654 +40,34 @@
     "delta_total": -1.0
   },
   {
-    "trade": "",
-    "item": "beyond_this_60_day_period_you_agree_to_p",
+    "trade": "casework",
+    "item": "bath_2",
     "est_qty": 0.0,
-    "vdr_qty": 60.0,
-    "delta_qty": -60.0,
+    "vdr_qty": 2.0,
+    "delta_qty": -2.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 2.0,
+    "delta_total": -2.0
   },
   {
-    "trade": "",
-    "item": "bihinge",
+    "trade": "casework",
+    "item": "bath_3",
     "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
+    "vdr_qty": 3.0,
+    "delta_qty": -3.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "casework",
+    "item": "bath_4",
+    "est_qty": 0.0,
+    "vdr_qty": 4.0,
+    "delta_qty": -4.0,
     "est_total": 0.0,
     "vdr_total": 4.0,
     "delta_total": -4.0
-  },
-  {
-    "trade": "",
-    "item": "branch_037_3601a_crossroads_parkway_ft_p",
-    "est_qty": 0.0,
-    "vdr_qty": 74.0,
-    "delta_qty": -74.0,
-    "est_total": 0.0,
-    "vdr_total": 9318382.0,
-    "delta_total": -9318382.0
-  },
-  {
-    "trade": "",
-    "item": "cased_openings",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 8.0,
-    "delta_total": -8.0
-  },
-  {
-    "trade": "",
-    "item": "contingent_upon_strikes_accidents_or_del",
-    "est_qty": 0.0,
-    "vdr_qty": 14.0,
-    "delta_qty": -14.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "contractor_arising_under_this_agreement",
-    "est_qty": 0.0,
-    "vdr_qty": 13.0,
-    "delta_qty": -13.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "crown_c2_only_in_living_room_family_room",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 1.0,
-    "delta_total": -1.0
-  },
-  {
-    "trade": "",
-    "item": "cutout_48_slide_in_range_and_4_splashes",
-    "est_qty": 0.0,
-    "vdr_qty": 48.0,
-    "delta_qty": -48.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "cutout_and_4_splashes",
-    "est_qty": 0.0,
-    "vdr_qty": 12.0,
-    "delta_qty": -12.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "cutout_and_4_splashes_price_also_include",
-    "est_qty": 0.0,
-    "vdr_qty": 4.0,
-    "delta_qty": -4.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "date",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 205550.0,
-    "delta_total": -205550.0
-  },
-  {
-    "trade": "",
-    "item": "default_has_not_been_remedied_within_thi",
-    "est_qty": 0.0,
-    "vdr_qty": 30.0,
-    "delta_qty": -30.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "draft_stop_fire_block_fire_stop_ibc_7184",
-    "est_qty": 0.0,
-    "vdr_qty": 71841.0,
-    "delta_qty": -71841.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "emergency",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 7722845613.0,
-    "delta_total": -7722845613.0
-  },
-  {
-    "trade": "",
-    "item": "est",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 11113202.0,
-    "delta_total": -11113202.0
-  },
-  {
-    "trade": "",
-    "item": "exterior_door_trim",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 10.0,
-    "delta_total": -10.0
-  },
-  {
-    "trade": "",
-    "item": "f_772",
-    "est_qty": 0.0,
-    "vdr_qty": 772.0,
-    "delta_qty": -772.0,
-    "est_total": 0.0,
-    "vdr_total": 5899642.0,
-    "delta_total": -5899642.0
-  },
-  {
-    "trade": "",
-    "item": "farm_sink_cutout_and_4_splashes",
-    "est_qty": 0.0,
-    "vdr_qty": 4.0,
-    "delta_qty": -4.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "fire_20_min",
-    "est_qty": 0.0,
-    "vdr_qty": 20.0,
-    "delta_qty": -20.0,
-    "est_total": 0.0,
-    "vdr_total": 1.0,
-    "delta_total": -1.0
-  },
-  {
-    "trade": "",
-    "item": "flex_mould_1_allowance_window_f",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "gator_building_supply_9555_n_us_highway",
-    "est_qty": 0.0,
-    "vdr_qty": 9555.0,
-    "delta_qty": -9555.0,
-    "est_total": 0.0,
-    "vdr_total": 32958.0,
-    "delta_total": -32958.0
-  },
-  {
-    "trade": "",
-    "item": "hip_beams",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 8.0,
-    "delta_total": -8.0
-  },
-  {
-    "trade": "",
-    "item": "in_this_proposal_pricing_subject_to_chan",
-    "est_qty": 0.0,
-    "vdr_qty": 15.0,
-    "delta_qty": -15.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "interior_door_trim",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 23.0,
-    "delta_total": -23.0
-  },
-  {
-    "trade": "",
-    "item": "interior_doors",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 23.0,
-    "delta_total": -23.0
-  },
-  {
-    "trade": "",
-    "item": "intermediate_beams",
-    "est_qty": 0.0,
-    "vdr_qty": 3.0,
-    "delta_qty": -3.0,
-    "est_total": 0.0,
-    "vdr_total": 37.0,
-    "delta_total": -37.0
-  },
-  {
-    "trade": "",
-    "item": "issue_date",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 20484050.0,
-    "delta_total": -20484050.0
-  },
-  {
-    "trade": "",
-    "item": "job_lynn_residence_job_address_291_sea_o",
-    "est_qty": 0.0,
-    "vdr_qty": 291.0,
-    "delta_qty": -291.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "lmw200_5_gal",
-    "est_qty": 0.0,
-    "vdr_qty": 5.0,
-    "delta_qty": -5.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "note_lead_time_is_1012_weeks_and_subject",
-    "est_qty": 0.0,
-    "vdr_qty": 1012.0,
-    "delta_qty": -1012.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "of",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 375.0,
-    "delta_total": -375.0
-  },
-  {
-    "trade": "",
-    "item": "office",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 7725881194.0,
-    "delta_total": -7725881194.0
-  },
-  {
-    "trade": "",
-    "item": "open_cell_foam_r20_enertite_g_55_nominal",
-    "est_qty": 0.0,
-    "vdr_qty": 220.0,
-    "delta_qty": -220.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "p_772",
-    "est_qty": 0.0,
-    "vdr_qty": 772.0,
-    "delta_qty": -772.0,
-    "est_total": 0.0,
-    "vdr_total": 5898976.0,
-    "delta_total": -5898976.0
-  },
-  {
-    "trade": "",
-    "item": "page_1_estimate",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 1317.0,
-    "delta_total": -1317.0
-  },
-  {
-    "trade": "",
-    "item": "page_1_of",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 7.0,
-    "delta_total": -7.0
-  },
-  {
-    "trade": "",
-    "item": "page_2_estimate",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 1317.0,
-    "delta_total": -1317.0
-  },
-  {
-    "trade": "",
-    "item": "page_2_of",
-    "est_qty": 0.0,
-    "vdr_qty": 6.0,
-    "delta_qty": -6.0,
-    "est_total": 0.0,
-    "vdr_total": 12.0,
-    "delta_total": -12.0
-  },
-  {
-    "trade": "",
-    "item": "page_3_estimate",
-    "est_qty": 0.0,
-    "vdr_qty": 3.0,
-    "delta_qty": -3.0,
-    "est_total": 0.0,
-    "vdr_total": 1317.0,
-    "delta_total": -1317.0
-  },
-  {
-    "trade": "",
-    "item": "page_3_of",
-    "est_qty": 0.0,
-    "vdr_qty": 9.0,
-    "delta_qty": -9.0,
-    "est_total": 0.0,
-    "vdr_total": 12.0,
-    "delta_total": -12.0
-  },
-  {
-    "trade": "",
-    "item": "page_4_of",
-    "est_qty": 0.0,
-    "vdr_qty": 8.0,
-    "delta_qty": -8.0,
-    "est_total": 0.0,
-    "vdr_total": 9.0,
-    "delta_total": -9.0
-  },
-  {
-    "trade": "",
-    "item": "page_5_of",
-    "est_qty": 0.0,
-    "vdr_qty": 5.0,
-    "delta_qty": -5.0,
-    "est_total": 0.0,
-    "vdr_total": 5.0,
-    "delta_total": -5.0
-  },
-  {
-    "trade": "",
-    "item": "payments_to_be_made_in_3_increments",
-    "est_qty": 0.0,
-    "vdr_qty": 3.0,
-    "delta_qty": -3.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "pc_sq_butt_hinge_1250_pc_spring_butt_hin",
-    "est_qty": 0.0,
-    "vdr_qty": 1250.0,
-    "delta_qty": -1250.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "phone",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 7723888882.0,
-    "delta_total": -7723888882.0
-  },
-  {
-    "trade": "",
-    "item": "phone_7725699113_fax",
-    "est_qty": 0.0,
-    "vdr_qty": 7725699113.0,
-    "delta_qty": -7725699113.0,
-    "est_total": 0.0,
-    "vdr_total": 7725693849.0,
-    "delta_total": -7725693849.0
-  },
-  {
-    "trade": "",
-    "item": "pocket",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 8.0,
-    "delta_total": -8.0
-  },
-  {
-    "trade": "",
-    "item": "pocket_door_frames",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 8.0,
-    "delta_total": -8.0
-  },
-  {
-    "trade": "",
-    "item": "pocket_stops",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 8.0,
-    "delta_total": -8.0
-  },
-  {
-    "trade": "",
-    "item": "prehung",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 10.0,
-    "delta_total": -10.0
-  },
-  {
-    "trade": "",
-    "item": "pricing_the_prices_stated_in_the_scope_o",
-    "est_qty": 0.0,
-    "vdr_qty": 60.0,
-    "delta_qty": -60.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "pscl_ply_clips_250_pieces",
-    "est_qty": 0.0,
-    "vdr_qty": 250.0,
-    "delta_qty": -250.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "quarter_round_sticking_pre_hung_pop_jamb",
-    "est_qty": 0.0,
-    "vdr_qty": 2890.0,
-    "delta_qty": -2890.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "quote_83659097",
-    "est_qty": 0.0,
-    "vdr_qty": 167318194.0,
-    "delta_qty": -167318194.0,
-    "est_total": 0.0,
-    "vdr_total": 8.0,
-    "delta_total": -8.0
-  },
-  {
-    "trade": "",
-    "item": "quoted_price_is_only_valid_for_5_busines",
-    "est_qty": 0.0,
-    "vdr_qty": 5.0,
-    "delta_qty": -5.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "ridge",
-    "est_qty": 0.0,
-    "vdr_qty": 3.0,
-    "delta_qty": -3.0,
-    "est_total": 0.0,
-    "vdr_total": 4.0,
-    "delta_total": -4.0
-  },
-  {
-    "trade": "",
-    "item": "rm_4_baths_powder_rm_and_fplace_surround",
-    "est_qty": 0.0,
-    "vdr_qty": 4.0,
-    "delta_qty": -4.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "sink_cutout_and_4_splashes",
-    "est_qty": 0.0,
-    "vdr_qty": 4.0,
-    "delta_qty": -4.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "stop_12x112_og_1279_pc_sq_butt_hinge_stn",
-    "est_qty": 0.0,
-    "vdr_qty": 6395.0,
-    "delta_qty": -6395.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "the_alleged_damages_within_30_days_after",
-    "est_qty": 0.0,
-    "vdr_qty": 30.0,
-    "delta_qty": -30.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "transoms_2_cased_openings_foyer_n_s",
-    "est_qty": 0.0,
-    "vdr_qty": 2.0,
-    "delta_qty": -2.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "umount_sink_cutout_and_4_splashes_price",
-    "est_qty": 0.0,
-    "vdr_qty": 4.0,
-    "delta_qty": -4.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "vero_beach_fl",
-    "est_qty": 0.0,
-    "vdr_qty": 6.0,
-    "delta_qty": -6.0,
-    "est_total": 0.0,
-    "vdr_total": 197786.0,
-    "delta_total": -197786.0
-  },
-  {
-    "trade": "",
-    "item": "vero_beach_fl_32962_us",
-    "est_qty": 0.0,
-    "vdr_qty": 32962.0,
-    "delta_qty": -32962.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "",
-    "item": "window_trim",
-    "est_qty": 0.0,
-    "vdr_qty": 1.0,
-    "delta_qty": -1.0,
-    "est_total": 0.0,
-    "vdr_total": 33.0,
-    "delta_total": -33.0
   },
   {
     "trade": "concrete",
@@ -1346,18 +76,8 @@
     "vdr_qty": 1.0,
     "delta_qty": -1.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "concrete",
-    "item": "7812344348_byronbyronlynncom",
-    "est_qty": 0.0,
-    "vdr_qty": 7812344348.0,
-    "delta_qty": -7812344348.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 1000000.0,
+    "delta_total": -1000000.0
   },
   {
     "trade": "concrete",
@@ -1366,18 +86,18 @@
     "vdr_qty": 6.0,
     "delta_qty": -6.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 6.0,
+    "delta_total": -6.0
   },
   {
     "trade": "concrete",
-    "item": "date_fri_oct_24_2025_at_1154_am",
+    "item": "cost_to_make_and_install_locally_would_b",
     "est_qty": 0.0,
-    "vdr_qty": 24.0,
-    "delta_qty": -24.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 11000.0,
+    "delta_total": -11000.0
   },
   {
     "trade": "concrete",
@@ -1386,8 +106,8 @@
     "vdr_qty": 6.0,
     "delta_qty": -6.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 6.0,
+    "delta_total": -6.0
   },
   {
     "trade": "concrete",
@@ -1396,8 +116,8 @@
     "vdr_qty": 27.0,
     "delta_qty": -27.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 27.0,
+    "delta_total": -27.0
   },
   {
     "trade": "concrete",
@@ -1406,8 +126,8 @@
     "vdr_qty": 28.0,
     "delta_qty": -28.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 28.0,
+    "delta_total": -28.0
   },
   {
     "trade": "concrete",
@@ -1416,88 +136,3198 @@
     "vdr_qty": 29.0,
     "delta_qty": -29.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
-  },
-  {
-    "trade": "drywall",
-    "item": "gypsum_board",
-    "est_qty": 0.0,
-    "vdr_qty": 48.0,
-    "delta_qty": -48.0,
-    "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 29.0,
+    "delta_total": -29.0
   },
   {
     "trade": "electrical",
     "item": "rough-in",
     "est_qty": 0.0,
-    "vdr_qty": 100.0,
-    "delta_qty": -100.0,
+    "vdr_qty": 48.0,
+    "delta_qty": -48.0,
+    "est_total": 0.0,
+    "vdr_total": 15.0,
+    "delta_total": -15.0
+  },
+  {
+    "trade": "framing",
+    "item": "1",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "10",
+    "est_qty": 0.0,
+    "vdr_qty": 10.0,
+    "delta_qty": -10.0,
     "est_total": 0.0,
     "vdr_total": 10.0,
     "delta_total": -10.0
   },
   {
     "trade": "framing",
-    "item": "framing_lumber",
+    "item": "100",
+    "est_qty": 0.0,
+    "vdr_qty": 100.0,
+    "delta_qty": -100.0,
+    "est_total": 0.0,
+    "vdr_total": 100.0,
+    "delta_total": -100.0
+  },
+  {
+    "trade": "framing",
+    "item": "1001",
+    "est_qty": 0.0,
+    "vdr_qty": 1001.0,
+    "delta_qty": -1001.0,
+    "est_total": 0.0,
+    "vdr_total": 10.01,
+    "delta_total": -10.01
+  },
+  {
+    "trade": "framing",
+    "item": "10010",
+    "est_qty": 0.0,
+    "vdr_qty": 10010.0,
+    "delta_qty": -10010.0,
+    "est_total": 0.0,
+    "vdr_total": 100.1,
+    "delta_total": -100.1
+  },
+  {
+    "trade": "framing",
+    "item": "1044",
+    "est_qty": 0.0,
+    "vdr_qty": 1044.0,
+    "delta_qty": -1044.0,
+    "est_total": 0.0,
+    "vdr_total": 10.44,
+    "delta_total": -10.44
+  },
+  {
+    "trade": "framing",
+    "item": "1069",
+    "est_qty": 0.0,
+    "vdr_qty": 1069.0,
+    "delta_qty": -1069.0,
+    "est_total": 0.0,
+    "vdr_total": 10.69,
+    "delta_total": -10.69
+  },
+  {
+    "trade": "framing",
+    "item": "11",
+    "est_qty": 0.0,
+    "vdr_qty": 11.0,
+    "delta_qty": -11.0,
+    "est_total": 0.0,
+    "vdr_total": 11.0,
+    "delta_total": -11.0
+  },
+  {
+    "trade": "framing",
+    "item": "110s_18s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "11144",
+    "est_qty": 0.0,
+    "vdr_qty": 11144.0,
+    "delta_qty": -11144.0,
+    "est_total": 0.0,
+    "vdr_total": 111.44,
+    "delta_total": -111.44
+  },
+  {
+    "trade": "framing",
+    "item": "112",
+    "est_qty": 0.0,
+    "vdr_qty": 112.0,
+    "delta_qty": -112.0,
+    "est_total": 0.0,
+    "vdr_total": 112.0,
+    "delta_total": -112.0
+  },
+  {
+    "trade": "framing",
+    "item": "112_x714_net_poplar_bullnose",
+    "est_qty": 0.0,
+    "vdr_qty": 112.0,
+    "delta_qty": -112.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "112s_110s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "113",
+    "est_qty": 0.0,
+    "vdr_qty": 113.0,
+    "delta_qty": -113.0,
+    "est_total": 0.0,
+    "vdr_total": 113.0,
+    "delta_total": -113.0
+  },
+  {
+    "trade": "framing",
+    "item": "11310",
+    "est_qty": 0.0,
+    "vdr_qty": 11310.0,
+    "delta_qty": -11310.0,
+    "est_total": 0.0,
+    "vdr_total": 113.1,
+    "delta_total": -113.1
+  },
+  {
+    "trade": "framing",
+    "item": "114s_412s_510s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "114s_510s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "114x138_net_poplar_backband",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1152",
+    "est_qty": 0.0,
+    "vdr_qty": 1152.0,
+    "delta_qty": -1152.0,
+    "est_total": 0.0,
+    "vdr_total": 11.52,
+    "delta_total": -11.52
+  },
+  {
+    "trade": "framing",
+    "item": "116s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "116s_110s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "119",
+    "est_qty": 0.0,
+    "vdr_qty": 119.0,
+    "delta_qty": -119.0,
+    "est_total": 0.0,
+    "vdr_total": 119.0,
+    "delta_total": -119.0
+  },
+  {
+    "trade": "framing",
+    "item": "12",
+    "est_qty": 0.0,
+    "vdr_qty": 12.0,
+    "delta_qty": -12.0,
+    "est_total": 0.0,
+    "vdr_total": 12.0,
+    "delta_total": -12.0
+  },
+  {
+    "trade": "framing",
+    "item": "120",
+    "est_qty": 0.0,
+    "vdr_qty": 120.0,
+    "delta_qty": -120.0,
+    "est_total": 0.0,
+    "vdr_total": 120.0,
+    "delta_total": -120.0
+  },
+  {
+    "trade": "framing",
+    "item": "1210s_108s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 12.0,
+    "delta_total": -12.0
+  },
+  {
+    "trade": "framing",
+    "item": "1219",
+    "est_qty": 0.0,
+    "vdr_qty": 1219.0,
+    "delta_qty": -1219.0,
+    "est_total": 0.0,
+    "vdr_total": 12.19,
+    "delta_total": -12.19
+  },
+  {
+    "trade": "framing",
+    "item": "124x8_cdx_plywood_chimney_tbd",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "125",
+    "est_qty": 0.0,
+    "vdr_qty": 125.0,
+    "delta_qty": -125.0,
+    "est_total": 0.0,
+    "vdr_total": 125.0,
+    "delta_total": -125.0
+  },
+  {
+    "trade": "framing",
+    "item": "1252",
+    "est_qty": 0.0,
+    "vdr_qty": 1252.0,
+    "delta_qty": -1252.0,
+    "est_total": 0.0,
+    "vdr_total": 12.52,
+    "delta_total": -12.52
+  },
+  {
+    "trade": "framing",
+    "item": "128",
+    "est_qty": 0.0,
+    "vdr_qty": 128.0,
+    "delta_qty": -128.0,
+    "est_total": 0.0,
+    "vdr_total": 128.0,
+    "delta_total": -128.0
+  },
+  {
+    "trade": "framing",
+    "item": "12800",
+    "est_qty": 0.0,
+    "vdr_qty": 12800.0,
+    "delta_qty": -12800.0,
+    "est_total": 0.0,
+    "vdr_total": 128.0,
+    "delta_total": -128.0
+  },
+  {
+    "trade": "framing",
+    "item": "1296",
+    "est_qty": 0.0,
+    "vdr_qty": 1296.0,
+    "delta_qty": -1296.0,
+    "est_total": 0.0,
+    "vdr_total": 12.96,
+    "delta_total": -12.96
+  },
+  {
+    "trade": "framing",
+    "item": "12x112_s4s_poplar_sq_stop",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "130",
+    "est_qty": 0.0,
+    "vdr_qty": 130.0,
+    "delta_qty": -130.0,
+    "est_total": 0.0,
+    "vdr_total": 130.0,
+    "delta_total": -130.0
+  },
+  {
+    "trade": "framing",
+    "item": "13080",
+    "est_qty": 0.0,
+    "vdr_qty": 13080.0,
+    "delta_qty": -13080.0,
+    "est_total": 0.0,
+    "vdr_total": 130.8,
+    "delta_total": -130.8
+  },
+  {
+    "trade": "framing",
+    "item": "13260",
+    "est_qty": 0.0,
+    "vdr_qty": 13260.0,
+    "delta_qty": -13260.0,
+    "est_total": 0.0,
+    "vdr_total": 132.6,
+    "delta_total": -132.6
+  },
+  {
+    "trade": "framing",
+    "item": "133",
+    "est_qty": 0.0,
+    "vdr_qty": 133.0,
+    "delta_qty": -133.0,
+    "est_total": 0.0,
+    "vdr_total": 133.0,
+    "delta_total": -133.0
+  },
+  {
+    "trade": "framing",
+    "item": "1344",
+    "est_qty": 0.0,
+    "vdr_qty": 1344.0,
+    "delta_qty": -1344.0,
+    "est_total": 0.0,
+    "vdr_total": 13.44,
+    "delta_total": -13.44
+  },
+  {
+    "trade": "framing",
+    "item": "135",
+    "est_qty": 0.0,
+    "vdr_qty": 135.0,
+    "delta_qty": -135.0,
+    "est_total": 0.0,
+    "vdr_total": 1.35,
+    "delta_total": -1.35
+  },
+  {
+    "trade": "framing",
+    "item": "13650",
+    "est_qty": 0.0,
+    "vdr_qty": 13650.0,
+    "delta_qty": -13650.0,
+    "est_total": 0.0,
+    "vdr_total": 136.5,
+    "delta_total": -136.5
+  },
+  {
+    "trade": "framing",
+    "item": "137",
+    "est_qty": 0.0,
+    "vdr_qty": 137.0,
+    "delta_qty": -137.0,
+    "est_total": 0.0,
+    "vdr_total": 137.0,
+    "delta_total": -137.0
+  },
+  {
+    "trade": "framing",
+    "item": "1377",
+    "est_qty": 0.0,
+    "vdr_qty": 1377.0,
+    "delta_qty": -1377.0,
+    "est_total": 0.0,
+    "vdr_total": 13.77,
+    "delta_total": -13.77
+  },
+  {
+    "trade": "framing",
+    "item": "13920",
+    "est_qty": 0.0,
+    "vdr_qty": 13920.0,
+    "delta_qty": -13920.0,
+    "est_total": 0.0,
+    "vdr_total": 139.2,
+    "delta_total": -139.2
+  },
+  {
+    "trade": "framing",
+    "item": "1393",
+    "est_qty": 0.0,
+    "vdr_qty": 1393.0,
+    "delta_qty": -1393.0,
+    "est_total": 0.0,
+    "vdr_total": 13.93,
+    "delta_total": -13.93
+  },
+  {
+    "trade": "framing",
+    "item": "140",
+    "est_qty": 0.0,
+    "vdr_qty": 140.0,
+    "delta_qty": -140.0,
+    "est_total": 0.0,
+    "vdr_total": 140.0,
+    "delta_total": -140.0
+  },
+  {
+    "trade": "framing",
+    "item": "1412s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 14.0,
+    "delta_total": -14.0
+  },
+  {
+    "trade": "framing",
+    "item": "1412s_3210s_468s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 14.0,
+    "delta_total": -14.0
+  },
+  {
+    "trade": "framing",
+    "item": "14478",
+    "est_qty": 0.0,
+    "vdr_qty": 14478.0,
+    "delta_qty": -14478.0,
+    "est_total": 0.0,
+    "vdr_total": 144.78,
+    "delta_total": -144.78
+  },
+  {
+    "trade": "framing",
+    "item": "15000",
+    "est_qty": 0.0,
+    "vdr_qty": 15000.0,
+    "delta_qty": -15000.0,
+    "est_total": 0.0,
+    "vdr_total": 150.0,
+    "delta_total": -150.0
+  },
+  {
+    "trade": "framing",
+    "item": "15007",
+    "est_qty": 0.0,
+    "vdr_qty": 15007.0,
+    "delta_qty": -15007.0,
+    "est_total": 0.0,
+    "vdr_total": 150.07,
+    "delta_total": -150.07
+  },
+  {
+    "trade": "framing",
+    "item": "1516s_914s_912s_18s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 15.0,
+    "delta_total": -15.0
+  },
+  {
+    "trade": "framing",
+    "item": "15232",
+    "est_qty": 0.0,
+    "vdr_qty": 15232.0,
+    "delta_qty": -15232.0,
+    "est_total": 0.0,
+    "vdr_total": 152.32,
+    "delta_total": -152.32
+  },
+  {
+    "trade": "framing",
+    "item": "153",
+    "est_qty": 0.0,
+    "vdr_qty": 153.0,
+    "delta_qty": -153.0,
+    "est_total": 0.0,
+    "vdr_total": 153.0,
+    "delta_total": -153.0
+  },
+  {
+    "trade": "framing",
+    "item": "1550",
+    "est_qty": 0.0,
+    "vdr_qty": 1550.0,
+    "delta_qty": -1550.0,
+    "est_total": 0.0,
+    "vdr_total": 15.5,
+    "delta_total": -15.5
+  },
+  {
+    "trade": "framing",
+    "item": "15660",
+    "est_qty": 0.0,
+    "vdr_qty": 15660.0,
+    "delta_qty": -15660.0,
+    "est_total": 0.0,
+    "vdr_total": 156.6,
+    "delta_total": -156.6
+  },
+  {
+    "trade": "framing",
+    "item": "15960",
+    "est_qty": 0.0,
+    "vdr_qty": 15960.0,
+    "delta_qty": -15960.0,
+    "est_total": 0.0,
+    "vdr_total": 159.6,
+    "delta_total": -159.6
+  },
+  {
+    "trade": "framing",
+    "item": "16",
+    "est_qty": 0.0,
+    "vdr_qty": 16.0,
+    "delta_qty": -16.0,
+    "est_total": 0.0,
+    "vdr_total": 16.0,
+    "delta_total": -16.0
+  },
+  {
+    "trade": "framing",
+    "item": "160",
+    "est_qty": 0.0,
+    "vdr_qty": 160.0,
+    "delta_qty": -160.0,
+    "est_total": 0.0,
+    "vdr_total": 160.0,
+    "delta_total": -160.0
+  },
+  {
+    "trade": "framing",
+    "item": "1610s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 16.0,
+    "delta_total": -16.0
+  },
+  {
+    "trade": "framing",
+    "item": "16716",
+    "est_qty": 0.0,
+    "vdr_qty": 16716.0,
+    "delta_qty": -16716.0,
+    "est_total": 0.0,
+    "vdr_total": 167.16,
+    "delta_total": -167.16
+  },
+  {
+    "trade": "framing",
+    "item": "168",
+    "est_qty": 0.0,
+    "vdr_qty": 168.0,
+    "delta_qty": -168.0,
+    "est_total": 0.0,
+    "vdr_total": 168.0,
+    "delta_total": -168.0
+  },
+  {
+    "trade": "framing",
+    "item": "1744",
+    "est_qty": 0.0,
+    "vdr_qty": 1744.0,
+    "delta_qty": -1744.0,
+    "est_total": 0.0,
+    "vdr_total": 17.44,
+    "delta_total": -17.44
+  },
+  {
+    "trade": "framing",
+    "item": "17490",
+    "est_qty": 0.0,
+    "vdr_qty": 17490.0,
+    "delta_qty": -17490.0,
+    "est_total": 0.0,
+    "vdr_total": 174.9,
+    "delta_total": -174.9
+  },
+  {
+    "trade": "framing",
+    "item": "17640",
+    "est_qty": 0.0,
+    "vdr_qty": 17640.0,
+    "delta_qty": -17640.0,
+    "est_total": 0.0,
+    "vdr_total": 176.4,
+    "delta_total": -176.4
+  },
+  {
+    "trade": "framing",
+    "item": "17920",
+    "est_qty": 0.0,
+    "vdr_qty": 17920.0,
+    "delta_qty": -17920.0,
+    "est_total": 0.0,
+    "vdr_total": 179.2,
+    "delta_total": -179.2
+  },
+  {
+    "trade": "framing",
+    "item": "18",
+    "est_qty": 0.0,
+    "vdr_qty": 18.0,
+    "delta_qty": -18.0,
+    "est_total": 0.0,
+    "vdr_total": 18.0,
+    "delta_total": -18.0
+  },
+  {
+    "trade": "framing",
+    "item": "180",
+    "est_qty": 0.0,
+    "vdr_qty": 180.0,
+    "delta_qty": -180.0,
+    "est_total": 0.0,
+    "vdr_total": 180.0,
+    "delta_total": -180.0
+  },
+  {
+    "trade": "framing",
+    "item": "1800",
+    "est_qty": 0.0,
+    "vdr_qty": 1800.0,
+    "delta_qty": -1800.0,
+    "est_total": 0.0,
+    "vdr_total": 18.0,
+    "delta_total": -18.0
+  },
+  {
+    "trade": "framing",
+    "item": "19",
+    "est_qty": 0.0,
+    "vdr_qty": 19.0,
+    "delta_qty": -19.0,
+    "est_total": 0.0,
+    "vdr_total": 19.0,
+    "delta_total": -19.0
+  },
+  {
+    "trade": "framing",
+    "item": "190",
+    "est_qty": 0.0,
+    "vdr_qty": 190.0,
+    "delta_qty": -190.0,
+    "est_total": 0.0,
+    "vdr_total": 1.9,
+    "delta_total": -1.9
+  },
+  {
+    "trade": "framing",
+    "item": "1904",
+    "est_qty": 0.0,
+    "vdr_qty": 1904.0,
+    "delta_qty": -1904.0,
+    "est_total": 0.0,
+    "vdr_total": 19.04,
+    "delta_total": -19.04
+  },
+  {
+    "trade": "framing",
+    "item": "1920",
+    "est_qty": 0.0,
+    "vdr_qty": 1920.0,
+    "delta_qty": -1920.0,
+    "est_total": 0.0,
+    "vdr_total": 1920.0,
+    "delta_total": -1920.0
+  },
+  {
+    "trade": "framing",
+    "item": "1982",
+    "est_qty": 0.0,
+    "vdr_qty": 1982.0,
+    "delta_qty": -1982.0,
+    "est_total": 0.0,
+    "vdr_total": 19.82,
+    "delta_total": -19.82
+  },
+  {
+    "trade": "framing",
+    "item": "1x3x16_spruce_truss_cleats",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x4_cypress_select_tg_soffit_1_oc",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x4x10_pt",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x4x12_pt",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x4x14_pt",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x4x16_pt",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x4x8_pt",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x512_net_poplar_crown",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x6_s4s_poplar_windows",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x6x10_pt",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x6x16_pt_base_nailer_does_not_include_g",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x6x16_pt_crown_nailer_does_not_include",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x8_cypress_select_vjoint_tg",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x8_s4s_poplar_exterior_doors",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "1x8x10_pt",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "2",
+    "est_qty": 0.0,
+    "vdr_qty": 2.0,
+    "delta_qty": -2.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "20",
     "est_qty": 0.0,
     "vdr_qty": 20.0,
     "delta_qty": -20.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 20.0,
+    "delta_total": -20.0
+  },
+  {
+    "trade": "framing",
+    "item": "200",
+    "est_qty": 0.0,
+    "vdr_qty": 200.0,
+    "delta_qty": -200.0,
+    "est_total": 0.0,
+    "vdr_total": 200.0,
+    "delta_total": -200.0
+  },
+  {
+    "trade": "framing",
+    "item": "20020",
+    "est_qty": 0.0,
+    "vdr_qty": 20020.0,
+    "delta_qty": -20020.0,
+    "est_total": 0.0,
+    "vdr_total": 200.2,
+    "delta_total": -200.2
+  },
+  {
+    "trade": "framing",
+    "item": "20400",
+    "est_qty": 0.0,
+    "vdr_qty": 20400.0,
+    "delta_qty": -20400.0,
+    "est_total": 0.0,
+    "vdr_total": 204.0,
+    "delta_total": -204.0
+  },
+  {
+    "trade": "framing",
+    "item": "20480",
+    "est_qty": 0.0,
+    "vdr_qty": 20480.0,
+    "delta_qty": -20480.0,
+    "est_total": 0.0,
+    "vdr_total": 204.8,
+    "delta_total": -204.8
+  },
+  {
+    "trade": "framing",
+    "item": "2088",
+    "est_qty": 0.0,
+    "vdr_qty": 2088.0,
+    "delta_qty": -2088.0,
+    "est_total": 0.0,
+    "vdr_total": 20.88,
+    "delta_total": -20.88
+  },
+  {
+    "trade": "framing",
+    "item": "210",
+    "est_qty": 0.0,
+    "vdr_qty": 420.0,
+    "delta_qty": -420.0,
+    "est_total": 0.0,
+    "vdr_total": 212.1,
+    "delta_total": -212.1
+  },
+  {
+    "trade": "framing",
+    "item": "210s_28s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "214s_212s_1110s_108s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "216s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "216s_210s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "22",
+    "est_qty": 0.0,
+    "vdr_qty": 22.0,
+    "delta_qty": -22.0,
+    "est_total": 0.0,
+    "vdr_total": 22.0,
+    "delta_total": -22.0
+  },
+  {
+    "trade": "framing",
+    "item": "22032",
+    "est_qty": 0.0,
+    "vdr_qty": 22032.0,
+    "delta_qty": -22032.0,
+    "est_total": 0.0,
+    "vdr_total": 220.32,
+    "delta_total": -220.32
+  },
+  {
+    "trade": "framing",
+    "item": "22288",
+    "est_qty": 0.0,
+    "vdr_qty": 22288.0,
+    "delta_qty": -22288.0,
+    "est_total": 0.0,
+    "vdr_total": 222.88,
+    "delta_total": -222.88
+  },
+  {
+    "trade": "framing",
+    "item": "22620",
+    "est_qty": 0.0,
+    "vdr_qty": 22620.0,
+    "delta_qty": -22620.0,
+    "est_total": 0.0,
+    "vdr_total": 226.2,
+    "delta_total": -226.2
+  },
+  {
+    "trade": "framing",
+    "item": "230",
+    "est_qty": 0.0,
+    "vdr_qty": 460.0,
+    "delta_qty": -460.0,
+    "est_total": 0.0,
+    "vdr_total": 232.3,
+    "delta_total": -232.3
+  },
+  {
+    "trade": "framing",
+    "item": "240",
+    "est_qty": 0.0,
+    "vdr_qty": 240.0,
+    "delta_qty": -240.0,
+    "est_total": 0.0,
+    "vdr_total": 2.4,
+    "delta_total": -2.4
+  },
+  {
+    "trade": "framing",
+    "item": "2413",
+    "est_qty": 0.0,
+    "vdr_qty": 2413.0,
+    "delta_qty": -2413.0,
+    "est_total": 0.0,
+    "vdr_total": 24.13,
+    "delta_total": -24.13
+  },
+  {
+    "trade": "framing",
+    "item": "242",
+    "est_qty": 0.0,
+    "vdr_qty": 242.0,
+    "delta_qty": -242.0,
+    "est_total": 0.0,
+    "vdr_total": 242.0,
+    "delta_total": -242.0
+  },
+  {
+    "trade": "framing",
+    "item": "2438",
+    "est_qty": 0.0,
+    "vdr_qty": 2438.0,
+    "delta_qty": -2438.0,
+    "est_total": 0.0,
+    "vdr_total": 24.38,
+    "delta_total": -24.38
+  },
+  {
+    "trade": "framing",
+    "item": "24x70x_134_all_poplar_frame_with_54_jamb",
+    "est_qty": 0.0,
+    "vdr_qty": 134.0,
+    "delta_qty": -134.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "255",
+    "est_qty": 0.0,
+    "vdr_qty": 255.0,
+    "delta_qty": -255.0,
+    "est_total": 0.0,
+    "vdr_total": 2.55,
+    "delta_total": -2.55
+  },
+  {
+    "trade": "framing",
+    "item": "25500",
+    "est_qty": 0.0,
+    "vdr_qty": 25500.0,
+    "delta_qty": -25500.0,
+    "est_total": 0.0,
+    "vdr_total": 255.0,
+    "delta_total": -255.0
+  },
+  {
+    "trade": "framing",
+    "item": "26",
+    "est_qty": 0.0,
+    "vdr_qty": 26.0,
+    "delta_qty": -26.0,
+    "est_total": 0.0,
+    "vdr_total": 26.0,
+    "delta_total": -26.0
+  },
+  {
+    "trade": "framing",
+    "item": "262",
+    "est_qty": 0.0,
+    "vdr_qty": 262.0,
+    "delta_qty": -262.0,
+    "est_total": 0.0,
+    "vdr_total": 262.0,
+    "delta_total": -262.0
+  },
+  {
+    "trade": "framing",
+    "item": "26520",
+    "est_qty": 0.0,
+    "vdr_qty": 26520.0,
+    "delta_qty": -26520.0,
+    "est_total": 0.0,
+    "vdr_total": 265.2,
+    "delta_total": -265.2
+  },
+  {
+    "trade": "framing",
+    "item": "26600",
+    "est_qty": 0.0,
+    "vdr_qty": 26600.0,
+    "delta_qty": -26600.0,
+    "est_total": 0.0,
+    "vdr_total": 266.0,
+    "delta_total": -266.0
+  },
+  {
+    "trade": "framing",
+    "item": "2688",
+    "est_qty": 0.0,
+    "vdr_qty": 2688.0,
+    "delta_qty": -2688.0,
+    "est_total": 0.0,
+    "vdr_total": 26.88,
+    "delta_total": -26.88
+  },
+  {
+    "trade": "framing",
+    "item": "26x70x_134_all_poplar_frame_with_54_jamb",
+    "est_qty": 0.0,
+    "vdr_qty": 134.0,
+    "delta_qty": -134.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2812s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 28.0,
+    "delta_total": -28.0
+  },
+  {
+    "trade": "framing",
+    "item": "2816",
+    "est_qty": 0.0,
+    "vdr_qty": 2816.0,
+    "delta_qty": -2816.0,
+    "est_total": 0.0,
+    "vdr_total": 28.16,
+    "delta_total": -28.16
+  },
+  {
+    "trade": "framing",
+    "item": "28740",
+    "est_qty": 0.0,
+    "vdr_qty": 28740.0,
+    "delta_qty": -28740.0,
+    "est_total": 0.0,
+    "vdr_total": 287.4,
+    "delta_total": -287.4
+  },
+  {
+    "trade": "framing",
+    "item": "28x70x_134_all_poplar_frame_with_54_jamb",
+    "est_qty": 0.0,
+    "vdr_qty": 134.0,
+    "delta_qty": -134.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "290",
+    "est_qty": 0.0,
+    "vdr_qty": 290.0,
+    "delta_qty": -290.0,
+    "est_total": 0.0,
+    "vdr_total": 2.9,
+    "delta_total": -2.9
+  },
+  {
+    "trade": "framing",
+    "item": "2940",
+    "est_qty": 0.0,
+    "vdr_qty": 2940.0,
+    "delta_qty": -2940.0,
+    "est_total": 0.0,
+    "vdr_total": 29.4,
+    "delta_total": -29.4
+  },
+  {
+    "trade": "framing",
+    "item": "2_weeks_lead_time_lumber",
+    "est_qty": 0.0,
+    "vdr_qty": 2.0,
+    "delta_qty": -2.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x12_cypress_2_bird_blocking",
+    "est_qty": 0.0,
+    "vdr_qty": 2.0,
+    "delta_qty": -2.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x4_cypress_2_facia",
+    "est_qty": 0.0,
+    "vdr_qty": 2.0,
+    "delta_qty": -2.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x4x16_spruce_fireblocking",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x4x16_syp_engineering",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x6x10_pt_prime",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x6x12_pt_prime",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x6x14_pt_prime",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x6x16_pt_prime",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x6x16_pt_prime_continuous",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x6x16_spruce_fireblocking",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x6x8_pt_prime",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x8x10_pt",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x8x12_pt_ledger_s6",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "2x8x16_syp",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "3",
+    "est_qty": 0.0,
+    "vdr_qty": 3.0,
+    "delta_qty": -3.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "30",
+    "est_qty": 0.0,
+    "vdr_qty": 30.0,
+    "delta_qty": -30.0,
+    "est_total": 0.0,
+    "vdr_total": 30.0,
+    "delta_total": -30.0
+  },
+  {
+    "trade": "framing",
+    "item": "300",
+    "est_qty": 0.0,
+    "vdr_qty": 300.0,
+    "delta_qty": -300.0,
+    "est_total": 0.0,
+    "vdr_total": 300.0,
+    "delta_total": -300.0
+  },
+  {
+    "trade": "framing",
+    "item": "305",
+    "est_qty": 0.0,
+    "vdr_qty": 305.0,
+    "delta_qty": -305.0,
+    "est_total": 0.0,
+    "vdr_total": 3.05,
+    "delta_total": -3.05
+  },
+  {
+    "trade": "framing",
+    "item": "30x70x_134_all_poplar_frame_with_54_jamb",
+    "est_qty": 0.0,
+    "vdr_qty": 134.0,
+    "delta_qty": -134.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "31712",
+    "est_qty": 0.0,
+    "vdr_qty": 31712.0,
+    "delta_qty": -31712.0,
+    "est_total": 0.0,
+    "vdr_total": 317.12,
+    "delta_total": -317.12
+  },
+  {
+    "trade": "framing",
+    "item": "32",
+    "est_qty": 0.0,
+    "vdr_qty": 32.0,
+    "delta_qty": -32.0,
+    "est_total": 0.0,
+    "vdr_total": 32.0,
+    "delta_total": -32.0
+  },
+  {
+    "trade": "framing",
+    "item": "320",
+    "est_qty": 0.0,
+    "vdr_qty": 640.0,
+    "delta_qty": -640.0,
+    "est_total": 0.0,
+    "vdr_total": 323.2,
+    "delta_total": -323.2
+  },
+  {
+    "trade": "framing",
+    "item": "323",
+    "est_qty": 0.0,
+    "vdr_qty": 323.0,
+    "delta_qty": -323.0,
+    "est_total": 0.0,
+    "vdr_total": 323.0,
+    "delta_total": -323.0
+  },
+  {
+    "trade": "framing",
+    "item": "336",
+    "est_qty": 0.0,
+    "vdr_qty": 336.0,
+    "delta_qty": -336.0,
+    "est_total": 0.0,
+    "vdr_total": 336.0,
+    "delta_total": -336.0
+  },
+  {
+    "trade": "framing",
+    "item": "33600",
+    "est_qty": 0.0,
+    "vdr_qty": 33600.0,
+    "delta_qty": -33600.0,
+    "est_total": 0.0,
+    "vdr_total": 336.0,
+    "delta_total": -336.0
+  },
+  {
+    "trade": "framing",
+    "item": "34560",
+    "est_qty": 0.0,
+    "vdr_qty": 34560.0,
+    "delta_qty": -34560.0,
+    "est_total": 0.0,
+    "vdr_total": 345.6,
+    "delta_total": -345.6
+  },
+  {
+    "trade": "framing",
+    "item": "34800",
+    "est_qty": 0.0,
+    "vdr_qty": 34800.0,
+    "delta_qty": -34800.0,
+    "est_total": 0.0,
+    "vdr_total": 348.0,
+    "delta_total": -348.0
+  },
+  {
+    "trade": "framing",
+    "item": "34880",
+    "est_qty": 0.0,
+    "vdr_qty": 34880.0,
+    "delta_qty": -34880.0,
+    "est_total": 0.0,
+    "vdr_total": 348.8,
+    "delta_total": -348.8
+  },
+  {
+    "trade": "framing",
+    "item": "34x234_net_poplar_crown",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "34x334_net_poplar",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "34x3_net_s4s_poplar_bottom_dbl_lock_mite",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "34x4_net_s4s_poplar_2_sides_single_lock",
+    "est_qty": 0.0,
+    "vdr_qty": 2.0,
+    "delta_qty": -2.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "34x4_net_s4s_poplar_bottom_dbl_lock_mite",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "34x634_net_s4s_poplar_2_sides_single_loc",
+    "est_qty": 0.0,
+    "vdr_qty": 2.0,
+    "delta_qty": -2.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "34x6_net_s4s_poplar_1_bottom_dbl_lock_mi",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "34x6_net_s4s_poplar_2_sides_single_lock",
+    "est_qty": 0.0,
+    "vdr_qty": 2.0,
+    "delta_qty": -2.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "34x8_net_poplar_base",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "34x8_net_poplar_inverted_base",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "framing",
+    "item": "352",
+    "est_qty": 0.0,
+    "vdr_qty": 352.0,
+    "delta_qty": -352.0,
+    "est_total": 0.0,
+    "vdr_total": 3.52,
+    "delta_total": -3.52
+  },
+  {
+    "trade": "framing",
+    "item": "36",
+    "est_qty": 0.0,
+    "vdr_qty": 36.0,
+    "delta_qty": -36.0,
+    "est_total": 0.0,
+    "vdr_total": 36.0,
+    "delta_total": -36.0
+  },
+  {
+    "trade": "framing",
+    "item": "36x12x_134_trg300_transom_single_quarter",
+    "est_qty": 0.0,
+    "vdr_qty": 134.0,
+    "delta_qty": -134.0,
+    "est_total": 0.0,
+    "vdr_total": 36.0,
+    "delta_total": -36.0
+  },
+  {
+    "trade": "framing",
+    "item": "37560",
+    "est_qty": 0.0,
+    "vdr_qty": 37560.0,
+    "delta_qty": -37560.0,
+    "est_total": 0.0,
+    "vdr_total": 375.6,
+    "delta_total": -375.6
+  },
+  {
+    "trade": "framing",
+    "item": "38358",
+    "est_qty": 0.0,
+    "vdr_qty": 38358.0,
+    "delta_qty": -38358.0,
+    "est_total": 0.0,
+    "vdr_total": 383.58,
+    "delta_total": -383.58
+  },
+  {
+    "trade": "framing",
+    "item": "396",
+    "est_qty": 0.0,
+    "vdr_qty": 396.0,
+    "delta_qty": -396.0,
+    "est_total": 0.0,
+    "vdr_total": 396.0,
+    "delta_total": -396.0
+  },
+  {
+    "trade": "framing",
+    "item": "4",
+    "est_qty": 0.0,
+    "vdr_qty": 4.0,
+    "delta_qty": -4.0,
+    "est_total": 0.0,
+    "vdr_total": 4.0,
+    "delta_total": -4.0
+  },
+  {
+    "trade": "framing",
+    "item": "40",
+    "est_qty": 0.0,
+    "vdr_qty": 40.0,
+    "delta_qty": -40.0,
+    "est_total": 0.0,
+    "vdr_total": 40.0,
+    "delta_total": -40.0
+  },
+  {
+    "trade": "framing",
+    "item": "408s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 40.0,
+    "delta_total": -40.0
+  },
+  {
+    "trade": "framing",
+    "item": "410",
+    "est_qty": 0.0,
+    "vdr_qty": 410.0,
+    "delta_qty": -410.0,
+    "est_total": 0.0,
+    "vdr_total": 4.1,
+    "delta_total": -4.1
+  },
+  {
+    "trade": "framing",
+    "item": "410s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 4.0,
+    "delta_total": -4.0
+  },
+  {
+    "trade": "framing",
+    "item": "414s1012s2210s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 4.0,
+    "delta_total": -4.0
+  },
+  {
+    "trade": "framing",
+    "item": "416s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 4.0,
+    "delta_total": -4.0
+  },
+  {
+    "trade": "framing",
+    "item": "41790",
+    "est_qty": 0.0,
+    "vdr_qty": 41790.0,
+    "delta_qty": -41790.0,
+    "est_total": 0.0,
+    "vdr_total": 417.9,
+    "delta_total": -417.9
+  },
+  {
+    "trade": "framing",
+    "item": "420",
+    "est_qty": 0.0,
+    "vdr_qty": 420.0,
+    "delta_qty": -420.0,
+    "est_total": 0.0,
+    "vdr_total": 4.2,
+    "delta_total": -4.2
+  },
+  {
+    "trade": "framing",
+    "item": "42840",
+    "est_qty": 0.0,
+    "vdr_qty": 42840.0,
+    "delta_qty": -42840.0,
+    "est_total": 0.0,
+    "vdr_total": 428.4,
+    "delta_total": -428.4
+  },
+  {
+    "trade": "framing",
+    "item": "43200",
+    "est_qty": 0.0,
+    "vdr_qty": 43200.0,
+    "delta_qty": -43200.0,
+    "est_total": 0.0,
+    "vdr_total": 432.0,
+    "delta_total": -432.0
+  },
+  {
+    "trade": "framing",
+    "item": "435",
+    "est_qty": 0.0,
+    "vdr_qty": 435.0,
+    "delta_qty": -435.0,
+    "est_total": 0.0,
+    "vdr_total": 4.35,
+    "delta_total": -4.35
+  },
+  {
+    "trade": "framing",
+    "item": "44064",
+    "est_qty": 0.0,
+    "vdr_qty": 44064.0,
+    "delta_qty": -44064.0,
+    "est_total": 0.0,
+    "vdr_total": 440.64,
+    "delta_total": -440.64
+  },
+  {
+    "trade": "framing",
+    "item": "441",
+    "est_qty": 0.0,
+    "vdr_qty": 441.0,
+    "delta_qty": -441.0,
+    "est_total": 0.0,
+    "vdr_total": 4.41,
+    "delta_total": -4.41
+  },
+  {
+    "trade": "framing",
+    "item": "4410",
+    "est_qty": 0.0,
+    "vdr_qty": 4410.0,
+    "delta_qty": -4410.0,
+    "est_total": 0.0,
+    "vdr_total": 44.1,
+    "delta_total": -44.1
+  },
+  {
+    "trade": "framing",
+    "item": "4480",
+    "est_qty": 0.0,
+    "vdr_qty": 4480.0,
+    "delta_qty": -4480.0,
+    "est_total": 0.0,
+    "vdr_total": 44.8,
+    "delta_total": -44.8
+  },
+  {
+    "trade": "framing",
+    "item": "45980",
+    "est_qty": 0.0,
+    "vdr_qty": 45980.0,
+    "delta_qty": -45980.0,
+    "est_total": 0.0,
+    "vdr_total": 459.8,
+    "delta_total": -459.8
+  },
+  {
+    "trade": "framing",
+    "item": "47040",
+    "est_qty": 0.0,
+    "vdr_qty": 47040.0,
+    "delta_qty": -47040.0,
+    "est_total": 0.0,
+    "vdr_total": 470.4,
+    "delta_total": -470.4
+  },
+  {
+    "trade": "framing",
+    "item": "480",
+    "est_qty": 0.0,
+    "vdr_qty": 480.0,
+    "delta_qty": -480.0,
+    "est_total": 0.0,
+    "vdr_total": 4.8,
+    "delta_total": -4.8
+  },
+  {
+    "trade": "framing",
+    "item": "482",
+    "est_qty": 0.0,
+    "vdr_qty": 482.0,
+    "delta_qty": -482.0,
+    "est_total": 0.0,
+    "vdr_total": 482.0,
+    "delta_total": -482.0
+  },
+  {
+    "trade": "framing",
+    "item": "485",
+    "est_qty": 0.0,
+    "vdr_qty": 485.0,
+    "delta_qty": -485.0,
+    "est_total": 0.0,
+    "vdr_total": 4.85,
+    "delta_total": -4.85
+  },
+  {
+    "trade": "framing",
+    "item": "4851",
+    "est_qty": 0.0,
+    "vdr_qty": 4851.0,
+    "delta_qty": -4851.0,
+    "est_total": 0.0,
+    "vdr_total": 48.51,
+    "delta_total": -48.51
+  },
+  {
+    "trade": "framing",
+    "item": "50000",
+    "est_qty": 0.0,
+    "vdr_qty": 50000.0,
+    "delta_qty": -50000.0,
+    "est_total": 0.0,
+    "vdr_total": 500.0,
+    "delta_total": -500.0
+  },
+  {
+    "trade": "framing",
+    "item": "512",
+    "est_qty": 0.0,
+    "vdr_qty": 512.0,
+    "delta_qty": -512.0,
+    "est_total": 0.0,
+    "vdr_total": 5.12,
+    "delta_total": -5.12
+  },
+  {
+    "trade": "framing",
+    "item": "51200",
+    "est_qty": 0.0,
+    "vdr_qty": 51200.0,
+    "delta_qty": -51200.0,
+    "est_total": 0.0,
+    "vdr_total": 512.0,
+    "delta_total": -512.0
+  },
+  {
+    "trade": "framing",
+    "item": "52",
+    "est_qty": 0.0,
+    "vdr_qty": 52.0,
+    "delta_qty": -52.0,
+    "est_total": 0.0,
+    "vdr_total": 52.0,
+    "delta_total": -52.0
+  },
+  {
+    "trade": "framing",
+    "item": "530",
+    "est_qty": 0.0,
+    "vdr_qty": 530.0,
+    "delta_qty": -530.0,
+    "est_total": 0.0,
+    "vdr_total": 530.0,
+    "delta_total": -530.0
+  },
+  {
+    "trade": "framing",
+    "item": "535",
+    "est_qty": 0.0,
+    "vdr_qty": 535.0,
+    "delta_qty": -535.0,
+    "est_total": 0.0,
+    "vdr_total": 535.0,
+    "delta_total": -535.0
+  },
+  {
+    "trade": "framing",
+    "item": "54600",
+    "est_qty": 0.0,
+    "vdr_qty": 54600.0,
+    "delta_qty": -54600.0,
+    "est_total": 0.0,
+    "vdr_total": 546.0,
+    "delta_total": -546.0
+  },
+  {
+    "trade": "framing",
+    "item": "5528",
+    "est_qty": 0.0,
+    "vdr_qty": 5528.0,
+    "delta_qty": -5528.0,
+    "est_total": 0.0,
+    "vdr_total": 55.28,
+    "delta_total": -55.28
+  },
+  {
+    "trade": "framing",
+    "item": "55680",
+    "est_qty": 0.0,
+    "vdr_qty": 55680.0,
+    "delta_qty": -55680.0,
+    "est_total": 0.0,
+    "vdr_total": 556.8,
+    "delta_total": -556.8
+  },
+  {
+    "trade": "framing",
+    "item": "560",
+    "est_qty": 0.0,
+    "vdr_qty": 560.0,
+    "delta_qty": -560.0,
+    "est_total": 0.0,
+    "vdr_total": 5.6,
+    "delta_total": -5.6
+  },
+  {
+    "trade": "framing",
+    "item": "56580",
+    "est_qty": 0.0,
+    "vdr_qty": 56580.0,
+    "delta_qty": -56580.0,
+    "est_total": 0.0,
+    "vdr_total": 565.8,
+    "delta_total": -565.8
+  },
+  {
+    "trade": "framing",
+    "item": "576",
+    "est_qty": 0.0,
+    "vdr_qty": 576.0,
+    "delta_qty": -576.0,
+    "est_total": 0.0,
+    "vdr_total": 5.76,
+    "delta_total": -5.76
+  },
+  {
+    "trade": "framing",
+    "item": "58080",
+    "est_qty": 0.0,
+    "vdr_qty": 58080.0,
+    "delta_qty": -58080.0,
+    "est_total": 0.0,
+    "vdr_total": 580.8,
+    "delta_total": -580.8
+  },
+  {
+    "trade": "framing",
+    "item": "58_4x8_sheathing_backer",
+    "est_qty": 0.0,
+    "vdr_qty": 58.0,
+    "delta_qty": -58.0,
+    "est_total": 0.0,
+    "vdr_total": 5.0,
+    "delta_total": -5.0
+  },
+  {
+    "trade": "framing",
+    "item": "58_pop_stop_12x112_og_1279_pc_sq_butt_hi",
+    "est_qty": 0.0,
+    "vdr_qty": 58.0,
+    "delta_qty": -58.0,
+    "est_total": 0.0,
+    "vdr_total": 5.0,
+    "delta_total": -5.0
+  },
+  {
+    "trade": "framing",
+    "item": "59087",
+    "est_qty": 0.0,
+    "vdr_qty": 59087.0,
+    "delta_qty": -59087.0,
+    "est_total": 0.0,
+    "vdr_total": 590.87,
+    "delta_total": -590.87
+  },
+  {
+    "trade": "framing",
+    "item": "59779",
+    "est_qty": 0.0,
+    "vdr_qty": 59779.0,
+    "delta_qty": -59779.0,
+    "est_total": 0.0,
+    "vdr_total": 597.79,
+    "delta_total": -597.79
+  },
+  {
+    "trade": "framing",
+    "item": "59885",
+    "est_qty": 0.0,
+    "vdr_qty": 59885.0,
+    "delta_qty": -59885.0,
+    "est_total": 0.0,
+    "vdr_total": 598.85,
+    "delta_total": -598.85
+  },
+  {
+    "trade": "framing",
+    "item": "6",
+    "est_qty": 0.0,
+    "vdr_qty": 6.0,
+    "delta_qty": -6.0,
+    "est_total": 0.0,
+    "vdr_total": 6.0,
+    "delta_total": -6.0
+  },
+  {
+    "trade": "framing",
+    "item": "60",
+    "est_qty": 0.0,
+    "vdr_qty": 60.0,
+    "delta_qty": -60.0,
+    "est_total": 0.0,
+    "vdr_total": 60.0,
+    "delta_total": -60.0
+  },
+  {
+    "trade": "framing",
+    "item": "60028",
+    "est_qty": 0.0,
+    "vdr_qty": 60028.0,
+    "delta_qty": -60028.0,
+    "est_total": 0.0,
+    "vdr_total": 600.28,
+    "delta_total": -600.28
+  },
+  {
+    "trade": "framing",
+    "item": "61051",
+    "est_qty": 0.0,
+    "vdr_qty": 61051.0,
+    "delta_qty": -61051.0,
+    "est_total": 0.0,
+    "vdr_total": 610.51,
+    "delta_total": -610.51
+  },
+  {
+    "trade": "framing",
+    "item": "610s_58s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 6.0,
+    "delta_total": -6.0
+  },
+  {
+    "trade": "framing",
+    "item": "616s212s210s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 6.0,
+    "delta_total": -6.0
+  },
+  {
+    "trade": "framing",
+    "item": "61842",
+    "est_qty": 0.0,
+    "vdr_qty": 61842.0,
+    "delta_qty": -61842.0,
+    "est_total": 0.0,
+    "vdr_total": 618.42,
+    "delta_total": -618.42
+  },
+  {
+    "trade": "framing",
+    "item": "620",
+    "est_qty": 0.0,
+    "vdr_qty": 620.0,
+    "delta_qty": -620.0,
+    "est_total": 0.0,
+    "vdr_total": 6.2,
+    "delta_total": -6.2
+  },
+  {
+    "trade": "framing",
+    "item": "624",
+    "est_qty": 0.0,
+    "vdr_qty": 624.0,
+    "delta_qty": -624.0,
+    "est_total": 0.0,
+    "vdr_total": 6.24,
+    "delta_total": -6.24
+  },
+  {
+    "trade": "framing",
+    "item": "64",
+    "est_qty": 0.0,
+    "vdr_qty": 64.0,
+    "delta_qty": -64.0,
+    "est_total": 0.0,
+    "vdr_total": 64.0,
+    "delta_total": -64.0
+  },
+  {
+    "trade": "framing",
+    "item": "640",
+    "est_qty": 0.0,
+    "vdr_qty": 640.0,
+    "delta_qty": -640.0,
+    "est_total": 0.0,
+    "vdr_total": 6.4,
+    "delta_total": -6.4
+  },
+  {
+    "trade": "framing",
+    "item": "64000",
+    "est_qty": 0.0,
+    "vdr_qty": 64000.0,
+    "delta_qty": -64000.0,
+    "est_total": 0.0,
+    "vdr_total": 640.0,
+    "delta_total": -640.0
+  },
+  {
+    "trade": "framing",
+    "item": "6414",
+    "est_qty": 0.0,
+    "vdr_qty": 6414.0,
+    "delta_qty": -6414.0,
+    "est_total": 0.0,
+    "vdr_total": 64.14,
+    "delta_total": -64.14
+  },
+  {
+    "trade": "framing",
+    "item": "646",
+    "est_qty": 0.0,
+    "vdr_qty": 646.0,
+    "delta_qty": -646.0,
+    "est_total": 0.0,
+    "vdr_total": 6.46,
+    "delta_total": -6.46
+  },
+  {
+    "trade": "framing",
+    "item": "6460",
+    "est_qty": 0.0,
+    "vdr_qty": 6460.0,
+    "delta_qty": -6460.0,
+    "est_total": 0.0,
+    "vdr_total": 64.6,
+    "delta_total": -64.6
+  },
+  {
+    "trade": "framing",
+    "item": "654",
+    "est_qty": 0.0,
+    "vdr_qty": 654.0,
+    "delta_qty": -654.0,
+    "est_total": 0.0,
+    "vdr_total": 6.54,
+    "delta_total": -6.54
+  },
+  {
+    "trade": "framing",
+    "item": "66560",
+    "est_qty": 0.0,
+    "vdr_qty": 66560.0,
+    "delta_qty": -66560.0,
+    "est_total": 0.0,
+    "vdr_total": 665.6,
+    "delta_total": -665.6
+  },
+  {
+    "trade": "framing",
+    "item": "67830",
+    "est_qty": 0.0,
+    "vdr_qty": 67830.0,
+    "delta_qty": -67830.0,
+    "est_total": 0.0,
+    "vdr_total": 678.3,
+    "delta_total": -678.3
+  },
+  {
+    "trade": "framing",
+    "item": "69000",
+    "est_qty": 0.0,
+    "vdr_qty": 69000.0,
+    "delta_qty": -69000.0,
+    "est_total": 0.0,
+    "vdr_total": 690.0,
+    "delta_total": -690.0
+  },
+  {
+    "trade": "framing",
+    "item": "691",
+    "est_qty": 0.0,
+    "vdr_qty": 691.0,
+    "delta_qty": -691.0,
+    "est_total": 0.0,
+    "vdr_total": 6.91,
+    "delta_total": -6.91
+  },
+  {
+    "trade": "framing",
+    "item": "6960",
+    "est_qty": 0.0,
+    "vdr_qty": 6960.0,
+    "delta_qty": -6960.0,
+    "est_total": 0.0,
+    "vdr_total": 69.6,
+    "delta_total": -69.6
+  },
+  {
+    "trade": "framing",
+    "item": "700",
+    "est_qty": 0.0,
+    "vdr_qty": 700.0,
+    "delta_qty": -700.0,
+    "est_total": 0.0,
+    "vdr_total": 7.0,
+    "delta_total": -7.0
+  },
+  {
+    "trade": "framing",
+    "item": "71195",
+    "est_qty": 0.0,
+    "vdr_qty": 71195.0,
+    "delta_qty": -71195.0,
+    "est_total": 0.0,
+    "vdr_total": 711.95,
+    "delta_total": -711.95
+  },
+  {
+    "trade": "framing",
+    "item": "71680",
+    "est_qty": 0.0,
+    "vdr_qty": 71680.0,
+    "delta_qty": -71680.0,
+    "est_total": 0.0,
+    "vdr_total": 716.8,
+    "delta_total": -716.8
+  },
+  {
+    "trade": "framing",
+    "item": "72935",
+    "est_qty": 0.0,
+    "vdr_qty": 72935.0,
+    "delta_qty": -72935.0,
+    "est_total": 0.0,
+    "vdr_total": 729.35,
+    "delta_total": -729.35
+  },
+  {
+    "trade": "framing",
+    "item": "73733",
+    "est_qty": 0.0,
+    "vdr_qty": 73733.0,
+    "delta_qty": -73733.0,
+    "est_total": 0.0,
+    "vdr_total": 737.33,
+    "delta_total": -737.33
+  },
+  {
+    "trade": "framing",
+    "item": "7488",
+    "est_qty": 0.0,
+    "vdr_qty": 7488.0,
+    "delta_qty": -7488.0,
+    "est_total": 0.0,
+    "vdr_total": 74.88,
+    "delta_total": -74.88
+  },
+  {
+    "trade": "framing",
+    "item": "75",
+    "est_qty": 0.0,
+    "vdr_qty": 75.0,
+    "delta_qty": -75.0,
+    "est_total": 0.0,
+    "vdr_total": 75.0,
+    "delta_total": -75.0
+  },
+  {
+    "trade": "framing",
+    "item": "75240",
+    "est_qty": 0.0,
+    "vdr_qty": 75240.0,
+    "delta_qty": -75240.0,
+    "est_total": 0.0,
+    "vdr_total": 752.4,
+    "delta_total": -752.4
+  },
+  {
+    "trade": "framing",
+    "item": "76716",
+    "est_qty": 0.0,
+    "vdr_qty": 76716.0,
+    "delta_qty": -76716.0,
+    "est_total": 0.0,
+    "vdr_total": 767.16,
+    "delta_total": -767.16
+  },
+  {
+    "trade": "framing",
+    "item": "7776",
+    "est_qty": 0.0,
+    "vdr_qty": 7776.0,
+    "delta_qty": -7776.0,
+    "est_total": 0.0,
+    "vdr_total": 77.76,
+    "delta_total": -77.76
+  },
+  {
+    "trade": "framing",
+    "item": "780",
+    "est_qty": 0.0,
+    "vdr_qty": 780.0,
+    "delta_qty": -780.0,
+    "est_total": 0.0,
+    "vdr_total": 780.0,
+    "delta_total": -780.0
+  },
+  {
+    "trade": "framing",
+    "item": "7830",
+    "est_qty": 0.0,
+    "vdr_qty": 7830.0,
+    "delta_qty": -7830.0,
+    "est_total": 0.0,
+    "vdr_total": 78.3,
+    "delta_total": -78.3
+  },
+  {
+    "trade": "framing",
+    "item": "795",
+    "est_qty": 0.0,
+    "vdr_qty": 795.0,
+    "delta_qty": -795.0,
+    "est_total": 0.0,
+    "vdr_total": 7.95,
+    "delta_total": -7.95
+  },
+  {
+    "trade": "framing",
+    "item": "8",
+    "est_qty": 0.0,
+    "vdr_qty": 8.0,
+    "delta_qty": -8.0,
+    "est_total": 0.0,
+    "vdr_total": 8.0,
+    "delta_total": -8.0
+  },
+  {
+    "trade": "framing",
+    "item": "80",
+    "est_qty": 0.0,
+    "vdr_qty": 80.0,
+    "delta_qty": -80.0,
+    "est_total": 0.0,
+    "vdr_total": 80.0,
+    "delta_total": -80.0
+  },
+  {
+    "trade": "framing",
+    "item": "810s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 8.0,
+    "delta_total": -8.0
+  },
+  {
+    "trade": "framing",
+    "item": "812",
+    "est_qty": 0.0,
+    "vdr_qty": 812.0,
+    "delta_qty": -812.0,
+    "est_total": 0.0,
+    "vdr_total": 8.12,
+    "delta_total": -8.12
+  },
+  {
+    "trade": "framing",
+    "item": "816s",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 8.0,
+    "delta_total": -8.0
+  },
+  {
+    "trade": "framing",
+    "item": "840",
+    "est_qty": 0.0,
+    "vdr_qty": 840.0,
+    "delta_qty": -840.0,
+    "est_total": 0.0,
+    "vdr_total": 8.4,
+    "delta_total": -8.4
+  },
+  {
+    "trade": "framing",
+    "item": "8400",
+    "est_qty": 0.0,
+    "vdr_qty": 8400.0,
+    "delta_qty": -8400.0,
+    "est_total": 0.0,
+    "vdr_total": 84.0,
+    "delta_total": -84.0
+  },
+  {
+    "trade": "framing",
+    "item": "856",
+    "est_qty": 0.0,
+    "vdr_qty": 856.0,
+    "delta_qty": -856.0,
+    "est_total": 0.0,
+    "vdr_total": 856.0,
+    "delta_total": -856.0
+  },
+  {
+    "trade": "framing",
+    "item": "864",
+    "est_qty": 0.0,
+    "vdr_qty": 864.0,
+    "delta_qty": -864.0,
+    "est_total": 0.0,
+    "vdr_total": 8.64,
+    "delta_total": -8.64
+  },
+  {
+    "trade": "framing",
+    "item": "86400",
+    "est_qty": 0.0,
+    "vdr_qty": 86400.0,
+    "delta_qty": -86400.0,
+    "est_total": 0.0,
+    "vdr_total": 864.0,
+    "delta_total": -864.0
+  },
+  {
+    "trade": "framing",
+    "item": "86800",
+    "est_qty": 0.0,
+    "vdr_qty": 86800.0,
+    "delta_qty": -86800.0,
+    "est_total": 0.0,
+    "vdr_total": 868.0,
+    "delta_total": -868.0
+  },
+  {
+    "trade": "framing",
+    "item": "894",
+    "est_qty": 0.0,
+    "vdr_qty": 894.0,
+    "delta_qty": -894.0,
+    "est_total": 0.0,
+    "vdr_total": 8.94,
+    "delta_total": -8.94
+  },
+  {
+    "trade": "framing",
+    "item": "8940",
+    "est_qty": 0.0,
+    "vdr_qty": 8940.0,
+    "delta_qty": -8940.0,
+    "est_total": 0.0,
+    "vdr_total": 89.4,
+    "delta_total": -89.4
+  },
+  {
+    "trade": "framing",
+    "item": "91580",
+    "est_qty": 0.0,
+    "vdr_qty": 91580.0,
+    "delta_qty": -91580.0,
+    "est_total": 0.0,
+    "vdr_total": 915.8,
+    "delta_total": -915.8
+  },
+  {
+    "trade": "framing",
+    "item": "929",
+    "est_qty": 0.0,
+    "vdr_qty": 929.0,
+    "delta_qty": -929.0,
+    "est_total": 0.0,
+    "vdr_total": 929.0,
+    "delta_total": -929.0
+  },
+  {
+    "trade": "framing",
+    "item": "943",
+    "est_qty": 0.0,
+    "vdr_qty": 1886.0,
+    "delta_qty": -1886.0,
+    "est_total": 0.0,
+    "vdr_total": 952.43,
+    "delta_total": -952.43
+  },
+  {
+    "trade": "framing",
+    "item": "945",
+    "est_qty": 0.0,
+    "vdr_qty": 945.0,
+    "delta_qty": -945.0,
+    "est_total": 0.0,
+    "vdr_total": 9.45,
+    "delta_total": -9.45
+  },
+  {
+    "trade": "framing",
+    "item": "9504",
+    "est_qty": 0.0,
+    "vdr_qty": 9504.0,
+    "delta_qty": -9504.0,
+    "est_total": 0.0,
+    "vdr_total": 95.04,
+    "delta_total": -95.04
+  },
+  {
+    "trade": "framing",
+    "item": "95040",
+    "est_qty": 0.0,
+    "vdr_qty": 95040.0,
+    "delta_qty": -95040.0,
+    "est_total": 0.0,
+    "vdr_total": 950.4,
+    "delta_total": -950.4
+  },
+  {
+    "trade": "framing",
+    "item": "958",
+    "est_qty": 0.0,
+    "vdr_qty": 958.0,
+    "delta_qty": -958.0,
+    "est_total": 0.0,
+    "vdr_total": 9.58,
+    "delta_total": -9.58
+  },
+  {
+    "trade": "framing",
+    "item": "960",
+    "est_qty": 0.0,
+    "vdr_qty": 960.0,
+    "delta_qty": -960.0,
+    "est_total": 0.0,
+    "vdr_total": 9.6,
+    "delta_total": -9.6
+  },
+  {
+    "trade": "framing",
+    "item": "bedroom_1",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "containing_c2",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "crown_c1_does_not_include_small_closets",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "crown_c2_only_in_living_room_family_room",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "framing",
+    "item": "extension_jamb_1x8_s4s_poplar",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "framing",
+    "item": "framing_lumber",
+    "est_qty": 0.0,
+    "vdr_qty": 27.0,
+    "delta_qty": -27.0,
+    "est_total": 0.0,
+    "vdr_total": 22.0,
+    "delta_total": -22.0
+  },
+  {
+    "trade": "framing",
+    "item": "freedom_flood_vents_16x8",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 16.0,
+    "delta_total": -16.0
+  },
+  {
+    "trade": "framing",
+    "item": "gator_building_supply_9555_n_us_highway",
+    "est_qty": 0.0,
+    "vdr_qty": 9555.0,
+    "delta_qty": -9555.0,
+    "est_total": 0.0,
+    "vdr_total": 9555.0,
+    "delta_total": -9555.0
+  },
+  {
+    "trade": "framing",
+    "item": "lmw200_5_gal",
+    "est_qty": 0.0,
+    "vdr_qty": 5.0,
+    "delta_qty": -5.0,
+    "est_total": 0.0,
+    "vdr_total": 200.0,
+    "delta_total": -200.0
+  },
+  {
+    "trade": "framing",
+    "item": "osi_quad_white_caulk_10oz",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 10.0,
+    "delta_total": -10.0
+  },
+  {
+    "trade": "framing",
+    "item": "pc_sq_butt_hinge_1250_pc_spring_butt_hin",
+    "est_qty": 0.0,
+    "vdr_qty": 1250.0,
+    "delta_qty": -1250.0,
+    "est_total": 0.0,
+    "vdr_total": 1250.0,
+    "delta_total": -1250.0
+  },
+  {
+    "trade": "framing",
+    "item": "wall_linear",
+    "est_qty": 0.0,
+    "vdr_qty": 32.0,
+    "delta_qty": -32.0,
+    "est_total": 0.0,
+    "vdr_total": 11.0,
+    "delta_total": -11.0
   },
   {
     "trade": "hvac",
     "item": "system_install",
     "est_qty": 0.0,
-    "vdr_qty": 28.0,
-    "delta_qty": -28.0,
+    "vdr_qty": 24.0,
+    "delta_qty": -24.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 24.0,
+    "delta_total": -24.0
+  },
+  {
+    "trade": "insulation",
+    "item": "10_cancellation_this_agreement_or_any_pa",
+    "est_qty": 0.0,
+    "vdr_qty": 10.0,
+    "delta_qty": -10.0,
+    "est_total": 0.0,
+    "vdr_total": 10.0,
+    "delta_total": -10.0
+  },
+  {
+    "trade": "insulation",
+    "item": "11_default_you_may_terminate_this_agreem",
+    "est_qty": 0.0,
+    "vdr_qty": 11.0,
+    "delta_qty": -11.0,
+    "est_total": 0.0,
+    "vdr_total": 11.0,
+    "delta_total": -11.0
+  },
+  {
+    "trade": "insulation",
+    "item": "12_assignment_you_may_not_assign_this_ag",
+    "est_qty": 0.0,
+    "vdr_qty": 12.0,
+    "delta_qty": -12.0,
+    "est_total": 0.0,
+    "vdr_total": 12.0,
+    "delta_total": -12.0
+  },
+  {
+    "trade": "insulation",
+    "item": "13_governing_law_this_agreement_shall_be",
+    "est_qty": 0.0,
+    "vdr_qty": 13.0,
+    "delta_qty": -13.0,
+    "est_total": 0.0,
+    "vdr_total": 13.0,
+    "delta_total": -13.0
+  },
+  {
+    "trade": "insulation",
+    "item": "17_entire_agreement_this_instrument_cont",
+    "est_qty": 0.0,
+    "vdr_qty": 17.0,
+    "delta_qty": -17.0,
+    "est_total": 0.0,
+    "vdr_total": 17.0,
+    "delta_total": -17.0
+  },
+  {
+    "trade": "insulation",
+    "item": "18_indemnity_each_of_the_parties_to_this",
+    "est_qty": 0.0,
+    "vdr_qty": 18.0,
+    "delta_qty": -18.0,
+    "est_total": 0.0,
+    "vdr_total": 18.0,
+    "delta_total": -18.0
+  },
+  {
+    "trade": "insulation",
+    "item": "21263",
+    "est_qty": 0.0,
+    "vdr_qty": 21263.0,
+    "delta_qty": -21263.0,
+    "est_total": 0.0,
+    "vdr_total": 21263.0,
+    "delta_total": -21263.0
+  },
+  {
+    "trade": "insulation",
+    "item": "291_sea_oak_dr",
+    "est_qty": 0.0,
+    "vdr_qty": 291.0,
+    "delta_qty": -291.0,
+    "est_total": 0.0,
+    "vdr_total": 291.0,
+    "delta_total": -291.0
+  },
+  {
+    "trade": "insulation",
+    "item": "30_days_of_when_the_dispute_arose_one_wi",
+    "est_qty": 0.0,
+    "vdr_qty": 30.0,
+    "delta_qty": -30.0,
+    "est_total": 0.0,
+    "vdr_total": 30.0,
+    "delta_total": -30.0
+  },
+  {
+    "trade": "insulation",
+    "item": "3_mineral_wool",
+    "est_qty": 0.0,
+    "vdr_qty": 3.0,
+    "delta_qty": -3.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "insulation",
+    "item": "4_limitation_of_remedies_your_sole_and_e",
+    "est_qty": 0.0,
+    "vdr_qty": 4.0,
+    "delta_qty": -4.0,
+    "est_total": 0.0,
+    "vdr_total": 4.0,
+    "delta_total": -4.0
+  },
+  {
+    "trade": "insulation",
+    "item": "5_limitations_on_actions_and_liability_a",
+    "est_qty": 0.0,
+    "vdr_qty": 5.0,
+    "delta_qty": -5.0,
+    "est_total": 0.0,
+    "vdr_total": 5.0,
+    "delta_total": -5.0
+  },
+  {
+    "trade": "insulation",
+    "item": "7707_us_highway_1_ste_10",
+    "est_qty": 0.0,
+    "vdr_qty": 7707.0,
+    "delta_qty": -7707.0,
+    "est_total": 0.0,
+    "vdr_total": 7707.0,
+    "delta_total": -7707.0
+  },
+  {
+    "trade": "insulation",
+    "item": "7_force_majeure_contractor_shall_not_be",
+    "est_qty": 0.0,
+    "vdr_qty": 7.0,
+    "delta_qty": -7.0,
+    "est_total": 0.0,
+    "vdr_total": 7.0,
+    "delta_total": -7.0
+  },
+  {
+    "trade": "insulation",
+    "item": "8_confidentiality_if_you_visit_contracto",
+    "est_qty": 0.0,
+    "vdr_qty": 8.0,
+    "delta_qty": -8.0,
+    "est_total": 0.0,
+    "vdr_total": 8.0,
+    "delta_total": -8.0
+  },
+  {
+    "trade": "insulation",
+    "item": "allege_damages_within_30_days_you_hereby",
+    "est_qty": 0.0,
+    "vdr_qty": 30.0,
+    "delta_qty": -30.0,
+    "est_total": 0.0,
+    "vdr_total": 30.0,
+    "delta_total": -30.0
+  },
+  {
+    "trade": "insulation",
+    "item": "branch_037_3601a_crossroads_parkway_ft_p",
+    "est_qty": 0.0,
+    "vdr_qty": 37.0,
+    "delta_qty": -37.0,
+    "est_total": 0.0,
+    "vdr_total": 37.0,
+    "delta_total": -37.0
+  },
+  {
+    "trade": "insulation",
+    "item": "draft_stop_fire_block_fire_stop_ibc_7184",
+    "est_qty": 0.0,
+    "vdr_qty": 71841.0,
+    "delta_qty": -71841.0,
+    "est_total": 0.0,
+    "vdr_total": 718.4,
+    "delta_total": -718.4
+  },
+  {
+    "trade": "insulation",
+    "item": "r41_fifoil_aa2_vapor_shield",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 4.1,
+    "delta_total": -4.1
+  },
+  {
+    "trade": "insulation",
+    "item": "the_alleged_damages_within_30_days_after",
+    "est_qty": 0.0,
+    "vdr_qty": 30.0,
+    "delta_qty": -30.0,
+    "est_total": 0.0,
+    "vdr_total": 30.0,
+    "delta_total": -30.0
   },
   {
     "trade": "insulation",
     "item": "thermal_insulation",
     "est_qty": 0.0,
-    "vdr_qty": 1828.0,
-    "delta_qty": -1828.0,
+    "vdr_qty": 1813.0,
+    "delta_qty": -1813.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 2.0,
+    "delta_total": -2.0
   },
   {
     "trade": "paint",
     "item": "interior_paint",
     "est_qty": 0.0,
-    "vdr_qty": 1040.0,
-    "delta_qty": -1040.0,
+    "vdr_qty": 582.0,
+    "delta_qty": -582.0,
     "est_total": 0.0,
-    "vdr_total": 1279.0,
-    "delta_total": -1279.0
+    "vdr_total": 582.0,
+    "delta_total": -582.0
+  },
+  {
+    "trade": "plumbing",
+    "item": "lavatory_sink",
+    "est_qty": 0.0,
+    "vdr_qty": 8.0,
+    "delta_qty": -8.0,
+    "est_total": 0.0,
+    "vdr_total": 8.0,
+    "delta_total": -8.0
   },
   {
     "trade": "plumbing",
     "item": "rough-in",
     "est_qty": 0.0,
-    "vdr_qty": 19.0,
-    "delta_qty": -19.0,
+    "vdr_qty": 11.0,
+    "delta_qty": -11.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 11.0,
+    "delta_total": -11.0
+  },
+  {
+    "trade": "roofing",
+    "item": "1_new_construction_home_assumes_all_plyw",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "roofing",
+    "item": "6_color_matched_mortar_to_be_used_cosmet",
+    "est_qty": 0.0,
+    "vdr_qty": 6.0,
+    "delta_qty": -6.0,
+    "est_total": 0.0,
+    "vdr_total": 6.0,
+    "delta_total": -6.0
+  },
+  {
+    "trade": "roofing",
+    "item": "7_all_valleys_and_associated_trim_inters",
+    "est_qty": 0.0,
+    "vdr_qty": 7.0,
+    "delta_qty": -7.0,
+    "est_total": 0.0,
+    "vdr_total": 7.0,
+    "delta_total": -7.0
+  },
+  {
+    "trade": "roofing",
+    "item": "emergency_7722845613",
+    "est_qty": 0.0,
+    "vdr_qty": 7722845613.0,
+    "delta_qty": -7722845613.0,
+    "est_total": 0.0,
+    "vdr_total": 772.0,
+    "delta_total": -772.0
+  },
+  {
+    "trade": "roofing",
+    "item": "estimate1317",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1317.0,
+    "delta_total": -1317.0
+  },
+  {
+    "trade": "roofing",
+    "item": "of_375",
+    "est_qty": 0.0,
+    "vdr_qty": 375.0,
+    "delta_qty": -375.0,
+    "est_total": 0.0,
+    "vdr_total": 3.75,
+    "delta_total": -3.75
+  },
+  {
+    "trade": "roofing",
+    "item": "office_7725881194",
+    "est_qty": 0.0,
+    "vdr_qty": 7725881194.0,
+    "delta_qty": -7725881194.0,
+    "est_total": 0.0,
+    "vdr_total": 772.0,
+    "delta_total": -772.0
+  },
+  {
+    "trade": "roofing",
+    "item": "page_1_estimate_1317",
+    "est_qty": 0.0,
+    "vdr_qty": 1.0,
+    "delta_qty": -1.0,
+    "est_total": 0.0,
+    "vdr_total": 1.0,
+    "delta_total": -1.0
+  },
+  {
+    "trade": "roofing",
+    "item": "page_2_estimate_1317",
+    "est_qty": 0.0,
+    "vdr_qty": 2.0,
+    "delta_qty": -2.0,
+    "est_total": 0.0,
+    "vdr_total": 2.0,
+    "delta_total": -2.0
+  },
+  {
+    "trade": "roofing",
+    "item": "page_3_estimate_1317",
+    "est_qty": 0.0,
+    "vdr_qty": 3.0,
+    "delta_qty": -3.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
+  },
+  {
+    "trade": "roofing",
+    "item": "payments_to_be_made_in_3_increments",
+    "est_qty": 0.0,
+    "vdr_qty": 3.0,
+    "delta_qty": -3.0,
+    "est_total": 0.0,
+    "vdr_total": 3.0,
+    "delta_total": -3.0
   },
   {
     "trade": "roofing",
     "item": "roof_assembly",
     "est_qty": 0.0,
-    "vdr_qty": 99.0,
-    "delta_qty": -99.0,
+    "vdr_qty": 102.0,
+    "delta_qty": -102.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 79.0,
+    "delta_total": -79.0
+  },
+  {
+    "trade": "tile",
+    "item": "30000",
+    "est_qty": 0.0,
+    "vdr_qty": 30000.0,
+    "delta_qty": -30000.0,
+    "est_total": 0.0,
+    "vdr_total": 300.0,
+    "delta_total": -300.0
+  },
+  {
+    "trade": "tile",
+    "item": "55000",
+    "est_qty": 0.0,
+    "vdr_qty": 55000.0,
+    "delta_qty": -55000.0,
+    "est_total": 0.0,
+    "vdr_total": 550.0,
+    "delta_total": -550.0
+  },
+  {
+    "trade": "tile",
+    "item": "65000",
+    "est_qty": 0.0,
+    "vdr_qty": 65000.0,
+    "delta_qty": -65000.0,
+    "est_total": 0.0,
+    "vdr_total": 650.0,
+    "delta_total": -650.0
+  },
+  {
+    "trade": "tile",
+    "item": "cutout_48_slide_in_range_and_4_splashes",
+    "est_qty": 0.0,
+    "vdr_qty": 48.0,
+    "delta_qty": -48.0,
+    "est_total": 0.0,
+    "vdr_total": 48.0,
+    "delta_total": -48.0
+  },
+  {
+    "trade": "tile",
+    "item": "cutout_and_4_splashes",
+    "est_qty": 0.0,
+    "vdr_qty": 4.0,
+    "delta_qty": -4.0,
+    "est_total": 0.0,
+    "vdr_total": 4.0,
+    "delta_total": -4.0
   },
   {
     "trade": "tile",
@@ -1506,7 +3336,17 @@
     "vdr_qty": 14.0,
     "delta_qty": -14.0,
     "est_total": 0.0,
-    "vdr_total": 0.0,
-    "delta_total": 0.0
+    "vdr_total": 14.0,
+    "delta_total": -14.0
+  },
+  {
+    "trade": "tile",
+    "item": "rm_4_baths_powder_rm_and_fplace_surround",
+    "est_qty": 0.0,
+    "vdr_qty": 4.0,
+    "delta_qty": -4.0,
+    "est_total": 0.0,
+    "vdr_total": 4.0,
+    "delta_total": -4.0
   }
 ]
