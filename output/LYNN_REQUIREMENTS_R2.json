@@ -1,0 +1,74 @@
+[
+  {
+    "id": "RQ-LYNN-001",
+    "area": "Interactive",
+    "priority": "HIGH",
+    "title": "QnA endpoint not processing answers correctly",
+    "given": "Valid answers array is provided to QnA endpoint",
+    "when": "POST /v1/interactive/qna is called with answers",
+    "then": "Should process answers and return answered array with correct length",
+    "acceptance_test": "UAT Interactive - QnA endpoint processes answers (UAT Interactive - QnA endpoint processes answers)",
+    "failing_test": "UAT Interactive - QnA endpoint processes answers",
+    "suggested_fix": "Fix answer processing logic in QnA endpoint, ensure answered field is populated"
+  },
+  {
+    "id": "RQ-LYNN-002",
+    "area": "Estimate",
+    "priority": "HIGH",
+    "title": "Missing quantities.sample.json file",
+    "given": "UAT test attempts to load quantities data",
+    "when": "Estimate API is called with sample data",
+    "then": "quantities.sample.json file should exist and be loadable",
+    "acceptance_test": "UAT R2 - Estimate API (UAT R2 - Estimate API)",
+    "failing_test": "UAT R2 - Estimate API",
+    "suggested_fix": "Create data/quantities.sample.json with valid takeoff quantities structure"
+  },
+  {
+    "id": "RQ-LYNN-003",
+    "area": "Interactive",
+    "priority": "HIGH",
+    "title": "Assess endpoint returns 500 error",
+    "given": "Valid PDF path and project_id are provided",
+    "when": "POST /v1/interactive/assess is called",
+    "then": "Should return 200 with trades_inferred and questions_ref",
+    "acceptance_test": "UAT R2 Interactive - Assess endpoint (UAT R2 Interactive - Assess endpoint)",
+    "failing_test": "UAT R2 Interactive - Assess endpoint",
+    "suggested_fix": "Debug assess endpoint logic, check PDF processing and trade inference"
+  },
+  {
+    "id": "RQ-LYNN-004",
+    "area": "Estimate",
+    "priority": "HIGH",
+    "title": "Interactive estimate mode returns 500 error",
+    "given": "Valid project parameters and mode=interactive",
+    "when": "POST /v1/estimate is called with interactive mode",
+    "then": "Should return 200 with version and total_cost fields",
+    "acceptance_test": "UAT R2 Interactive - Estimate interactive mode (UAT R2 Interactive - Estimate interactive mode)",
+    "failing_test": "UAT R2 Interactive - Estimate interactive mode",
+    "suggested_fix": "Implement interactive mode logic in estimate endpoint"
+  },
+  {
+    "id": "RQ-LYNN-005",
+    "area": "Estimate",
+    "priority": "HIGH",
+    "title": "Estimate endpoint not returning success response",
+    "given": "Valid M01 quantities body is provided",
+    "when": "POST /v1/estimate is called",
+    "then": "Should return successful response with v0-shaped cost data",
+    "acceptance_test": "POST /v1/estimate (M01 body) returns v0-shaped response (POST /v1/estimate (M01 body) returns v0-shaped response)",
+    "failing_test": "POST /v1/estimate (M01 body) returns v0-shaped response",
+    "suggested_fix": "Fix estimate endpoint to handle M01 body format and return proper response"
+  },
+  {
+    "id": "RQ-LYNN-006",
+    "area": "UI",
+    "priority": "MEDIUM",
+    "title": "UI upload interface not displaying correctly",
+    "given": "User navigates to upload page",
+    "when": "Upload PDF Blueprint interface loads",
+    "then": "Upload PDF Blueprint text should be visible",
+    "acceptance_test": "Upload to Takeoff to Estimate to Interactive (video) (Upload \u00e2\u2020\u2019 Takeoff \u00e2\u2020\u2019 Estimate \u00e2\u2020\u2019 Interactive (video))",
+    "failing_test": "Upload \u00e2\u2020\u2019 Takeoff \u00e2\u2020\u2019 Estimate \u00e2\u2020\u2019 Interactive (video)",
+    "suggested_fix": "Fix UI upload interface, ensure proper element visibility and text content"
+  }
+]

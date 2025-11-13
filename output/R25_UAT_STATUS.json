@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-11-13T16:50:39Z",
+  "total_tests": 21,
+  "passed": 14,
+  "failed": 6,
+  "skipped": 1,
+  "pass_rate": 0.667,
+  "failures": [
+    {
+      "test": "UAT Interactive - QnA endpoint processes answers",
+      "error": "expect(received).toHaveLength(expected) Expected length: 2 Received length: 0",
+      "area": "Interactive"
+    },
+    {
+      "test": "UAT R2 - Estimate API",
+      "error": "Cannot find module '../../../data/quantities.sample.json'",
+      "area": "Estimate"
+    },
+    {
+      "test": "UAT R2 Interactive - Assess endpoint",
+      "error": "Expected: 200 Received: 500",
+      "area": "Interactive"
+    },
+    {
+      "test": "UAT R2 Interactive - Estimate interactive mode",
+      "error": "Expected: 200 Received: 500",
+      "area": "Estimate"
+    },
+    {
+      "test": "POST /v1/estimate (M01 body) returns v0-shaped response",
+      "error": "expect(received).toBeTruthy() Received: false",
+      "area": "Estimate"
+    },
+    {
+      "test": "Upload → Takeoff → Estimate → Interactive (video)",
+      "error": "expect(locator).toBeVisible() failed - Upload PDF Blueprint for AI Analysis",
+      "area": "UI"
+    }
+  ]
+}

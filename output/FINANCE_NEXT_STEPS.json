@@ -1,0 +1,117 @@
+{
+  "missing_inputs": [
+    {
+      "file": "data/financial/raw/ap_export.csv",
+      "description": "Accounts payable aging report",
+      "priority": "HIGH",
+      "estimated_size": "50KB-500KB",
+      "format": "CSV with columns: Vendor,InvoiceDate,DueDate,Amount,Status"
+    },
+    {
+      "file": "data/financial/raw/ar_export.csv",
+      "description": "Accounts receivable aging report",
+      "priority": "HIGH",
+      "estimated_size": "50KB-500KB",
+      "format": "CSV with columns: Customer,InvoiceDate,DueDate,Amount,Status"
+    },
+    {
+      "file": "data/financial/raw/inventory_export.csv",
+      "description": "Inventory valuation report",
+      "priority": "MEDIUM",
+      "estimated_size": "20KB-200KB",
+      "format": "CSV with columns: Item,Description,Qty,UnitCost,TotalValue,Location"
+    },
+    {
+      "file": "data/financial/raw/payroll_export.csv",
+      "description": "Payroll and benefits report",
+      "priority": "MEDIUM",
+      "estimated_size": "100KB-1MB",
+      "format": "CSV with columns: Employee,PayPeriod,GrossPay,Deductions,NetPay,Benefits"
+    },
+    {
+      "file": "data/financial/working/budget_vs_actual.xlsx",
+      "description": "Budget vs actual comparison workbook",
+      "priority": "LOW",
+      "estimated_size": "200KB-2MB",
+      "format": "Excel with multiple sheets: Budget,Actual,Variance,Charts"
+    }
+  ],
+  "implementation_priority": [
+    {
+      "phase": "Immediate (This Sprint)",
+      "items": [
+        "Complete chart of accounts setup",
+        "Establish vendor mapping processes",
+        "Implement basic transaction import",
+        "Create reconciliation templates"
+      ]
+    },
+    {
+      "phase": "Short-term (Next Month)",
+      "items": [
+        "Automate bank feed imports",
+        "Implement rule-based categorization",
+        "Create basic reconciliation reports",
+        "Establish integration touchpoints"
+      ]
+    },
+    {
+      "phase": "Medium-term (3 Months)",
+      "items": [
+        "AP/AR aging integration",
+        "Inventory valuation tracking",
+        "Payroll cost allocation",
+        "Budget vs actual reporting"
+      ]
+    }
+  ],
+  "data_quality_checks": [
+    {
+      "check": "Transaction completeness",
+      "description": "All transactions from bank feeds imported",
+      "current_status": "PARTIAL",
+      "target_accuracy": "100%"
+    },
+    {
+      "check": "Vendor normalization",
+      "description": "All vendors mapped to standard names",
+      "current_status": "MINIMAL",
+      "target_accuracy": "95%"
+    },
+    {
+      "check": "Account categorization",
+      "description": "All transactions properly categorized",
+      "current_status": "BASIC",
+      "target_accuracy": "98%"
+    },
+    {
+      "check": "Balance reconciliation",
+      "description": "All accounts reconcile to statements",
+      "current_status": "MANUAL",
+      "target_accuracy": "100%"
+    }
+  ],
+  "integration_points": [
+    {
+      "system": "JCW Estimator",
+      "connection_type": "API",
+      "data_flow": "Bidirectional",
+      "status": "PLANNED",
+      "requirements": ["Project cost linking", "Actual vs estimate variance"]
+    },
+    {
+      "system": "Bank Feeds",
+      "connection_type": "Automated import",
+      "data_flow": "Inbound",
+      "status": "READY",
+      "requirements": ["CSV format standardization", "Duplicate detection"]
+    },
+    {
+      "system": "Accounting Software",
+      "connection_type": "API/Export",
+      "data_flow": "Outbound",
+      "status": "PLANNED",
+      "requirements": ["GL account mapping", "Journal entry creation"]
+    }
+  ]
+}

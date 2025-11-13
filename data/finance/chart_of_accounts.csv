@@ -1,0 +1,15 @@
+AccountNo,Name,Type,Parent,Active
+1000,Assets,Asset,,true
+1100,Cash,Asset,1000,true
+1200,Accounts Receivable,Asset,1000,true
+1300,Inventory,Asset,1000,true
+2000,Liabilities,Liability,,true
+2100,Accounts Payable,Liability,2000,true
+2200,Loans,Liability,2000,true
+3000,Equity,Equity,,true
+3100,Retained Earnings,Equity,3000,true
+4000,Revenue,Revenue,,true
+4100,Sales Revenue,Revenue,4000,true
+5000,Expenses,Expense,,true
+5100,Cost of Goods Sold,Expense,5000,true
+5200,Operating Expenses,Expense,5000,true
