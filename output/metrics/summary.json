@@ -1,0 +1,89 @@
+{
+  "total_runs": 1,
+  "last_run": {
+    "timestamp": "2025-11-13T15:45:46.757265",
+    "git": {
+      "sha": "e3990a3",
+      "branch": "master"
+    },
+    "tests": {
+      "total": 15,
+      "passed": 11,
+      "failed": 4,
+      "skipped": 0,
+      "byFile": [
+        {
+          "passed": 0,
+          "failed": 0,
+          "duration_ms": 0
+        },
+        {
+          "passed": 9,
+          "failed": 1,
+          "duration_ms": 265
+        },
+        {
+          "passed": 2,
+          "failed": 3,
+          "duration_ms": 107
+        },
+        {
+          "passed": 0,
+          "failed": 0,
+          "duration_ms": 0
+        },
+        {
+          "passed": 0,
+          "failed": 0,
+          "duration_ms": 0
+        }
+      ],
+      "durations": {
+        "p50_ms": 29,
+        "p95_ms": 39,
+        "max_ms": 39
+      }
+    },
+    "durations": {
+      "p50_ms": 29,
+      "p95_ms": 39,
+      "max_ms": 39
+    },
+    "video": {
+      "clips": 2,
+      "total_duration_s": 0,
+      "total_bytes": 38242
+    },
+    "reel": {
+      "exists": true,
+      "path": "output/uat/UAT_REEL_V2.mp4",
+      "duration_s": 10.6,
+      "bytes": 16928
+    },
+    "interactive": {
+      "assess_ok": true,
+      "qna_ok": true
+    },
+    "finance": {
+      "overlay_applied": false,
+      "runway_days": null
+    }
+  },
+  "trends": {
+    "pass_rate_trend": [
+      0.7333333333333333
+    ],
+    "avg_duration_ms": 39.0,
+    "flaky_tests": [],
+    "video_coverage_trend": {
+      "clips_per_run": [
+        2
+      ],
+      "bytes_per_run": [
+        38242
+      ]
+    },
+    "reel_completeness_rate": 0.0
+  },
+  "top_slow_tests": []
+}

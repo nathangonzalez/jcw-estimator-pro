@@ -45,6 +45,10 @@ $uatExit = $LASTEXITCODE
 Write-Host "Generating video reel..."
 & "$PSScriptRoot\make_uat_video.ps1"
 
+# Generate metrics and dashboard
+Write-Host "Generating analytics dashboard..."
+& "$PSScriptRoot\demo_metrics.ps1"
+
 # Serve results
 Write-Host "Serving demo results..."
 Write-Host "   Video: http://127.0.0.1:8000/output/uat/UAT_ANNOTATED.mp4"

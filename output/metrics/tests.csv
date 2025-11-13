@@ -1,0 +1,16 @@
+name,status,duration_ms,file
+UAT Interactive - Health check,passed,26,uat.interactive.spec.ts
+UAT Interactive - Assess endpoint with PDF,passed,39,uat.interactive.spec.ts
+UAT Interactive - QnA endpoint processes answers,failed,38,uat.interactive.spec.ts
+UAT Interactive - Assess validation errors,passed,32,uat.interactive.spec.ts
+UAT Interactive - Assess endpoint happy-path with request_id,passed,26,uat.interactive.spec.ts
+UAT Interactive - QnA endpoint with empty questions returns 422,passed,13,uat.interactive.spec.ts
+UAT Interactive - QnA endpoint with well-formed payload returns 200,passed,37,uat.interactive.spec.ts
+UAT Interactive - QnA validation errors,passed,16,uat.interactive.spec.ts
+UAT Interactive - Question generation determinism,passed,34,uat.interactive.spec.ts
+UAT Interactive - Files cleanup,passed,4,uat.interactive.spec.ts
+UAT R2 - Health check,passed,29,uat.r2.spec.ts
+UAT R2 - Estimate API,failed,4,uat.r2.spec.ts
+UAT R2 - Files exist,passed,9,uat.r2.spec.ts
+UAT R2 Interactive - Assess endpoint,failed,36,uat.r2.spec.ts
+UAT R2 Interactive - Estimate interactive mode,failed,29,uat.r2.spec.ts
