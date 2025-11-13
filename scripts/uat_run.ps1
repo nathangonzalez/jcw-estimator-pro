@@ -37,6 +37,10 @@ if (-not (Wait-Health -Url "http://127.0.0.1:8001/health" -TimeoutSec 45)) {
   Write-Host "WARN: API health not detected within timeout; continuing."
 }
 
+# Set environment variables for tests
+$env:API_URL = "http://127.0.0.1:8001"
+$env:UI_URL  = "http://127.0.0.1:8001"
+
 # Pass PLAN_PDF to tests if provided
 if ($PlanPdf -ne "") { $env:PLAN_PDF = $PlanPdf }
 
