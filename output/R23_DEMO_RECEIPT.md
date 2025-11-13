@@ -1,8 +1,8 @@
 ﻿# R2.3 Demo Receipt â€” Always-Works Reel (Story UI)
 
 **Status:** PARTIAL (check report/logs)
-**Date (ET):** 2025-11-13 11:31:46 ET
-**Commit:** c54d885
+**Date (ET):** 2025-11-13 13:03:01 ET
+**Commit:** 30ebb89
 
 ## Artifacts
 - Reel (local): [output/uat/UAT_REEL_V2.mp4](output/uat/UAT_REEL_V2.mp4)  (_)

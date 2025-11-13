@@ -103,12 +103,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "skipped",
-                      "duration": 318,
+                      "duration": 403,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-13T15:39:56.770Z",
+                      "startTime": "2025-11-13T17:01:08.675Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -168,12 +168,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 37,
+                  "duration": 52,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:56.765Z",
+                  "startTime": "2025-11-13T17:01:08.693Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -202,12 +202,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 49,
+                  "duration": 61,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:56.834Z",
+                  "startTime": "2025-11-13T17:01:08.776Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -236,7 +236,7 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "failed",
-                  "duration": 53,
+                  "duration": 52,
                   "error": {
                     "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m2\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m",
                     "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m2\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.interactive.spec.ts:71:28",
@@ -260,7 +260,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:56.896Z",
+                  "startTime": "2025-11-13T17:01:08.849Z",
                   "annotations": [],
                   "attachments": [],
                   "errorLocation": {
@@ -294,12 +294,12 @@
                   "workerIndex": 7,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 48,
+                  "duration": 41,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:57.920Z",
+                  "startTime": "2025-11-13T17:01:09.939Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -328,12 +328,12 @@
                   "workerIndex": 7,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 31,
+                  "duration": 30,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:57.995Z",
+                  "startTime": "2025-11-13T17:01:10.005Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -362,12 +362,12 @@
                   "workerIndex": 7,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 16,
+                  "duration": 20,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:58.038Z",
+                  "startTime": "2025-11-13T17:01:10.046Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -401,7 +401,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:58.065Z",
+                  "startTime": "2025-11-13T17:01:10.077Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -430,12 +430,12 @@
                   "workerIndex": 7,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 21,
+                  "duration": 16,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:58.126Z",
+                  "startTime": "2025-11-13T17:01:10.137Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -464,12 +464,12 @@
                   "workerIndex": 7,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 88,
+                  "duration": 51,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:58.159Z",
+                  "startTime": "2025-11-13T17:01:10.161Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -498,12 +498,12 @@
                   "workerIndex": 7,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 5,
+                  "duration": 6,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:58.255Z",
+                  "startTime": "2025-11-13T17:01:10.222Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -540,12 +540,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 42,
+                  "duration": 84,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:56.774Z",
+                  "startTime": "2025-11-13T17:01:08.733Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -574,7 +574,7 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "failed",
-                  "duration": 9,
+                  "duration": 10,
                   "error": {
                     "message": "Error: Cannot find module '../../../data/quantities.sample.json'\nRequire stack:\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\transform\\transform.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\configLoader.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\worker\\workerMain.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\process.js",
                     "stack": "Error: Cannot find module '../../../data/quantities.sample.json'\nRequire stack:\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\transform\\transform.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\configLoader.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\worker\\workerMain.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\process.js\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:11:11",
@@ -598,7 +598,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:56.841Z",
+                  "startTime": "2025-11-13T17:01:08.850Z",
                   "annotations": [],
                   "attachments": [],
                   "errorLocation": {
@@ -629,7 +629,7 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 5,
+                  "workerIndex": 6,
                   "parallelIndex": 2,
                   "status": "passed",
                   "duration": 14,
@@ -637,7 +637,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:57.876Z",
+                  "startTime": "2025-11-13T17:01:09.905Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -663,10 +663,10 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 5,
+                  "workerIndex": 6,
                   "parallelIndex": 2,
                   "status": "failed",
-                  "duration": 53,
+                  "duration": 31,
                   "error": {
                     "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
                     "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:28:29",
@@ -690,7 +690,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:57.909Z",
+                  "startTime": "2025-11-13T17:01:09.939Z",
                   "annotations": [],
                   "attachments": [],
                   "errorLocation": {
@@ -724,7 +724,7 @@
                   "workerIndex": 8,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 57,
+                  "duration": 47,
                   "error": {
                     "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
                     "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:38:29",
@@ -748,7 +748,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-13T15:39:58.897Z",
+                  "startTime": "2025-11-13T17:01:10.862Z",
                   "annotations": [],
                   "attachments": [],
                   "errorLocation": {
@@ -797,12 +797,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 43,
+                      "duration": 59,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-13T15:39:56.799Z",
+                      "startTime": "2025-11-13T17:01:08.682Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -831,7 +831,7 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 16,
+                      "duration": 29,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts:16:22",
@@ -855,7 +855,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-13T15:39:56.867Z",
+                      "startTime": "2025-11-13T17:01:08.769Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -886,10 +886,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 5,
                       "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 77,
+                      "duration": 72,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"boolean\"\u001b[39m\nReceived: \u001b[31m\"undefined\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"boolean\"\u001b[39m\nReceived: \u001b[31m\"undefined\"\u001b[39m\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts:48:52",
@@ -913,7 +913,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-13T15:39:57.883Z",
+                      "startTime": "2025-11-13T17:01:09.892Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -955,12 +955,12 @@
                       "workerIndex": 9,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 65,
+                      "duration": 64,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-13T15:39:58.890Z",
+                      "startTime": "2025-11-13T17:01:10.846Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1006,7 +1006,7 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 11153,
+                      "duration": 11251,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Upload PDF Blueprint for AI Analysis/i)\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Upload PDF Blueprint for AI Analysis/i)\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Upload PDF Blueprint for AI Analysis/i)\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Upload PDF Blueprint for AI Analysis/i)\u001b[22m\n\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.story.video.spec.ts:13:75",
@@ -1030,7 +1030,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-11-13T15:39:56.796Z",
+                      "startTime": "2025-11-13T17:01:08.669Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1071,8 +1071,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-13T15:39:55.777Z",
-    "duration": 12691.812,
+    "startTime": "2025-11-13T17:01:07.628Z",
+    "duration": 12764.489,
     "expected": 13,
     "skipped": 1,
     "unexpected": 7,

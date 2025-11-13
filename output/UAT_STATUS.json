@@ -1,8 +1,8 @@
 ﻿{
-    "timestamp":  "2025-11-13T10:40:08",
+    "timestamp":  "2025-11-13T12:01:20",
     "exit_code":  1,
     "plan_pdf":  "data/blueprints/LYNN-001.sample.pdf",
     "artifacts":  "output/playwright-artifacts",
-    "api_pid":  28712,
+    "api_pid":  32832,
     "report":  "output/playwright-report/index.html"
 }
