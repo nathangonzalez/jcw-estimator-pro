@@ -118,7 +118,7 @@ foreach ($test in $testResults) {
         $test.videoPath = $matchingVideo.FullName
         Write-Host "Matched: $($test.title) -> $($matchingVideo.Name)"
 
-        # Create captioned version
+        # Create captioned version with Reel V2 graphics
         $tempCaptioned = "$OutputDir/tmp/$([guid]::NewGuid()).mp4"
         New-Item -ItemType Directory -Path "$OutputDir/tmp" -Force | Out-Null
 
@@ -130,11 +130,14 @@ foreach ($test in $testResults) {
         # Escape single quotes in title
         $title = $test.title -replace "'", "\'"
 
+        # Lower-thirds captions with enhanced styling
+        $statusColor = if ($status -eq "PASSED") { "green" } else { "red" }
+
         $ffmpegCmd = @"
-ffmpeg -i "$($test.videoPath)" -vf "drawtext=text='$project — $title — $status':fontcolor=white:fontsize=24:box=1:boxcolor=black@0.5:boxborderw=5:x=10:y=10,drawtext=text='duration: ${duration}s, started: $timestamp':fontcolor=white:fontsize=18:box=1:boxcolor=black@0.5:boxborderw=5:x=10:y=50" -c:v libx264 -c:a aac -y "$tempCaptioned"
+ffmpeg -i "$($test.videoPath)" -vf "drawtext=text='$project - Test: $title':fontcolor=white:fontsize=36:box=1:boxcolor=black@0.7:boxborderw=10:x=50:y=h-150,drawtext=text='Status: $status':fontcolor=$statusColor:fontsize=28:x=50:y=h-100,drawtext=text='Duration: ${duration}s, Started: $timestamp':fontcolor=white:fontsize=24:x=50:y=h-60" -c:v libx264 -c:a aac -y "$tempCaptioned"
 "@
 
-        Write-Host "Creating captioned video: $tempCaptioned"
+        Write-Host "Creating Reel V2 captioned video: $tempCaptioned"
         Invoke-Expression $ffmpegCmd
 
         if ($LASTEXITCODE -eq 0) {

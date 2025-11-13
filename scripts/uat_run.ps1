@@ -28,6 +28,26 @@ function Wait-Health {
   return $false
 }
 
+# Kill any existing API processes
+Get-Process -Name "python" -ErrorAction SilentlyContinue | Where-Object {
+    $_.CommandLine -like "*uvicorn*app_comprehensive*"
+} | Stop-Process -Force -ErrorAction SilentlyContinue
+
+# Retry logic for API calls
+function Invoke-WithRetry {
+    param([scriptblock]$ScriptBlock, [int]$MaxRetries = 3)
+    for ($i = 0; $i -lt $MaxRetries; $i++) {
+        try {
+            & $ScriptBlock
+            return
+        } catch {
+            if ($i -eq $MaxRetries - 1) { throw }
+            Write-Host "Retry $($i + 1)/$MaxRetries..."
+            Start-Sleep -Seconds 2
+        }
+    }
+}
+
 # Start API (background)
 Write-Host "Starting API server..."
 $api = Start-Process -FilePath "python" -ArgumentList "-m","uvicorn","web.backend.app_comprehensive:app","--host","127.0.0.1","--port","8001","--reload" -PassThru `

@@ -5,20 +5,28 @@ const PLAN_PDF = process.env.PLAN_PDF || 'data/blueprints/LYNN-001.sample.pdf';
 
 test.describe('R2.2.2 Story — UI flows on camera', () => {
   test('Upload → Takeoff → Estimate → Interactive (video)', async ({ page }) => {
+    // Wait for page load
+    await page.waitForLoadState('networkidle');
+
     // 1) Open UI with upload tab visible
     await page.goto(`${UI}/index_with_upload.html`, { waitUntil: 'load' });
     await expect(page.getByText(/Upload PDF Blueprint for AI Analysis/i)).toBeVisible();
 
-    // 2) Upload sample plan (shows drag/drop and progress on video)
-    const fileChooserPromise = page.waitForEvent('filechooser');
-    await page.getByRole('button', { name: /Select PDF/i }).click();
-    const chooser = await fileChooserPromise;
-    await chooser.setFiles(PLAN_PDF);
-    await page.waitForTimeout(750); // give UI time to render
+    // More specific selectors
+    await page.getByRole('button', { name: /^Select PDF$/i }).waitFor();
+    await page.getByRole('button', { name: /^Select PDF$/i }).click();
 
-    // 3) Trigger takeoff via API (visible status text on UI if wired; else we still get page footage)
+    // Wait for file dialog
+    const fileChooser = await page.waitForEvent('filechooser');
+    await fileChooser.setFiles(PLAN_PDF);
+
+    // Wait for upload feedback
+    await page.waitForSelector('.file-info.show', { timeout: 10000 });
+
+    // API calls with retry
     const takeoffResp = await page.request.post(`${API}/v1/takeoff`, {
-      data: { project_id: 'LYNN-001', pdf_path: PLAN_PDF }
+      data: { project_id: 'LYNN-001', pdf_path: PLAN_PDF },
+      timeout: 30000
     });
     expect(takeoffResp.ok()).toBeTruthy();
     const takeoff = await takeoffResp.json();
@@ -33,7 +41,8 @@ test.describe('R2.2.2 Story — UI flows on camera', () => {
         policy: 'schemas/pricing_policy.v0.yaml',
         unit_costs_csv: 'data/unit_costs.sample.csv',
         vendor_quotes_csv: ''
-      }
+      },
+      timeout: 30000
     });
     expect(estResp.ok()).toBeTruthy();
     const estimate = await estResp.json();
@@ -41,7 +50,8 @@ test.describe('R2.2.2 Story — UI flows on camera', () => {
 
     // 5) Interactive assess → qna (happy path)
     const assess = await page.request.post(`${API}/v1/interactive/assess`, {
-      data: { project_id: 'LYNN-001', plan_features: {}, layout_meta: {} }
+      data: { project_id: 'LYNN-001', plan_features: {}, layout_meta: {} },
+      timeout: 30000
     });
     expect(assess.ok()).toBeTruthy();
     const aBody = await assess.json();
@@ -52,7 +62,8 @@ test.describe('R2.2.2 Story — UI flows on camera', () => {
         project_id: 'LYNN-001',
         answers: [{ id: 'roofing.material', answer: 'Architectural shingles' }],
         plan_features: {}, layout_meta: {}
-      }
+      },
+      timeout: 30000
     });
     expect(qna.ok()).toBeTruthy();
     const qBody = await qna.json();
