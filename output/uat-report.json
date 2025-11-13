@@ -1,0 +1,1081 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\playwright.config.ts",
+    "rootDir": "C:/Users/natha/dev/repos/jcw-estimator-pro/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 5
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "output/playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/uat-report.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/natha/dev/repos/jcw-estimator-pro/output/playwright-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/natha/dev/repos/jcw-estimator-pro/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 10,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "estimate.spec.ts",
+      "file": "estimate.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Estimator smoke (supervised scaffold)",
+          "file": "estimate.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "loads UI frame",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Execution requires explicit approval.",
+                      "location": {
+                        "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\estimate.spec.ts",
+                        "line": 5,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 318,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T15:39:56.770Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Execution requires explicit approval.",
+                          "location": {
+                            "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\estimate.spec.ts",
+                            "line": 5,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\output\\playwright-artifacts\\estimate-Estimator-smoke-supervised-scaffold-loads-UI-frame-chromium\\test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\output\\playwright-artifacts\\estimate-Estimator-smoke-supervised-scaffold-loads-UI-frame-chromium\\video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cd1df33a201a1a383f4b-542e7a72139832fb3360",
+              "file": "estimate.spec.ts",
+              "line": 4,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "uat.interactive.spec.ts",
+      "file": "uat.interactive.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "UAT Interactive - Health check",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 37,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:56.765Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3897061c7e0e10d80765-fafc6960a65c7e8be246",
+          "file": "uat.interactive.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "UAT Interactive - Assess endpoint with PDF",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 49,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:56.834Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3897061c7e0e10d80765-d17b2cf3f04c8dea2925",
+          "file": "uat.interactive.spec.ts",
+          "line": 9,
+          "column": 5
+        },
+        {
+          "title": "UAT Interactive - QnA endpoint processes answers",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 53,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m2\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m2\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.interactive.spec.ts:71:28",
+                    "location": {
+                      "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.interactive.spec.ts",
+                      "column": 28,
+                      "line": 71
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 69 |\u001b[39m\n \u001b[90m 70 |\u001b[39m   \u001b[90m// Should have processed the answers\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 71 |\u001b[39m   expect(qnaBody\u001b[33m.\u001b[39manswered)\u001b[33m.\u001b[39mtoHaveLength(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 72 |\u001b[39m   expect(qnaBody\u001b[33m.\u001b[39mtotal_answered)\u001b[33m.\u001b[39mtoBe(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 73 |\u001b[39m\n \u001b[90m 74 |\u001b[39m   \u001b[90m// Check answer structure\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.interactive.spec.ts",
+                        "column": 28,
+                        "line": 71
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m2\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m\n\n\u001b[0m \u001b[90m 69 |\u001b[39m\n \u001b[90m 70 |\u001b[39m   \u001b[90m// Should have processed the answers\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 71 |\u001b[39m   expect(qnaBody\u001b[33m.\u001b[39manswered)\u001b[33m.\u001b[39mtoHaveLength(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 72 |\u001b[39m   expect(qnaBody\u001b[33m.\u001b[39mtotal_answered)\u001b[33m.\u001b[39mtoBe(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 73 |\u001b[39m\n \u001b[90m 74 |\u001b[39m   \u001b[90m// Check answer structure\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.interactive.spec.ts:71:28\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:56.896Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.interactive.spec.ts",
+                    "column": 28,
+                    "line": 71
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3897061c7e0e10d80765-0c0b7bf6c77b22844529",
+          "file": "uat.interactive.spec.ts",
+          "line": 38,
+          "column": 5
+        },
+        {
+          "title": "UAT Interactive - Assess validation errors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 48,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:57.920Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3897061c7e0e10d80765-76a40ef6c2ffa0d55a17",
+          "file": "uat.interactive.spec.ts",
+          "line": 86,
+          "column": 5
+        },
+        {
+          "title": "UAT Interactive - Assess endpoint happy-path with request_id",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 31,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:57.995Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3897061c7e0e10d80765-c8cf63b21ef1d9339579",
+          "file": "uat.interactive.spec.ts",
+          "line": 100,
+          "column": 5
+        },
+        {
+          "title": "UAT Interactive - QnA endpoint with empty questions returns 422",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 16,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:58.038Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3897061c7e0e10d80765-88e43692e4afbdefb258",
+          "file": "uat.interactive.spec.ts",
+          "line": 119,
+          "column": 5
+        },
+        {
+          "title": "UAT Interactive - QnA endpoint with well-formed payload returns 200",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 50,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:58.065Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3897061c7e0e10d80765-71a7888d0eb241837d68",
+          "file": "uat.interactive.spec.ts",
+          "line": 135,
+          "column": 5
+        },
+        {
+          "title": "UAT Interactive - QnA validation errors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 21,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:58.126Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3897061c7e0e10d80765-690ab6133f2b74d907ba",
+          "file": "uat.interactive.spec.ts",
+          "line": 172,
+          "column": 5
+        },
+        {
+          "title": "UAT Interactive - Question generation determinism",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 88,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:58.159Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3897061c7e0e10d80765-869f9807e8ac44589852",
+          "file": "uat.interactive.spec.ts",
+          "line": 189,
+          "column": 5
+        },
+        {
+          "title": "UAT Interactive - Files cleanup",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:58.255Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3897061c7e0e10d80765-fb4409d61d416b2386fa",
+          "file": "uat.interactive.spec.ts",
+          "line": 219,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "uat.r2.spec.ts",
+      "file": "uat.r2.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "UAT R2 - Health check",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 42,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:56.774Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fc8b155ffaeaf0247520-997271350294e562f6c7",
+          "file": "uat.r2.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "UAT R2 - Estimate API",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 9,
+                  "error": {
+                    "message": "Error: Cannot find module '../../../data/quantities.sample.json'\nRequire stack:\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\transform\\transform.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\configLoader.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\worker\\workerMain.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\process.js",
+                    "stack": "Error: Cannot find module '../../../data/quantities.sample.json'\nRequire stack:\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\transform\\transform.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\configLoader.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\worker\\workerMain.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\process.js\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:11:11",
+                    "location": {
+                      "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                      "column": 11,
+                      "line": 11
+                    },
+                    "snippet": "\u001b[0m \u001b[90m  9 |\u001b[39m test(\u001b[32m'UAT R2 - Estimate API'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m   \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m'/v1/estimate'\u001b[39m\u001b[33m,\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     data\u001b[33m:\u001b[39m require(\u001b[32m'../../../data/quantities.sample.json'\u001b[39m)\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m   expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                        "column": 11,
+                        "line": 11
+                      },
+                      "message": "Error: Cannot find module '../../../data/quantities.sample.json'\nRequire stack:\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\transform\\transform.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\configLoader.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\worker\\workerMain.js\n- C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\node_modules\\playwright\\lib\\common\\process.js\n\n\u001b[0m \u001b[90m  9 |\u001b[39m test(\u001b[32m'UAT R2 - Estimate API'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m   \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m'/v1/estimate'\u001b[39m\u001b[33m,\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     data\u001b[33m:\u001b[39m require(\u001b[32m'../../../data/quantities.sample.json'\u001b[39m)\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m   expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:11:11\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:56.841Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                    "column": 11,
+                    "line": 11
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fc8b155ffaeaf0247520-101501c6c5627b54b63b",
+          "file": "uat.r2.spec.ts",
+          "line": 9,
+          "column": 5
+        },
+        {
+          "title": "UAT R2 - Files exist",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 14,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:57.876Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fc8b155ffaeaf0247520-5b1b25d7b96a9c6ca2d1",
+          "file": "uat.r2.spec.ts",
+          "line": 18,
+          "column": 5
+        },
+        {
+          "title": "UAT R2 Interactive - Assess endpoint",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 53,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:28:29",
+                    "location": {
+                      "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                      "column": 29,
+                      "line": 28
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 26 |\u001b[39m     data\u001b[33m:\u001b[39m { project_id\u001b[33m:\u001b[39m \u001b[32m'test123'\u001b[39m\u001b[33m,\u001b[39m pdf_path\u001b[33m:\u001b[39m \u001b[32m'dummy.pdf'\u001b[39m }\n \u001b[90m 27 |\u001b[39m   })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'trades_inferred'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'questions_ref'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                        "column": 29,
+                        "line": 28
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n\u001b[0m \u001b[90m 26 |\u001b[39m     data\u001b[33m:\u001b[39m { project_id\u001b[33m:\u001b[39m \u001b[32m'test123'\u001b[39m\u001b[33m,\u001b[39m pdf_path\u001b[33m:\u001b[39m \u001b[32m'dummy.pdf'\u001b[39m }\n \u001b[90m 27 |\u001b[39m   })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'trades_inferred'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'questions_ref'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:28:29\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:57.909Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                    "column": 29,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fc8b155ffaeaf0247520-531dd507adc7e635dfca",
+          "file": "uat.r2.spec.ts",
+          "line": 24,
+          "column": 5
+        },
+        {
+          "title": "UAT R2 Interactive - Estimate interactive mode",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 57,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:38:29",
+                    "location": {
+                      "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                      "column": 29,
+                      "line": 38
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 36 |\u001b[39m     data\u001b[33m:\u001b[39m { mode\u001b[33m:\u001b[39m \u001b[32m'interactive'\u001b[39m\u001b[33m,\u001b[39m project_id\u001b[33m:\u001b[39m \u001b[32m'test123'\u001b[39m\u001b[33m,\u001b[39m region\u001b[33m:\u001b[39m \u001b[32m'default'\u001b[39m\u001b[33m,\u001b[39m quality\u001b[33m:\u001b[39m \u001b[32m'standard'\u001b[39m\u001b[33m,\u001b[39m complexity\u001b[33m:\u001b[39m \u001b[32m'normal'\u001b[39m }\n \u001b[90m 37 |\u001b[39m   })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 38 |\u001b[39m   expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 39 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m   expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'version'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'v0'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 41 |\u001b[39m   expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'total_cost'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                        "column": 29,
+                        "line": 38
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n\u001b[0m \u001b[90m 36 |\u001b[39m     data\u001b[33m:\u001b[39m { mode\u001b[33m:\u001b[39m \u001b[32m'interactive'\u001b[39m\u001b[33m,\u001b[39m project_id\u001b[33m:\u001b[39m \u001b[32m'test123'\u001b[39m\u001b[33m,\u001b[39m region\u001b[33m:\u001b[39m \u001b[32m'default'\u001b[39m\u001b[33m,\u001b[39m quality\u001b[33m:\u001b[39m \u001b[32m'standard'\u001b[39m\u001b[33m,\u001b[39m complexity\u001b[33m:\u001b[39m \u001b[32m'normal'\u001b[39m }\n \u001b[90m 37 |\u001b[39m   })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 38 |\u001b[39m   expect(response\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 39 |\u001b[39m   \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m   expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'version'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'v0'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 41 |\u001b[39m   expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'total_cost'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts:38:29\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-13T15:39:58.897Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.r2.spec.ts",
+                    "column": 29,
+                    "line": 38
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fc8b155ffaeaf0247520-121c55d9a65904e219de",
+          "file": "uat.r2.spec.ts",
+          "line": 34,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "uat.release.spec.ts",
+      "file": "uat.release.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "R1 UAT — API happy paths",
+          "file": "uat.release.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "GET /health returns 200 and minimal body",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 43,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T15:39:56.799Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cfa54660fab0ed94ea07-2fb76df17688788223b0",
+              "file": "uat.release.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "POST /v1/estimate (M01 body) returns v0-shaped response",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 16,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts:16:22",
+                        "location": {
+                          "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts",
+                          "column": 22,
+                          "line": 16
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m req \u001b[33m=\u001b[39m { project_id\u001b[33m:\u001b[39m \u001b[32m'LYNN-001'\u001b[39m\u001b[33m,\u001b[39m quantities }\u001b[33m;\u001b[39m\n \u001b[90m 15 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m'/v1/estimate'\u001b[39m\u001b[33m,\u001b[39m { data\u001b[33m:\u001b[39m req })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 16 |\u001b[39m     expect(res\u001b[33m.\u001b[39mok())\u001b[33m.\u001b[39mtoBeTruthy()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 17 |\u001b[39m     \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m     \u001b[90m// v0 response surface checks (accept either totals.grand_total or grand_total)\u001b[39m\n \u001b[90m 19 |\u001b[39m     expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'trades'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts",
+                            "column": 22,
+                            "line": 16
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n\n\u001b[0m \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m req \u001b[33m=\u001b[39m { project_id\u001b[33m:\u001b[39m \u001b[32m'LYNN-001'\u001b[39m\u001b[33m,\u001b[39m quantities }\u001b[33m;\u001b[39m\n \u001b[90m 15 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m'/v1/estimate'\u001b[39m\u001b[33m,\u001b[39m { data\u001b[33m:\u001b[39m req })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 16 |\u001b[39m     expect(res\u001b[33m.\u001b[39mok())\u001b[33m.\u001b[39mtoBeTruthy()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 17 |\u001b[39m     \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m     \u001b[90m// v0 response surface checks (accept either totals.grand_total or grand_total)\u001b[39m\n \u001b[90m 19 |\u001b[39m     expect(body)\u001b[33m.\u001b[39mtoHaveProperty(\u001b[32m'trades'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts:16:22\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T15:39:56.867Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts",
+                        "column": 22,
+                        "line": 16
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cfa54660fab0ed94ea07-4c5f12c1ca981b18fe61",
+              "file": "uat.release.spec.ts",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "POST /v1/takeoff returns v0-like quantities",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 77,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"boolean\"\u001b[39m\nReceived: \u001b[31m\"undefined\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"boolean\"\u001b[39m\nReceived: \u001b[31m\"undefined\"\u001b[39m\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts:48:52",
+                        "location": {
+                          "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts",
+                          "column": 52,
+                          "line": 48
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 46 |\u001b[39m       \u001b[90m// R2.1: Layout stage assertions\u001b[39m\n \u001b[90m 47 |\u001b[39m       expect(body\u001b[33m.\u001b[39mmetadata)\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m       expect(\u001b[36mtypeof\u001b[39m body\u001b[33m.\u001b[39mmetadata\u001b[33m.\u001b[39mlayout_detected)\u001b[33m.\u001b[39mtoBe(\u001b[32m'boolean'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// If title block text includes a scale token, meta.scale should exist\u001b[39m\n \u001b[90m 51 |\u001b[39m       \u001b[90m// This is a heuristic check - in practice, layout detection may or may not find scale\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts",
+                            "column": 52,
+                            "line": 48
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"boolean\"\u001b[39m\nReceived: \u001b[31m\"undefined\"\u001b[39m\n\n\u001b[0m \u001b[90m 46 |\u001b[39m       \u001b[90m// R2.1: Layout stage assertions\u001b[39m\n \u001b[90m 47 |\u001b[39m       expect(body\u001b[33m.\u001b[39mmetadata)\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m       expect(\u001b[36mtypeof\u001b[39m body\u001b[33m.\u001b[39mmetadata\u001b[33m.\u001b[39mlayout_detected)\u001b[33m.\u001b[39mtoBe(\u001b[32m'boolean'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m       \u001b[90m// If title block text includes a scale token, meta.scale should exist\u001b[39m\n \u001b[90m 51 |\u001b[39m       \u001b[90m// This is a heuristic check - in practice, layout detection may or may not find scale\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts:48:52\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T15:39:57.883Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.release.spec.ts",
+                        "column": 52,
+                        "line": 48
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cfa54660fab0ed94ea07-f4596e3c5fd58ff64dad",
+              "file": "uat.release.spec.ts",
+              "line": 24,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "R1 UAT — Pipeline (takeoff ➜ estimate)",
+          "file": "uat.release.spec.ts",
+          "line": 63,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Takeoff output passes into estimate",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 65,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T15:39:58.890Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cfa54660fab0ed94ea07-635fa398cdb340c7681b",
+              "file": "uat.release.spec.ts",
+              "line": 64,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "uat.story.video.spec.ts",
+      "file": "uat.story.video.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "R2.2.2 Story — UI flows on camera",
+          "file": "uat.story.video.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Upload → Takeoff → Estimate → Interactive (video)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 11153,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Upload PDF Blueprint for AI Analysis/i)\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Upload PDF Blueprint for AI Analysis/i)\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Upload PDF Blueprint for AI Analysis/i)\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Upload PDF Blueprint for AI Analysis/i)\u001b[22m\n\n    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.story.video.spec.ts:13:75",
+                        "location": {
+                          "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.story.video.spec.ts",
+                          "column": 75,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 11 |\u001b[39m     \u001b[90m// 1) Open UI with upload tab visible\u001b[39m\n \u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`${UI}/index_with_upload.html`\u001b[39m\u001b[33m,\u001b[39m { waitUntil\u001b[33m:\u001b[39m \u001b[32m'load'\u001b[39m })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[35m/Upload PDF Blueprint for AI Analysis/i\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 |\u001b[39m\n \u001b[90m 15 |\u001b[39m     \u001b[90m// More specific selectors\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m/^Select PDF$/i\u001b[39m })\u001b[33m.\u001b[39mwaitFor()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.story.video.spec.ts",
+                            "column": 75,
+                            "line": 13
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Upload PDF Blueprint for AI Analysis/i)\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Upload PDF Blueprint for AI Analysis/i)\u001b[22m\n\n\n\u001b[0m \u001b[90m 11 |\u001b[39m     \u001b[90m// 1) Open UI with upload tab visible\u001b[39m\n \u001b[90m 12 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`${UI}/index_with_upload.html`\u001b[39m\u001b[33m,\u001b[39m { waitUntil\u001b[33m:\u001b[39m \u001b[32m'load'\u001b[39m })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[35m/Upload PDF Blueprint for AI Analysis/i\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 |\u001b[39m\n \u001b[90m 15 |\u001b[39m     \u001b[90m// More specific selectors\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m/^Select PDF$/i\u001b[39m })\u001b[33m.\u001b[39mwaitFor()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.story.video.spec.ts:13:75\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-13T15:39:56.796Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\output\\playwright-artifacts\\uat.story.video-R2-2-2-Sto-73be8-timate-→-Interactive-video--chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\output\\playwright-artifacts\\uat.story.video-R2-2-2-Sto-73be8-timate-→-Interactive-video--chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\output\\playwright-artifacts\\uat.story.video-R2-2-2-Sto-73be8-timate-→-Interactive-video--chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\natha\\dev\\repos\\jcw-estimator-pro\\tests\\e2e\\uat.story.video.spec.ts",
+                        "column": 75,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3a59ad2d85df6388cd42-75e944c36667f0fc9196",
+              "file": "uat.story.video.spec.ts",
+              "line": 7,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-11-13T15:39:55.777Z",
+    "duration": 12691.812,
+    "expected": 13,
+    "skipped": 1,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}
