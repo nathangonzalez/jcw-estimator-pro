@@ -29,13 +29,35 @@ function Wait-Health {
 }
 
 # Start API (background)
+Write-Host "Starting API server..."
 $api = Start-Process -FilePath "python" -ArgumentList "-m","uvicorn","web.backend.app_comprehensive:app","--host","127.0.0.1","--port","8001","--reload" -PassThru `
   -RedirectStandardOutput "output\UVICORN_STDOUT.log" -RedirectStandardError "output\UVICORN_STDERR.log"
 
-# Wait until healthy (best effort)
-if (-not (Wait-Health -Url "http://127.0.0.1:8001/health" -TimeoutSec 45)) {
-  Write-Host "WARN: API health not detected within timeout; continuing."
+# Wait until healthy (required for UAT)
+Write-Host "Waiting for API to be healthy..."
+if (-not (Wait-Health -Url "http://127.0.0.1:8001/health" -TimeoutSec 60)) {
+  Write-Host "ERROR: API health not detected within timeout. Writing diagnosis..."
+  @"
+# UAT Video Diagnosis - R2.2.3
+
+**Error:** API server failed to start or become healthy
+**Time:** $(Get-Date -Format o)
+**PID:** $($api.Id)
+
+Check logs:
+- output/UVICORN_STDOUT.log
+- output/UVICORN_STDERR.log
+
+Common issues:
+- Port 8001 already in use
+- Python dependencies missing
+- Backend code errors
+
+Try manual start: python -m uvicorn web.backend.app_comprehensive:app --host 127.0.0.1 --port 8001 --reload
+"@ | Out-File "output/uat/UAT_VIDEO_DIAGNOSE.md" -Encoding UTF8
+  exit 1
 }
+Write-Host "✅ API is healthy and ready!"
 
 # Set environment variables for tests
 $env:API_URL = "http://127.0.0.1:8001"
