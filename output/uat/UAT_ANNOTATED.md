@@ -1,6 +1,6 @@
 ﻿# UAT Annotated Video
 
-**Generated:** 2025-11-13T14:14:00.3492734-05:00
+**Generated:** 2025-11-13T17:26:56.4911893-05:00
 **Source:** output/uat-report.json
 **Videos:** 0 clips concatenated
 
